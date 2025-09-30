@@ -86,7 +86,7 @@ export function BlockchainConfigPanel() {
   if (isLoading) {
     return (
       <div className="bg-black/90 border border-green-400 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-[#ff0066] mb-4">
+        <h3 className="text-xl font-bold text-[#f26522] mb-4">
           ◢◤ BLOCKCHAIN CONFIGURATION ◥◣
         </h3>
         <div className="text-green-400 font-mono text-sm">
@@ -99,7 +99,7 @@ export function BlockchainConfigPanel() {
   if (error) {
     return (
       <div className="bg-black/90 border border-red-500 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-[#ff0066] mb-4">
+        <h3 className="text-xl font-bold text-[#f26522] mb-4">
           ◢◤ BLOCKCHAIN CONFIGURATION ◥◣
         </h3>
         <div className="text-red-400 font-mono text-sm">
@@ -113,7 +113,7 @@ export function BlockchainConfigPanel() {
 
   return (
     <div className="bg-black/90 border border-green-400 rounded-lg p-6">
-      <h3 className="text-xl font-bold text-[#ff0066] mb-4 tracking-wider">
+      <h3 className="text-xl font-bold text-[#f26522] mb-4 tracking-wider">
         ◢◤ BLOCKCHAIN CONFIGURATION ◥◣
       </h3>
       
@@ -124,7 +124,7 @@ export function BlockchainConfigPanel() {
       <div className="space-y-6">
         {Object.entries(groupedConfigs).map(([category, configs]) => (
           <div key={category} className="space-y-3">
-            <h4 className="text-[#ff0066] font-bold uppercase tracking-wider text-sm">
+            <h4 className="text-[#f26522] font-bold uppercase tracking-wider text-sm">
               {category.toUpperCase()} PARAMETERS
             </h4>
             
@@ -165,7 +165,7 @@ export function BlockchainConfigPanel() {
                           setEditingConfig(config.configKey);
                           setNewValues(prev => ({ ...prev, [config.configKey]: config.configValue }));
                         }}
-                        className="px-3 py-1 bg-[#ff0066] text-white text-xs font-bold rounded hover:bg-[#ff0066]/80 transition-colors"
+                        className="px-3 py-1 bg-[#f26522] text-white text-xs font-bold rounded hover:bg-[#f26522]/80 transition-colors"
                       >
                         EDIT
                       </button>

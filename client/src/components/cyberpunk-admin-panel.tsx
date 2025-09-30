@@ -279,7 +279,7 @@ export function CyberpunkAdminPanel() {
         <div className="border-b border-green-400 bg-black/90 p-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <h1 className="text-xl font-bold text-[#ff0066] tracking-wider">
+              <h1 className="text-xl font-bold text-[#f26522] tracking-wider">
                 ◢◤ KILT PROTOCOL ADMIN CONSOLE ◥◣
               </h1>
 
@@ -332,7 +332,7 @@ export function CyberpunkAdminPanel() {
           {activeTab === 'treasury' && !treasuryLoading && (
             <div className="space-y-6">
               <div className="bg-black/50 border border-green-400 rounded p-6">
-                <h2 className="text-lg font-bold text-[#ff0066] mb-4 tracking-wider">
+                <h2 className="text-lg font-bold text-[#f26522] mb-4 tracking-wider">
                   [TREASURY_ALLOCATION_MATRIX]
                 </h2>
                 
@@ -434,8 +434,8 @@ export function CyberpunkAdminPanel() {
           {activeTab === 'settings' && !settingsLoading && (
             <div className="space-y-6">
               {/* Reward Formula Explanation */}
-              <div className="bg-black/60 border border-[#ff0066] rounded p-6">
-                <h2 className="text-lg font-bold text-[#ff0066] mb-4 tracking-wider">
+              <div className="bg-black/60 border border-[#f26522] rounded p-6">
+                <h2 className="text-lg font-bold text-[#f26522] mb-4 tracking-wider">
                   [REWARD_FORMULA_SPECIFICATION]
                 </h2>
                 
@@ -473,7 +473,7 @@ export function CyberpunkAdminPanel() {
 
               {/* Time Bonus Formula */}
               <div className="bg-black/50 border border-green-400 rounded p-6">
-                <h2 className="text-lg font-bold text-[#ff0066] mb-4 tracking-wider">
+                <h2 className="text-lg font-bold text-[#f26522] mb-4 tracking-wider">
                   [TIME_BONUS_FORMULA]
                 </h2>
                 <div className="bg-gray-900/50 border border-green-400/30 rounded p-4 font-mono text-sm">
@@ -490,7 +490,7 @@ export function CyberpunkAdminPanel() {
               </div>
 
               <div className="bg-black/50 border border-green-400 rounded p-6">
-                <h2 className="text-lg font-bold text-[#ff0066] mb-4 tracking-wider">
+                <h2 className="text-lg font-bold text-[#f26522] mb-4 tracking-wider">
                   [REWARD_ALGORITHM_PARAMETERS]
                 </h2>
                 
@@ -583,8 +583,8 @@ export function CyberpunkAdminPanel() {
                 </div>
 
                 {/* Live Formula Preview */}
-                <div className="mt-6 bg-gray-900/80 border border-[#ff0066]/30 rounded p-4">
-                  <div className="text-[#ff0066] font-mono text-sm mb-2">
+                <div className="mt-6 bg-gray-900/80 border border-[#f26522]/30 rounded p-4">
+                  <div className="text-[#f26522] font-mono text-sm mb-2">
                     LIVE FORMULA PREVIEW:
                   </div>
                   <div className="text-white font-mono text-sm bg-black/50 p-3 rounded border border-green-400/20">
@@ -602,19 +602,19 @@ export function CyberpunkAdminPanel() {
                   </div>
                   <div className="space-y-2 text-xs font-mono text-gray-300">
                     <div className="flex items-center">
-                      <span className="text-[#ff0066] mr-2">1.</span>
+                      <span className="text-[#f26522] mr-2">1.</span>
                       <span>Admin Panel Parameters → PostgreSQL Database (treasury_config & program_settings tables)</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#ff0066] mr-2">2.</span>
+                      <span className="text-[#f26522] mr-2">2.</span>
                       <span>Fixed Reward Service → Reads admin configuration via getAdminConfiguration()</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#ff0066] mr-2">3.</span>
+                      <span className="text-[#f26522] mr-2">3.</span>
                       <span>Main App Components → Use unified dashboard hook to get real-time APR calculations</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#ff0066] mr-2">4.</span>
+                      <span className="text-[#f26522] mr-2">4.</span>
                       <span>User Interface → Displays live values from formula-based-apr-service.ts</span>
                     </div>
                   </div>
@@ -628,7 +628,7 @@ export function CyberpunkAdminPanel() {
                 <button
                   onClick={handleSaveSettings}
                   disabled={settingsMutation.isPending}
-                  className="mt-6 px-6 py-3 bg-[#ff0066] text-white font-mono font-bold rounded hover:bg-[#ff0066]/80 transition-colors disabled:opacity-50"
+                  className="mt-6 px-6 py-3 bg-[#f26522] text-white font-mono font-bold rounded hover:bg-[#f26522]/80 transition-colors disabled:opacity-50"
                 >
                   {settingsMutation.isPending ? '[UPDATING...]' : '[UPDATE_PARAMETERS]'}
                 </button>
@@ -654,7 +654,7 @@ export function CyberpunkAdminPanel() {
           {activeTab === 'operations' && (
             <div className="space-y-6">
               <div className="bg-black/50 border border-green-400 rounded p-6">
-                <h2 className="text-lg font-bold text-[#ff0066] mb-4 tracking-wider">
+                <h2 className="text-lg font-bold text-[#f26522] mb-4 tracking-wider">
                   [SYSTEM_OPERATIONS_HISTORY]
                 </h2>
                 

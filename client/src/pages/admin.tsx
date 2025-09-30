@@ -125,7 +125,7 @@ export default function AdminPage() {
       <div className="relative z-10 flex items-center justify-center min-h-screen">
         <div className="bg-black/90 border border-green-400 rounded-lg p-8 w-full max-w-md shadow-2xl shadow-green-400/20">
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#ff0066] mb-2 tracking-wider">
+            <h1 className="text-2xl font-bold text-[#f26522] mb-2 tracking-wider">
               ◢◤ ADMIN TERMINAL ◥◣
             </h1>
             <div className="text-green-400 text-sm">
@@ -167,7 +167,7 @@ export default function AdminPage() {
             <button
               onClick={handleMetaMaskLogin}
               disabled={isLoading}
-              className="w-full py-4 bg-gradient-to-r from-[#ff0066] to-[#ff0066]/80 text-white font-mono font-bold rounded hover:from-[#ff0066]/90 hover:to-[#ff0066]/70 transition-all disabled:opacity-50 disabled:cursor-not-allowed cyberpunk-pink-glow"
+              className="w-full py-4 bg-gradient-to-r from-[#f26522] to-[#f26522]/80 text-white font-mono font-bold rounded hover:from-[#f26522]/90 hover:to-[#f26522]/70 transition-all disabled:opacity-50 disabled:cursor-not-allowed cyberpunk-pink-glow"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center space-x-2">

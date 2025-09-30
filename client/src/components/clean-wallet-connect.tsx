@@ -16,12 +16,12 @@ export function CleanWalletConnect() {
   if (isConnected && address) {
     return (
       <div className="flex items-center gap-3">
-        <Badge variant="outline" className="bg-[#ff0066]/10 text-[#ff0066] border-[#ff0066]/30">
-          <div className="w-2 h-2 bg-[#ff0066] rounded-full mr-2 animate-pulse"></div>
+        <Badge variant="outline" className="bg-[#f26522]/10 text-[#f26522] border-[#f26522]/30">
+          <div className="w-2 h-2 bg-[#f26522] rounded-full mr-2 animate-pulse"></div>
           Base Network
         </Badge>
-        <div className="flex items-center gap-2 bg-black/40 backdrop-blur-xl border border-[#ff0066]/20 rounded-xl px-4 py-2">
-          <Wallet className="h-4 w-4 text-[#ff0066]" />
+        <div className="flex items-center gap-2 bg-black/40 backdrop-blur-xl border border-[#f26522]/20 rounded-xl px-4 py-2">
+          <Wallet className="h-4 w-4 text-[#f26522]" />
           <span className="font-mono text-sm text-white">{formatAddress(address)}</span>
           <Button
             variant="ghost"
@@ -41,7 +41,7 @@ export function CleanWalletConnect() {
       <Button
         onClick={() => setShowModal(true)}
         disabled={isConnecting}
-        className="bg-gradient-to-r from-[#ff0066] to-[#cc0052] hover:from-[#ff1a75] hover:to-[#e60059] text-white border-0 shadow-lg hover:shadow-xl shadow-[#ff0066]/20 transition-all duration-300 px-6"
+        className="bg-gradient-to-r from-[#f26522] to-[#d45a1a] hover:from-[#f26522] hover:to-[#d45a1a] text-white border-0 shadow-lg hover:shadow-xl shadow-[#f26522]/20 transition-all duration-300 px-6"
       >
         {isConnecting ? (
           <>
@@ -60,13 +60,13 @@ export function CleanWalletConnect() {
         <DialogContent className="sm:max-w-md bg-black/95 backdrop-blur-xl border border-gray-800/50">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold text-white flex items-center gap-2">
-              <Wallet className="h-5 w-5 text-[#ff0066]" />
+              <Wallet className="h-5 w-5 text-[#f26522]" />
               Connect Your Wallet
             </DialogTitle>
           </DialogHeader>
 
           <div className="space-y-4">
-            <div className="bg-gradient-to-r from-[#ff0066]/10 to-purple-500/10 border border-[#ff0066]/20 rounded-xl p-4">
+            <div className="bg-gradient-to-r from-[#f26522]/10 to-purple-500/10 border border-[#f26522]/20 rounded-xl p-4">
               <div className="flex items-start gap-3">
                 <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-3 flex-shrink-0">
                   <span className="text-2xl">🦊</span>
@@ -81,7 +81,7 @@ export function CleanWalletConnect() {
                       setShowModal(false);
                       connect();
                     }}
-                    className="w-full bg-gradient-to-r from-[#ff0066] to-[#cc0052] hover:from-[#ff1a75] hover:to-[#e60059] text-white border-0 shadow-lg hover:shadow-xl shadow-[#ff0066]/20"
+                    className="w-full bg-gradient-to-r from-[#f26522] to-[#d45a1a] hover:from-[#ff7a4a] hover:to-[#b84a0f] text-white border-0 shadow-lg hover:shadow-xl shadow-[#f26522]/20"
                   >
                     Connect MetaMask
                   </Button>
@@ -95,7 +95,7 @@ export function CleanWalletConnect() {
                 <span className="text-sm font-medium">Security Notice</span>
               </div>
               <p className="text-gray-400 text-xs">
-                We'll automatically switch you to the Base network. Your wallet will be used to interact with KILT liquidity pools.
+                We'll automatically switch you to the Base network. Your wallet will be used to interact with Megalith liquidity pools.
               </p>
             </div>
 
@@ -104,7 +104,7 @@ export function CleanWalletConnect() {
                 Don't have MetaMask?{' '}
                 <button
                   onClick={() => window.open('https://metamask.io/download/', '_blank')}
-                  className="text-[#ff0066] hover:text-[#ff1a75] underline"
+                  className="text-[#f26522] hover:text-[#ff1a75] underline"
                 >
                   Download here <ExternalLink className="h-3 w-3 inline ml-1" />
                 </button>

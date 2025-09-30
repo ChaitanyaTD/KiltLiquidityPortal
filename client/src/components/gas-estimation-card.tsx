@@ -161,20 +161,20 @@ export function GasEstimationCard() {
 
           {/* Right: Expected Returns */}
           <div className="space-y-3">
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-2 border border-purple-500/20">
+            <div className="bg-gradient-to-r from-purple-500/10 to-orange-500/10 rounded-lg p-2 border border-purple-500/20">
               <div className="space-y-1">
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-white/70">Trading Fees APR</span>
                   <span className="text-green-400 font-mono">~{expectedReturns?.tradingAPR || '0.00'}%</span>
                 </div>
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-white/70">KILT Rewards APR</span>
+                  <span className="text-white/70">Megalith Rewards APR</span>
                   <span className="text-green-400 font-mono">~{expectedReturns?.incentiveAPR || '0.00'}%</span>
                 </div>
                 <div className="border-t border-purple-300/20 pt-1">
                   <div className="flex justify-between items-center text-xs">
                     <span className="text-purple-300 font-medium">Total APR</span>
-                    <span className="text-pink-400 font-mono font-bold">~{expectedReturns?.totalAPR || '0.00'}%</span>
+                    <span className="text-orange-400 font-mono font-bold">~{expectedReturns?.totalAPR || '0.00'}%</span>
                   </div>
                 </div>
               </div>
@@ -199,11 +199,11 @@ export function GasEstimationCard() {
 
         {/* Full-width Network & Speed Tags */}
         <div className="flex items-center gap-2">
-          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 backdrop-blur-[12px] bg-[#ff0066]/20 border border-[#ff0066]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
+          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 backdrop-blur-[12px] bg-[#f26522]/20 border border-[#f26522]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
             <Clock className="h-2 w-2 mr-1" />
             Base Network
           </Badge>
-          <Badge className="px-2 py-0.5 text-xs" style={{ backgroundColor: 'rgba(255, 0, 102, 0.2)', color: '#ff0066', borderColor: 'rgba(255, 0, 102, 0.3)' }}>
+          <Badge className="px-2 py-0.5 text-xs" style={{ backgroundColor: 'rgba(242, 101, 34, 0.2)', color: '#f26522', borderColor: 'rgba(242, 101, 34, 0.3)' }}>
             <TrendingUp className="h-2 w-2 mr-1" />
             Fast
           </Badge>

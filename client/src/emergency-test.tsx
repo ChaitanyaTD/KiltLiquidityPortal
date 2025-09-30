@@ -18,7 +18,7 @@ function EmergencyTest() {
       zIndex: 9999
     }}>
       <div style={{ textAlign: 'center' }}>
-        <h1 style={{ fontSize: '4rem', marginBottom: '2rem', color: '#ff0066' }}>
+        <h1 style={{ fontSize: '4rem', marginBottom: '2rem', color: '#f26522' }}>
           KILT Portal
         </h1>
         <p style={{ fontSize: '1.5rem', color: '#888' }}>
@@ -28,7 +28,7 @@ function EmergencyTest() {
           width: '50px',
           height: '50px',
           border: '5px solid #333',
-          borderTop: '5px solid #ff0066',
+          borderTop: '5px solid #f26522',
           borderRadius: '50%',
           animation: 'spin 1s linear infinite',
           margin: '2rem auto'

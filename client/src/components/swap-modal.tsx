@@ -71,7 +71,7 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
         <DialogHeader>
           <DialogTitle className="flex items-center gap-3 text-xl">
             <div className="flex items-center gap-2">
-              <ArrowUpDown className="h-5 w-5 text-[#ff0066]" />
+              <ArrowUpDown className="h-5 w-5 text-[#f26522]" />
               <span>Buy KILT</span>
             </div>
             <div className="flex items-center gap-1">
@@ -134,14 +134,14 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   
                   {/* Visual Slider */}
                   <div className="relative">
-                    <div className="h-2 bg-gradient-to-r from-gray-700 via-pink-500 to-[#ff0066] rounded-full relative">
+                    <div className="h-2 bg-gradient-to-r from-gray-700 via-orange-500 to-[#f26522] rounded-full relative">
                       <div className="absolute right-4 top-[-8px] text-xs text-gray-400">
                         195% of balance
                       </div>
                       <div className="absolute left-0 bottom-[-20px] text-xs text-gray-400">
                         0.001 ETH
                       </div>
-                      <div className="absolute left-1/2 bottom-[-20px] text-xs text-[#ff0066] font-bold">
+                      <div className="absolute left-1/2 bottom-[-20px] text-xs text-[#f26522] font-bold">
                         {ethAmount} ETH
                       </div>
                       <div className="absolute right-0 bottom-[-20px] text-xs text-gray-400">
@@ -191,7 +191,7 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
 
             {/* Swap Direction Arrow */}
             <div className="flex justify-center">
-              <div className="p-2 bg-gradient-to-r from-[#ff0066] to-pink-600 rounded-full">
+              <div className="p-2 bg-gradient-to-r from-[#f26522] to-orange-600 rounded-full">
                 <ArrowUpDown className="h-4 w-4 text-white" />
               </div>
             </div>
@@ -267,7 +267,7 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   onClose();
                 }
               }}
-              className="w-full bg-gradient-to-r from-[#ff0066] to-pink-600 hover:from-[#ff0066]/90 hover:to-pink-600/90 text-white font-bold py-4 text-lg transition-all duration-200 shadow-lg hover:shadow-pink-500/25 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
+              className="w-full bg-gradient-to-r from-[#f26522] to-orange-600 hover:from-[#f26522]/90 hover:to-orange-600/90 text-white font-bold py-4 text-lg transition-all duration-200 shadow-lg hover:shadow-orange-500/25 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
             >
               {parseFloat(ethAmount) <= 0 ? 'Enter Amount' : 
                `Swap ETH → ${parseFloat(kiltOutput) > 0 ? parseFloat(kiltOutput).toLocaleString(undefined, {maximumFractionDigits: 0}) : '0'} KILT`}

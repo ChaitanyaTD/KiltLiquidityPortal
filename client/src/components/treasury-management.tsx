@@ -254,7 +254,7 @@ export function TreasuryManagement() {
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-r from-[#ff0066]/10 to-[#ff0066]/10" style={{ borderColor: 'rgba(255, 0, 102, 0.2)' }}>
+        <Card className="bg-gradient-to-r from-[#f26522]/10 to-[#f26522]/10" style={{ borderColor: 'rgba(255, 0, 102, 0.2)' }}>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-white">
               <Shield className="h-5 w-5" />
@@ -393,7 +393,7 @@ export function TreasuryManagement() {
         </Card>
 
         {/* Setup Allowance */}
-        <Card className="bg-gradient-to-r from-[#ff0066]/10 to-[#ff0066]/10" style={{ borderColor: 'rgba(255, 0, 102, 0.2)' }}>
+        <Card className="bg-gradient-to-r from-[#f26522]/10 to-[#f26522]/10" style={{ borderColor: 'rgba(255, 0, 102, 0.2)' }}>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-white">
               <Key className="h-5 w-5" />
@@ -431,7 +431,7 @@ export function TreasuryManagement() {
             <Button
               onClick={handleSetupAllowance}
               disabled={setupAllowanceMutation.isPending}
-              className="w-full bg-gradient-to-r from-[#ff0066] to-[#ff0066] hover:from-[#ff0066] hover:to-[#ff0066]"
+              className="w-full bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522] hover:to-[#f26522]"
             >
               {setupAllowanceMutation.isPending ? "Setting up..." : "Setup Allowance"}
             </Button>

@@ -327,27 +327,27 @@ export function PositionRegistration() {
       {/* Compact Header */}
       <Card className="cluely-card">
         <CardContent className="p-3">
-          <Alert className="border-[#ff0066]/30 bg-black/40 backdrop-blur-sm">
-            <Gift className="h-3 w-3 text-[#ff0066]" />
+          <Alert className="border-[#f26522]/30 bg-black/40 backdrop-blur-sm">
+            <Gift className="h-3 w-3 text-[#f26522]" />
             <AlertDescription className="text-white text-xs leading-relaxed">
               <div className="font-semibold mb-2 text-white">
-                Already have KILT liquidity positions on Uniswap? Register them here to start earning treasury rewards!
+                Already have Megalith liquidity positions on Uniswap? Register them here to start earning treasury rewards!
               </div>
               <div className="space-y-1.5 text-xs">
                 <div className="flex items-start gap-2 pl-1">
-                  <span className="text-[#ff0066] font-bold text-sm leading-none mt-0.5">•</span>
+                  <span className="text-[#f26522] font-bold text-sm leading-none mt-0.5">•</span>
                   <span className="text-white font-medium">Immediate reward accrual upon registration</span>
                 </div>
                 <div className="flex items-start gap-2 pl-1">
-                  <span className="text-[#ff0066] font-bold text-sm leading-none mt-0.5">•</span>
+                  <span className="text-[#f26522] font-bold text-sm leading-none mt-0.5">•</span>
                   <span className="text-white font-medium">Smart contract security with historical validation</span>
                 </div>
                 <div className="flex items-start gap-2 pl-1">
-                  <span className="text-[#ff0066] font-bold text-sm leading-none mt-0.5">•</span>
+                  <span className="text-[#f26522] font-bold text-sm leading-none mt-0.5">•</span>
                   <span className="text-white font-medium">Auto-validation for full range positions</span>
                 </div>
                 <div className="flex items-start gap-2 pl-1">
-                  <span className="text-[#ff0066] font-bold text-sm leading-none mt-0.5">•</span>
+                  <span className="text-[#f26522] font-bold text-sm leading-none mt-0.5">•</span>
                   <span className="text-white font-medium">Complete transaction history verification</span>
                 </div>
               </div>
@@ -373,7 +373,7 @@ export function PositionRegistration() {
                     }
                   }}
                   variant="outline"
-                  className="border-[#ff0066]/30 hover:bg-[#ff0066]/10 text-xs py-1 px-2 h-6"
+                  className="border-[#f26522]/30 hover:bg-[#f26522]/10 text-xs py-1 px-2 h-6"
                 >
                   {selectedPositions.length === unregisteredPositions.length ? 'Deselect All' : 'Select All'}
                 </Button>
@@ -382,7 +382,7 @@ export function PositionRegistration() {
                 <Button 
                   onClick={handleBulkRegister}
                   disabled={bulkRegisterMutation.isPending}
-                  className="bg-[#ff0066] hover:bg-[#e6005c] text-xs py-1 px-2 h-6"
+                  className="bg-[#f26522] hover:bg-[#d45a1a] text-xs py-1 px-2 h-6"
                 >
                   {bulkRegisterMutation.isPending ? (
                     <Loader2 className="h-3 w-3 animate-spin mr-1" />
@@ -398,7 +398,7 @@ export function PositionRegistration() {
         <CardContent className="pt-0">
           {loadingPositions ? (
             <div className="flex items-center justify-center py-3">
-              <Loader2 className="h-4 w-4 animate-spin text-[#ff0066]" />
+              <Loader2 className="h-4 w-4 animate-spin text-[#f26522]" />
               <span className="ml-2 text-white/60 text-xs">Scanning for positions...</span>
             </div>
           ) : unregisteredPositions.length === 0 ? (
@@ -406,9 +406,9 @@ export function PositionRegistration() {
               {totalPositions === 0 ? (
                 <>
                   <Plus className="h-6 w-6 text-gray-400 mx-auto mb-2" />
-                  <h3 className="text-white font-semibold mb-2 text-xs">No KILT Positions Found</h3>
+                  <h3 className="text-white font-semibold mb-2 text-xs">No Megalith Positions Found</h3>
                   <p className="text-white/60 mb-3 text-xs">
-                    You don't have any KILT liquidity positions yet. Create your first position to start earning treasury rewards!
+                    You don't have any Megalith liquidity positions yet. Create your first position to start earning treasury rewards!
                   </p>
                   <div className="flex gap-2 justify-center flex-wrap">
                     <Button 
@@ -417,7 +417,7 @@ export function PositionRegistration() {
                         const liquidityTabButton = document.querySelector('[data-value="liquidity"]') as HTMLElement;
                         liquidityTabButton?.click();
                       }}
-                      className="bg-[#ff0066] hover:bg-[#e6005c] text-xs py-1 px-2 h-6"
+                      className="bg-[#f26522] hover:bg-[#d45a1a] text-xs py-1 px-2 h-6"
                     >
                       <Plus className="h-3 w-3 mr-1" />
                       Add Liquidity
@@ -442,13 +442,13 @@ export function PositionRegistration() {
                 </>
               ) : (
                 <>
-                  <CheckCircle className="h-6 w-6 text-[#ff0066] mx-auto mb-3" />
+                  <CheckCircle className="h-6 w-6 text-[#f26522] mx-auto mb-3" />
                   <h3 className="text-white font-semibold mb-3 text-lg">All Set!</h3>
                   <p className="text-white/60 text-sm max-w-xs mb-3">
-                    All your KILT position{totalPositions !== 1 ? 's are' : ' is'} already registered and earning rewards.
+                    All your Megalith position{totalPositions !== 1 ? 's are' : ' is'} already registered and earning rewards.
                   </p>
                   {registeredCount > 0 && (
-                    <div className="text-xs text-[#ff0066] font-medium">
+                    <div className="text-xs text-[#f26522] font-medium">
                       {registeredCount} position{registeredCount !== 1 ? 's' : ''} enrolled in reward program
                     </div>
                   )}
@@ -462,7 +462,7 @@ export function PositionRegistration() {
                 .map((position: any) => (
                 <div 
                   key={position.tokenId}
-                  className="bg-gradient-to-r from-black/90 via-[#ff0066]/10 to-black/90 backdrop-blur-sm rounded border border-[#ff0066]/30 shadow-lg hover:shadow-[#ff0066]/20 transition-all duration-300 hover:border-[#ff0066]/50 p-3"
+                  className="bg-gradient-to-r from-black/90 via-[#f26522]/10 to-black/90 backdrop-blur-sm rounded border border-[#f26522]/30 shadow-lg hover:shadow-[#f26522]/20 transition-all duration-300 hover:border-[#f26522]/50 p-3"
                 >
                   <div className="flex items-center justify-between">
                     {/* Left: NFT ID with cyberpunk styling */}
@@ -471,9 +471,9 @@ export function PositionRegistration() {
                         type="checkbox"
                         checked={selectedPositions.includes(position.tokenId)}
                         onChange={() => handleToggleSelection(position.tokenId)}
-                        className="w-3 h-3 text-[#ff0066] bg-black border-[#ff0066] rounded focus:ring-[#ff0066] focus:ring-1"
+                        className="w-3 h-3 text-[#f26522] bg-black border-[#f26522] rounded focus:ring-[#f26522] focus:ring-1"
                       />
-                      <div className="font-mono text-[#ff0066] text-sm font-bold">
+                      <div className="font-mono text-[#f26522] text-sm font-bold">
                         #{position.tokenId || 'N/A'}
                       </div>
                     </div>
@@ -489,7 +489,7 @@ export function PositionRegistration() {
                     <Button
                       onClick={() => handleRegisterPosition(position.tokenId)}
                       disabled={registeringPositions.has(position.tokenId)}
-                      className="bg-gradient-to-r from-[#ff0066] to-[#ff0066] hover:from-[#ff0066] hover:to-[#ff0066] text-white border-0 shadow-lg hover:shadow-[#ff0066]/20 transition-all duration-200 h-7 px-3 text-xs font-medium"
+                      className="bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522] hover:to-[#f26522] text-white border-0 shadow-lg hover:shadow-[#f26522]/20 transition-all duration-200 h-7 px-3 text-xs font-medium"
                     >
                       {registeringPositions.has(position.tokenId) ? (
                         <Loader2 className="h-3 w-3 animate-spin" />

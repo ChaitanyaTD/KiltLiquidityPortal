@@ -162,7 +162,7 @@ export function UniswapModal({ isOpen, onClose, position, mode }: UniswapModalPr
           <div className="flex items-center justify-between">
             <span className="text-gray-400 text-sm">Pool</span>
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center">
+              <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
                 <span className="text-white text-xs font-bold">K</span>
               </div>
               <span className="text-white font-medium">KILT/ETH</span>
@@ -182,7 +182,7 @@ export function UniswapModal({ isOpen, onClose, position, mode }: UniswapModalPr
             <div className="bg-gray-800 border border-gray-600 rounded-xl p-4">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center">
                     <span className="text-white text-xs font-bold">K</span>
                   </div>
                   <span className="text-white font-medium">KILT</span>
@@ -277,7 +277,7 @@ export function UniswapModal({ isOpen, onClose, position, mode }: UniswapModalPr
         <Button
           onClick={handleAddLiquidity}
           disabled={isLoading || !amount0 || !amount1}
-          className="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-4 text-lg rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-4 text-lg rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <>
@@ -323,7 +323,7 @@ export function UniswapModal({ isOpen, onClose, position, mode }: UniswapModalPr
               onClick={() => setRemovePercentage(percentage)}
               className={`flex-1 ${
                 removePercentage === percentage
-                  ? 'bg-pink-600 border-pink-600 text-white'
+                  ? 'bg-orange-600 border-orange-600 text-white'
                   : 'border-gray-600 text-gray-300 hover:border-gray-500'
               }`}
             >
@@ -376,7 +376,7 @@ export function UniswapModal({ isOpen, onClose, position, mode }: UniswapModalPr
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center">
                 <span className="text-white text-xs font-bold">K</span>
               </div>
               <span className="text-white">KILT</span>

@@ -107,7 +107,7 @@ export function LiquidityMint({
   };
 
   // Pool state
-  const poolExists = true; // Base assumption for KILT/ETH pool
+  const poolExists = true; // Base assumption for Megalith/ETH pool
 
   // Initialize Uniswap V3 SDK service
   const [uniswapSDK, setUniswapSDK] = useState<UniswapV3SDKService | null>(null);
@@ -259,11 +259,11 @@ export function LiquidityMint({
     const numValue = parseFloat(value);
     if (numValue < 0) return;
     
-    // Check KILT balance constraint - never exceed wallet KILT holdings
+    // Check Megalith balance constraint - never exceed wallet M1 holdings
     if (kiltBalance && value) {
       const kiltBalanceNum = parseFloat(formatTokenAmount(kiltBalance));
       if (numValue > kiltBalanceNum) {
-        // Cap KILT amount to maximum available balance
+        // Cap M1 amount to maximum available balance
         setKiltAmount(kiltBalanceNum.toFixed(3));
         return;
       }
@@ -324,23 +324,23 @@ export function LiquidityMint({
     setIsManualInput(true);
     setEthAmount(value);
     
-    // Auto-calculate KILT amount using consistent pricing
+    // Auto-calculate M1 amount using consistent pricing
     if (value && !isNaN(numValue) && kiltData?.price && ethPriceData?.ethPrice) {
       const kiltPriceUSD = kiltData.price;
       const ethPriceUSD = ethPriceData.ethPrice;
       
-      // Calculate KILT equivalent using USD values for consistency
+      // Calculate M1 equivalent using USD values for consistency
       const ethValueUSD = numValue * ethPriceUSD;
       const kiltAmountCalculated = ethValueUSD / kiltPriceUSD;
       
       if (kiltAmountCalculated >= 0) {
-        // Check KILT balance constraint - never exceed wallet KILT holdings
+        // Check M1 balance constraint - never exceed wallet M1 holdings
         if (kiltBalance) {
           const kiltBalanceNum = parseFloat(formatTokenAmount(kiltBalance));
           const finalKiltAmount = Math.min(kiltAmountCalculated, kiltBalanceNum);
-          setKiltAmount(finalKiltAmount.toFixed(2)); // 2 decimal places for KILT, capped to balance
+          setKiltAmount(finalKiltAmount.toFixed(2)); // 2 decimal places for M1, capped to balance
         } else {
-          setKiltAmount(kiltAmountCalculated.toFixed(2)); // 2 decimal places for KILT
+          setKiltAmount(kiltAmountCalculated.toFixed(2)); // 2 decimal places for M1
         }
         
         // Update position size slider based on ETH amount
@@ -426,7 +426,7 @@ export function LiquidityMint({
     if (!address) return;
     
     try {
-      // Approve KILT first
+      // Approve M1 first
       await approveToken(TOKENS.KILT as `0x${string}`, parseUnits(kiltAmount, 18));
       setIsKiltApproved(true);
       
@@ -442,7 +442,7 @@ export function LiquidityMint({
       
       toast({
         title: "✅ Tokens Approved Successfully!",
-        description: "KILT and WETH approved - You can now add liquidity",
+        description: "M1 and WETH approved - You can now add liquidity",
       });
     } catch (error: unknown) {
       console.error('Approval error:', error);
@@ -510,14 +510,14 @@ export function LiquidityMint({
       // For liquidity provision, we always use WETH address but send ETH value if needed
       const ethTokenAddress = TOKENS.WETH;
       
-      // KILT/ETH pool has specific token order: token0=WETH, token1=KILT
+      // Megalith/ETH pool has specific token order: token0=WETH, token1=M1
       // Based on pool address 0x82Da478b1382B951cBaD01Beb9eD459cDB16458E
       const token0 = TOKEN_ADDRESSES.WETH;  // WETH is token0
-      const token1 = TOKEN_ADDRESSES.KILT;  // KILT is token1
+      const token1 = TOKEN_ADDRESSES.KILT;  // M1 is token1
       
       // Set amounts based on known token order
       const amount0Desired = ethAmountParsed;  // WETH amount
-      const amount1Desired = kiltAmountParsed; // KILT amount
+      const amount1Desired = kiltAmountParsed; // M1 amount
       
 
       // Use proper tick values based on pool info and selected strategy
@@ -530,7 +530,7 @@ export function LiquidityMint({
       } else {
         // Get current pool price from the pool info
         // The pool price is token1/token0 ratio
-        const currentPoolPrice = poolInfo?.currentPrice || poolInfo?.price || 0.00005; // WETH/KILT price
+        const currentPoolPrice = poolInfo?.currentPrice || poolInfo?.price || 0.00005; // WETH/M1 price
         
         
         const strategy = getSelectedStrategy();
@@ -693,7 +693,7 @@ export function LiquidityMint({
         description: "Your liquidity position has been successfully created. It will appear in Active Positions shortly.",
       });
       
-      // Note: MetaMask may show token address instead of "KILT" name
+      // Note: MetaMask may show token address instead of "M1" name
       // This is normal - the transaction is correct even if the token name isn't recognized
 
       // Reset form
@@ -720,7 +720,7 @@ export function LiquidityMint({
           <AlertCircle className="h-6 w-6 text-amber-400 mx-auto mb-2" />
           <h3 className="text-white font-heading text-sm mb-1">Wallet Not Connected</h3>
           <p className="text-white/70 font-body text-xs">
-            Please connect your wallet to add liquidity to the KILT/ETH pool
+            Please connect your wallet to add liquidity to the Megalith/ETH pool
           </p>
         </CardContent>
       </Card>
@@ -734,19 +734,19 @@ export function LiquidityMint({
       {/* Sleek Header */}
       <div className="text-center space-y-2">
         <div className="flex items-center justify-center gap-2">
-          <Plus className="h-4 w-4 text-[#ff0066]" />
-          <h2 className="text-white font-heading text-lg">Add Liquidity to KILT/ETH Pool</h2>
+          <Plus className="h-4 w-4 text-[#f26522]" />
+          <h2 className="text-white font-heading text-lg">Add Liquidity to Megalith/ETH Pool</h2>
         </div>
         
         <div className="flex items-center justify-center gap-2 flex-wrap">
-          <div className="bg-[#ff0066]/20 border border-[#ff0066]/50 text-xs rounded-lg px-2 py-1 text-[#ffffff]">
+          <div className="bg-[#f26522]/20 border border-[#f26522]/50 text-xs rounded-lg px-2 py-1 text-[#ffffff]">
             <Info className="h-3 w-3 inline mr-1" />
             Minimum position value: ${minPositionUSD ?? 10}
           </div>
-          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-[12px] from-pink-500 to-pink-600 shadow-soft-modern hover:from-pink-400 hover:to-pink-500 hover:shadow-medium-modern bg-[#ff0066]/20 border border-[#ff0066]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
+          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-[12px] from-teal-500 to-teal-600 shadow-soft-modern hover:from-teal-400 hover:to-teal-500 hover:shadow-medium-modern bg-[#00a3ad]/20 border border-[#00a3ad]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
             0.3% Fee Tier
           </Badge>
-          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-[12px] from-pink-500 to-pink-600 shadow-soft-modern hover:from-pink-400 hover:to-pink-500 hover:shadow-medium-modern bg-[#ff0066]/20 border border-[#ff0066]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
+          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-[12px] from-orange-500 to-orange-600 shadow-soft-modern hover:from-orange-400 hover:to-orange-500 hover:shadow-medium-modern bg-[#f26522]/20 border border-[#f26522]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
             {poolExists ? 'Pool Active' : 'Pool Not Found'}
           </Badge>
         </div>
@@ -755,7 +755,7 @@ export function LiquidityMint({
       <Card className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-lg cluely-card">
         <CardHeader className="pb-2">
           <CardTitle className="text-white text-sm flex items-center gap-2">
-            <Target className="h-3 w-3 text-[#ff0066]" />
+            <Target className="h-3 w-3 text-[#f26522]" />
             Position Size
           </CardTitle>
           <p className="text-white/80 text-xs">Amount to Provide: {positionSizePercent[0]}% of {selectedEthToken} balance</p>
@@ -782,8 +782,8 @@ export function LiquidityMint({
                     : 'text-white/80 hover:bg-white/10 hover:text-white hover:border-white/50'
                 }`}
                 style={positionSizePercent[0] === percent ? {
-                  backgroundColor: '#ff0066',
-                  borderColor: '#ff0066',
+                  backgroundColor: '#f26522',
+                  borderColor: '#f26522',
                   color: 'white'
                 } : {
                   borderColor: 'rgba(255, 255, 255, 0.2)'
@@ -797,16 +797,16 @@ export function LiquidityMint({
       </Card>
       {/* Clean Token Input Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-        {/* KILT Input */}
+        {/* M1 Input */}
         <Card className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-lg cluely-card">
           <CardHeader className="pb-2">
             <CardTitle className="text-white text-sm flex items-center gap-2 font-semibold">
               <img 
                 src={kiltLogo} 
-                alt="KILT" 
+                alt="Megalith" 
                 className="w-4 h-4"
               />
-              KILT
+              M1
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-2 p-3">
@@ -820,7 +820,7 @@ export function LiquidityMint({
                     type="number"
                     value={kiltAmount}
                     onChange={(e) => handleKiltAmountChange(e.target.value)}
-                    placeholder={hasKiltBalance ? "Enter KILT amount" : "No KILT balance - Buy KILT first"}
+                    placeholder={hasKiltBalance ? "Enter M1 amount" : "No M1 balance - Buy M1 first"}
                     min="0"
                     disabled={!hasKiltBalance}
                     className={`text-sm h-10 text-center font-bold rounded-lg transition-all duration-200 ${
@@ -834,7 +834,7 @@ export function LiquidityMint({
                       <span className="text-white/90 text-xs font-medium">
                         Balance: <span className={`font-bold ${hasKiltBalance ? 'text-white' : 'text-red-400'}`}>
                           {kiltBalanceNum.toFixed(4)}
-                        </span> KILT
+                        </span> M1
                       </span>
                       {hasKiltBalance && (
                         <Button
@@ -855,10 +855,10 @@ export function LiquidityMint({
                         const swapUrl = `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${TOKEN_ADDRESSES.KILT}&chain=base`;
                         window.open(swapUrl, '_blank');
                       }}
-                      className="w-full bg-gradient-to-r from-[#ff0066] to-pink-600 hover:from-[#ff0066]/90 hover:to-pink-600/90 text-white border-0 px-4 py-2 font-bold text-sm h-8 transition-all duration-200 shadow-lg hover:shadow-pink-500/25 transform hover:scale-105 touch-manipulation"
+                      className="w-full bg-gradient-to-r from-[#f26522] to-orange-600 hover:from-[#f26522]/90 hover:to-orange-600/90 text-white border-0 px-4 py-2 font-bold text-sm h-8 transition-all duration-200 shadow-lg hover:shadow-orange-500/25 transform hover:scale-105 touch-manipulation"
                     >
                       <ArrowUpDown className="h-4 w-4 mr-2" />
-                      {hasKiltBalance ? "More KILT" : "Buy KILT"}
+                      {hasKiltBalance ? "More M1" : "Buy M1"}
                     </Button>
                   </div>
                   
@@ -866,10 +866,10 @@ export function LiquidityMint({
                     <div className="mt-2 p-2 bg-amber-900/20 border border-amber-500/30 rounded-lg">
                       <div className="flex items-center gap-2 text-amber-400 text-xs">
                         <AlertCircle className="h-3 w-3 flex-shrink-0" />
-                        <span className="leading-tight">You need KILT tokens to provide liquidity</span>
+                        <span className="leading-tight">You need M1 tokens to provide liquidity</span>
                       </div>
                       <p className="text-amber-300/80 text-xs mt-1 leading-tight">
-                        Tap "Buy KILT" to swap ETH for KILT on Uniswap
+                        Tap "Buy M1" to swap ETH for M1 on Uniswap
                       </p>
                     </div>
                   )}
@@ -950,7 +950,7 @@ export function LiquidityMint({
           className={`h-12 text-sm font-semibold rounded-lg transition-all duration-300 neon-button ${
             tokensApproved 
               ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white border border-emerald-400 shadow-lg shadow-emerald-500/25' 
-              : 'bg-gradient-to-r from-[#ff0066] to-[#ff0066] hover:from-[#ff0066] hover:to-[#ff0066] text-white'
+              : 'bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522] hover:to-[#f26522] text-white'
           }`}
         >
           {isApproving ? (
@@ -966,7 +966,7 @@ export function LiquidityMint({
           ) : (
             <>
               <CheckCircle2 className="h-4 w-4 mr-2" />
-              Approve KILT + WETH
+              Approve M1 + WETH
             </>
           )}
         </Button>
@@ -976,7 +976,7 @@ export function LiquidityMint({
           disabled={isMinting || !kiltAmount || !ethAmount || !tokensApproved || (validationResult && !validationResult.isValid)}
           className={`h-12 text-sm font-semibold rounded-lg transition-all duration-300 neon-button ${
             !isMinting && kiltAmount && ethAmount && tokensApproved && (!validationResult || validationResult.isValid)
-              ? 'bg-gradient-to-r from-[#ff0066] to-[#ff0066] hover:from-[#ff0066] hover:to-[#ff0066] text-white shadow-lg shadow-pink-500/25 border border-pink-400' 
+              ? 'bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522] hover:to-[#f26522] text-white shadow-lg shadow-orange-500/25 border border-orange-400' 
               : 'bg-gray-600 text-gray-400 cursor-not-allowed'
           }`}
         >
@@ -1025,7 +1025,7 @@ export function LiquidityMint({
         <div className="flex items-center gap-2">
           <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
           <p className="text-xs text-blue-300">
-            <strong>MetaMask Note:</strong> KILT may appear as "0x5D0DD...ad2d8" in transaction details - this is normal and the transaction is correct.
+            <strong>MetaMask Note:</strong> M1 may appear as "0x5D0DD...ad2d8" in transaction details - this is normal and the transaction is correct.
           </p>
         </div>
       </div>

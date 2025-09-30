@@ -37,8 +37,8 @@ const forceDisplay = () => {
       <h1 style="
         font-size: 5rem;
         margin-bottom: 2rem;
-        color: #ff0066;
-        text-shadow: 0 0 30px #ff0066;
+        color: #f26522;
+        text-shadow: 0 0 30px #f26522;
         font-weight: bold;
       ">
         KILT PORTAL
@@ -54,14 +54,14 @@ const forceDisplay = () => {
         width: 80px;
         height: 80px;
         border: 8px solid #333;
-        border-top: 8px solid #ff0066;
+        border-top: 8px solid #f26522;
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin: 0 auto 3rem;
       "></div>
       <button onclick="window.location.reload()" style="
         padding: 1rem 2rem;
-        background: #ff0066;
+        background: #f26522;
         color: white;
         border: none;
         border-radius: 1rem;

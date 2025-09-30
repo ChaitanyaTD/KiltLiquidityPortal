@@ -52,7 +52,7 @@ export const FloatingSwapWidget = () => {
               {/* Header */}
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-[#ff0066] rounded-lg">
+                  <div className="p-2 bg-[#f26522] rounded-lg">
                     <ArrowUpDown className="h-5 w-5 text-white" />
                   </div>
                   <span className="text-gray-900 font-bold text-lg">Swap KILT</span>
@@ -72,7 +72,7 @@ export const FloatingSwapWidget = () => {
                     <EthereumLogo className="w-8 h-8" />
                     <span className="text-gray-900 font-semibold text-lg">ETH</span>
                   </div>
-                  <div className="p-2 bg-[#ff0066] rounded-full">
+                  <div className="p-2 bg-[#f26522] rounded-full">
                     <ArrowUpDown className="h-4 w-4 text-white" />
                   </div>
                   <div className="flex items-center gap-3">
@@ -82,9 +82,9 @@ export const FloatingSwapWidget = () => {
                 </div>
                 
                 {/* Current Price */}
-                <div className="text-center p-3 bg-[#ff0066]/10 rounded-lg border border-[#ff0066]/20">
+                <div className="text-center p-3 bg-[#f26522]/10 rounded-lg border border-[#f26522]/20">
                   <div className="text-gray-900 text-sm font-medium">
-                    Current Rate: <span className="text-[#ff0066] font-bold">${kiltData?.price?.toFixed(6) || 'Loading...'}</span>
+                    Current Rate: <span className="text-[#f26522] font-bold">${kiltData?.price?.toFixed(6) || 'Loading...'}</span>
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export const FloatingSwapWidget = () => {
               {/* Action Button */}
               <Button
                 onClick={handleSwapClick}
-                className="w-full bg-[#ff0066] hover:bg-[#e6005c] text-white font-bold text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl border-0 py-4"
+                className="w-full bg-[#f26522] hover:bg-[#e6005c] text-white font-bold text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl border-0 py-4"
               >
                 <ExternalLink className="h-5 w-5 mr-3" />
                 Open Uniswap Exchange
@@ -110,7 +110,7 @@ export const FloatingSwapWidget = () => {
       {/* Floating Button - Larger and More Visible */}
       <Button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="relative group w-20 h-20 rounded-2xl bg-[#ff0066] hover:bg-[#e6005c] border-4 border-white shadow-2xl transition-all duration-300 hover:scale-105"
+        className="relative group w-20 h-20 rounded-2xl bg-[#f26522] hover:bg-[#e6005c] border-4 border-white shadow-2xl transition-all duration-300 hover:scale-105"
       >
         {/* Button content */}
         <div className="relative flex flex-col items-center justify-center z-10">
@@ -129,7 +129,7 @@ export const FloatingSwapWidget = () => {
         </div>
 
         {/* Subtle pulse animation */}
-        <div className="absolute inset-0 rounded-2xl border-4 border-[#ff0066] animate-pulse opacity-50"></div>
+        <div className="absolute inset-0 rounded-2xl border-4 border-[#f26522] animate-pulse opacity-50"></div>
       </Button>
     </div>
   );

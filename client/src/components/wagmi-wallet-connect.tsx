@@ -71,7 +71,7 @@ export function WagmiWalletConnect() {
               <span className="text-sm font-semibold">CRITICAL: Wrong Network Detected</span>
             </div>
             <p className="text-xs text-red-300 mb-2">
-              You're connected to <strong>chain {chainId}</strong> but KILT Portal requires <strong>Base network (8453)</strong>.
+              You're connected to <strong>chain {chainId}</strong> but Megalith Portal requires <strong>Base network (8453)</strong>.
             </p>
             <p className="text-xs text-red-300 mb-3">
               All transactions will fail until you switch networks. Click below to switch automatically.
@@ -108,8 +108,8 @@ export function WagmiWalletConnect() {
           </Badge>
         )}
 
-        <div className="flex items-center gap-2 bg-black/40 backdrop-blur-xl border border-[#ff0066]/20 rounded-xl px-4 py-2">
-          <Wallet className="h-4 w-4 text-[#ff0066]" />
+        <div className="flex items-center gap-2 bg-black/40 backdrop-blur-xl border border-[#f26522]/20 rounded-xl px-4 py-2">
+          <Wallet className="h-4 w-4 text-[#f26522]" />
           <span className="font-mono text-sm text-white">{formatAddress(address)}</span>
           
           <DropdownMenu>
@@ -159,7 +159,7 @@ export function WagmiWalletConnect() {
       <Button
         onClick={() => setShowModal(true)}
         disabled={isPending}
-        className="bg-gradient-to-r from-[#ff0066] to-[#cc0052] hover:from-[#ff1a75] hover:to-[#e60059] text-white border-0 shadow-lg hover:shadow-xl shadow-[#ff0066]/20 transition-all duration-300 px-6"
+        className="bg-gradient-to-r from-[#f26522] to-[#d45a1a] hover:from-[#f26522] hover:to-[#d45a1a] text-white border-0 shadow-lg hover:shadow-xl shadow-[#f26522]/20 transition-all duration-300 px-6"
       >
         {isPending ? (
           <>
@@ -202,7 +202,7 @@ export function WagmiWalletConnect() {
                 key={connector.id}
                 onClick={() => handleConnect(connector)}
                 disabled={isPending}
-                className="w-full bg-gradient-to-r from-[#ff0066] to-[#cc0052] hover:from-[#ff3385] hover:to-[#ff0066] text-white border-0 h-14 text-lg font-medium justify-start px-6 rounded-lg transition-all duration-200"
+                className="w-full bg-gradient-to-r from-[#f26522] to-[#d45a1a] hover:from-[#ff7a4a] hover:to-[#f26522] text-white border-0 h-14 text-lg font-medium justify-start px-6 rounded-lg transition-all duration-200"
               >
                 {isPending ? (
                   <>
@@ -231,7 +231,7 @@ export function WagmiWalletConnect() {
                 }
               }}
               disabled={isPending}
-              className="w-full bg-gradient-to-r from-[#ff0066] to-[#cc0052] hover:from-[#ff3385] hover:to-[#ff0066] text-white border-0 h-14 text-lg font-medium justify-start px-6 rounded-lg transition-all duration-200"
+              className="w-full bg-gradient-to-r from-[#f26522] to-[#d45a1a] hover:from-[#ff7a4a] hover:to-[#f26522] text-white border-0 h-14 text-lg font-medium justify-start px-6 rounded-lg transition-all duration-200"
             >
               <Wallet className="mr-4 h-5 w-5" />
               Binance Wallet

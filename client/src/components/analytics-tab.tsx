@@ -115,7 +115,7 @@ export function AnalyticsTab() {
     return (
       <div className="space-y-6">
         <div className="text-center py-12">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#ff0066] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#f26522] mx-auto mb-4"></div>
           <p className="text-white/70">Loading analytics and configuration...</p>
         </div>
       </div>
@@ -128,7 +128,7 @@ export function AnalyticsTab() {
         <Card className="bg-black/40 backdrop-blur-xl border border-white/10">
           <CardContent className="p-4">
             <div className="flex items-center gap-2 mb-2">
-              <BarChart3 className="h-4 w-4 text-[#ff0066]" />
+              <BarChart3 className="h-4 w-4 text-[#f26522]" />
               <span className="text-white/70 text-sm">Total Positions</span>
             </div>
             <div className="text-white text-xl font-bold">{totalPositions}</div>
@@ -203,7 +203,7 @@ export function AnalyticsTab() {
       <Card className="bg-black/40 backdrop-blur-xl border border-white/10">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-white">
-            <BarChart3 className="h-5 w-5 text-[#ff0066]" />
+            <BarChart3 className="h-5 w-5 text-[#f26522]" />
             Position Time Bonus Analytics
           </CardTitle>
         </CardHeader>
@@ -227,7 +227,7 @@ export function AnalyticsTab() {
                                 const uniswapUrl = `https://app.uniswap.org/pool/${tokenId}`;
                                 window.open(uniswapUrl, '_blank', 'noopener,noreferrer');
                             }}
-                            className="text-sm font-semibold text-pink-primary hover:text-[#ff0066] transition-colors duration-200 cursor-pointer hover:underline flex items-center gap-1"
+                            className="text-sm font-semibold text-orange-400 hover:text-[#f26522] transition-colors duration-200 cursor-pointer hover:underline flex items-center gap-1"
                             title="View on Uniswap"
                             >
                             Position #{position.nftTokenId}
@@ -324,7 +324,7 @@ export function AnalyticsTab() {
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-2">
                       <div 
-                        className="bg-gradient-to-r from-[#ff0066] to-emerald-400 h-2 rounded-full transition-all duration-300"
+                        className="bg-gradient-to-r from-[#f26522] to-emerald-400 h-2 rounded-full transition-all duration-300"
                         style={{ 
                           width: `${Math.min(((position.timeBonus - 1) / (position.maxTimeBonus - 1)) * 100, 100)}%` 
                         }}

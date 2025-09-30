@@ -77,12 +77,12 @@ export const BidirectionalSwapModal = ({
       <DialogContent className="max-w-lg bg-black/40 backdrop-blur-xl border border-white/10 text-white p-0 overflow-hidden">
         {/* Modal Header */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#ff0066]/10 to-transparent blur-xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f26522]/10 to-transparent blur-xl"></div>
           <div className="relative bg-black/30 backdrop-blur-sm border-b border-white/10 p-4">
             <DialogHeader>
               <DialogTitle className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-lg font-semibold">
-                  <ArrowUpDown className="h-5 w-5 text-[#ff0066]" />
+                  <ArrowUpDown className="h-5 w-5 text-[#f26522]" />
                   <span>Swap ETH ⇄ KILT</span>
                 </div>
                 <div className="flex gap-1">
@@ -92,7 +92,7 @@ export const BidirectionalSwapModal = ({
                     size="sm"
                     className={`text-xs transition-all duration-300 ${
                       activeTab === 'widget' 
-                        ? 'bg-[#ff0066] text-white' 
+                        ? 'bg-[#f26522] text-white' 
                         : 'text-white/60 hover:text-white hover:bg-white/10'
                     }`}
                   >
@@ -104,7 +104,7 @@ export const BidirectionalSwapModal = ({
                     size="sm"
                     className={`text-xs transition-all duration-300 ${
                       activeTab === 'fallback' 
-                        ? 'bg-[#ff0066] text-white' 
+                        ? 'bg-[#f26522] text-white' 
                         : 'text-white/60 hover:text-white hover:bg-white/10'
                     }`}
                   >
@@ -135,7 +135,7 @@ export const BidirectionalSwapModal = ({
                   
                   <Button
                     onClick={() => setActiveTab('fallback')}
-                    className="bg-gradient-to-r from-[#ff0066] to-[#ff3385] hover:from-[#cc0052] hover:to-[#e6005c] text-white font-medium rounded-xl transition-all duration-300"
+                    className="bg-gradient-to-r from-[#f26522] to-[#ff3385] hover:from-[#cc0052] hover:to-[#e6005c] text-white font-medium rounded-xl transition-all duration-300"
                   >
                     Switch to External Trading
                   </Button>
@@ -151,7 +151,7 @@ export const BidirectionalSwapModal = ({
                   <div className="mb-4">
                     <div className="flex items-center justify-center gap-3 mb-2">
                       <EthereumLogo className="w-8 h-8" />
-                      <ArrowUpDown className="h-5 w-5 text-[#ff0066]" />
+                      <ArrowUpDown className="h-5 w-5 text-[#f26522]" />
                       <img src={kiltLogo} alt="KILT" className="w-8 h-8" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">Swap on Uniswap</h3>
@@ -163,7 +163,7 @@ export const BidirectionalSwapModal = ({
                   <div className="space-y-3">
                     <Button
                       onClick={openUniswapExternal}
-                      className="w-full h-12 bg-gradient-to-r from-[#ff0066] to-[#ff3385] hover:from-[#cc0052] hover:to-[#e6005c] text-white font-medium rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                      className="w-full h-12 bg-gradient-to-r from-[#f26522] to-[#ff3385] hover:from-[#cc0052] hover:to-[#e6005c] text-white font-medium rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Open Uniswap Interface

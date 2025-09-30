@@ -29,11 +29,11 @@ export function UltraCompactPositionCard({
   
   return (
     <div className={`
-      bg-gradient-to-r from-black/90 via-[#ff0066]/10 to-black/90 
+      bg-gradient-to-r from-black/90 via-[#f26522]/10 to-black/90 
       backdrop-blur-sm rounded border shadow-lg transition-all duration-300 
-      hover:shadow-[#ff0066]/20 p-3 min-w-0
+      hover:shadow-[#f26522]/20 p-3 min-w-0
       ${isEligible 
-        ? 'border-[#ff0066]/30 hover:border-[#ff0066]/50' 
+        ? 'border-[#f26522]/30 hover:border-[#f26522]/50' 
         : 'border-gray-600/30 opacity-60'
       }
     `}>
@@ -45,9 +45,9 @@ export function UltraCompactPositionCard({
             checked={isSelected}
             onChange={() => onToggleSelection(position.tokenId)}
             disabled={!isEligible}
-            className="w-3 h-3 text-[#ff0066] bg-black border-[#ff0066] rounded focus:ring-[#ff0066] focus:ring-1 disabled:opacity-50 flex-shrink-0"
+            className="w-3 h-3 text-[#f26522] bg-black border-[#f26522] rounded focus:ring-[#f26522] focus:ring-1 disabled:opacity-50 flex-shrink-0"
           />
-          <div className="font-mono text-[#ff0066] text-sm font-bold whitespace-nowrap">
+          <div className="font-mono text-[#f26522] text-sm font-bold whitespace-nowrap">
             #{position.tokenId}
           </div>
           {!isEligible && (
@@ -75,7 +75,7 @@ export function UltraCompactPositionCard({
             className={`
               transition-safe h-7 px-3 text-xs font-medium whitespace-nowrap
               ${isEligible 
-                ? 'bg-gradient-to-r from-[#ff0066] to-[#ff0066] hover:from-[#ff0066] hover:to-[#ff0066] text-white border-0 shadow-lg hover:shadow-[#ff0066]/20'
+                ? 'bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522] hover:to-[#f26522] text-white border-0 shadow-lg hover:shadow-[#f26522]/20'
                 : 'bg-gray-600/50 text-gray-400 cursor-not-allowed'
               }
             `}

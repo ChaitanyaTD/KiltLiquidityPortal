@@ -91,7 +91,7 @@ export function UniswapStyleLiquidityModal({
   const realEthBalance = ethBalance || '0';
   const realKiltBalance = kiltBalance || '0';
   
-  // Use accurate KILT/ETH conversion based on current pool price
+  // Use accurate M1/ETH conversion based on current pool price
   // Use real-time conversion rate from DexScreener pool only
   const kiltEthRatio = conversionRate?.kiltEthRatio;
 
@@ -109,14 +109,14 @@ export function UniswapStyleLiquidityModal({
     if (token === 'eth') {
       const formattedEthBalance = parseFloat(realEthBalance).toFixed(6);
       setEthAmount(formattedEthBalance);
-      // ETH to KILT: divide ETH amount by KILT/ETH ratio (only if conversion rate available)
+      // ETH to M1: divide ETH amount by M1/ETH ratio (only if conversion rate available)
       if (kiltEthRatio) {
         const kiltAmount = parseFloat(realEthBalance) / kiltEthRatio;
         setKiltAmount(kiltAmount.toFixed(0));
       }
     } else {
       setKiltAmount(realKiltBalance);
-      // KILT to ETH: multiply KILT amount by KILT/ETH ratio (only if conversion rate available)
+      // M1 to ETH: multiply M1 amount by M1/ETH ratio (only if conversion rate available)
       if (kiltEthRatio) {
         const ethAmount = parseFloat(realKiltBalance) * kiltEthRatio;
         setEthAmount(ethAmount.toFixed(6));
@@ -181,7 +181,7 @@ export function UniswapStyleLiquidityModal({
         const increaseLiquidityParams = {
           tokenId: positionId.toString(),
           amount0Desired: ethAmountString, // ETH/WETH amount  
-          amount1Desired: kiltAmountString, // KILT amount
+          amount1Desired: kiltAmountString, // M1 amount
           amount0Min: (BigInt(ethAmountString) * 85n / 100n).toString(), // 15% slippage for testing
           amount1Min: (BigInt(kiltAmountString) * 85n / 100n).toString(), // 15% slippage for testing
           useEth: addAsEth, // Pass the toggle state to the hook
@@ -192,7 +192,7 @@ export function UniswapStyleLiquidityModal({
         
         toast({
           title: "Transaction Submitted",
-          description: `Adding ${ethAmount} ETH and ${kiltAmount} KILT to position ${positionId}`,
+          description: `Adding ${ethAmount} ETH and ${kiltAmount} M1 to position ${positionId}`,
         });
         
         // Invalidate and refresh position data
@@ -371,8 +371,8 @@ export function UniswapStyleLiquidityModal({
       <DialogContent className="max-w-md bg-black/90 backdrop-blur-sm border border-gray-700/60 text-white p-0 gap-0 [&>button]:!top-4 [&>button]:!right-4 [&>button]:!absolute [&>button]:!flex [&>button]:!items-center [&>button]:!justify-center [&>button]:!h-8 [&>button]:!w-8">
         <DialogTitle className="sr-only">{getTitle()}</DialogTitle>
         <DialogDescription className="sr-only">
-          {mode === 'add' && 'Add liquidity to the KILT/ETH pool by providing both tokens'}
-          {mode === 'remove' && 'Remove liquidity from your KILT/ETH position'}
+          {mode === 'add' && 'Add liquidity to the M1/ETH pool by providing both tokens'}
+          {mode === 'remove' && 'Remove liquidity from your M1/ETH position'}
           {mode === 'collect' && 'Collect accumulated trading fees from your position'}
         </DialogDescription>
         {/* Header */}
@@ -394,7 +394,7 @@ export function UniswapStyleLiquidityModal({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="flex items-center -space-x-1">
-                  <img src={kiltLogo} alt="KILT" className="w-5 h-5" />
+                  <img src={kiltLogo} alt="Megalith" className="w-5 h-5" />
                   <EthereumLogo className="w-5 h-5" />
                 </div>
                 <span className="font-medium">KILT/ETH</span>
@@ -440,13 +440,13 @@ export function UniswapStyleLiquidityModal({
                         }
                       }}
                       placeholder="0"
-                      className="text-2xl bg-gray-900/50 border border-gray-700/30 rounded-md px-3 py-2 h-auto font-mono focus:ring-1 focus:ring-[#ff0066]/50 focus:border-[#ff0066]/50"
+                      className="text-2xl bg-gray-900/50 border border-gray-700/30 rounded-md px-3 py-2 h-auto font-mono focus:ring-1 focus:ring-[#f26522]/50 focus:border-[#f26522]/50"
                     />
                     <Button 
                       variant="ghost" 
                       size="sm"
                       onClick={() => handleMaxClick('eth')}
-                      className="text-[#ff0066] hover:bg-[#ff0066]/10 text-xs px-2 py-1 h-auto"
+                      className="text-[#f26522] hover:bg-[#f26522]/10 text-xs px-2 py-1 h-auto"
                     >
                       MAX
                     </Button>
@@ -464,7 +464,7 @@ export function UniswapStyleLiquidityModal({
                 <div className="bg-black/20 backdrop-blur-sm rounded-lg border border-gray-700/60 p-4">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <img src={kiltLogo} alt="KILT" className="w-5 h-5" />
+                      <img src={kiltLogo} alt="Megalith" className="w-5 h-5" />
                       <span className="font-medium">KILT</span>
                     </div>
                     <div className="text-sm text-gray-400">
@@ -485,13 +485,13 @@ export function UniswapStyleLiquidityModal({
                         }
                       }}
                       placeholder="0"
-                      className="text-2xl bg-gray-900/50 border border-gray-700/30 rounded-md px-3 py-2 h-auto font-mono focus:ring-1 focus:ring-[#ff0066]/50 focus:border-[#ff0066]/50"
+                      className="text-2xl bg-gray-900/50 border border-gray-700/30 rounded-md px-3 py-2 h-auto font-mono focus:ring-1 focus:ring-[#f26522]/50 focus:border-[#f26522]/50"
                     />
                     <Button 
                       variant="ghost" 
                       size="sm"
                       onClick={() => handleMaxClick('kilt')}
-                      className="text-[#ff0066] hover:bg-[#ff0066]/10 text-xs px-2 py-1 h-auto"
+                      className="text-[#f26522] hover:bg-[#f26522]/10 text-xs px-2 py-1 h-auto"
                     >
                       MAX
                     </Button>
@@ -679,7 +679,7 @@ export function UniswapStyleLiquidityModal({
                 <Button 
                   onClick={handleSubmit}
                   disabled={isLoading}
-                  className="w-full bg-[#ff0066] hover:bg-[#cc0052] text-white font-semibold py-3 rounded-lg transition-colors"
+                  className="w-full bg-[#f26522] hover:bg-[#d45a1a] text-white font-semibold py-3 rounded-lg transition-colors"
                 >
                   {getButtonText()}
                 </Button>
@@ -689,7 +689,7 @@ export function UniswapStyleLiquidityModal({
             <Button 
               onClick={handleSubmit}
               disabled={isLoading}
-              className="w-full bg-[#ff0066] hover:bg-[#cc0052] text-white font-semibold py-3 rounded-lg transition-colors"
+              className="w-full bg-[#f26522] hover:bg-[#d45a1a] text-white font-semibold py-3 rounded-lg transition-colors"
             >
               {getButtonText()}
             </Button>

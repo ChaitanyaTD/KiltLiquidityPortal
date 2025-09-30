@@ -34,11 +34,11 @@ export function BuyKilt({
       <div className="grid grid-cols-2 gap-2 sm:gap-3">
         {/* ETH Balance Card */}
         <div className="group relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#ff0066]/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-[#ff0066]/30"></div>
-          <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-[#ff0066]/30 group-hover:shadow-lg group-hover:shadow-[#ff0066]/10 flex flex-col justify-between">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f26522]/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-[#f26522]/30"></div>
+          <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-[#f26522]/30 group-hover:shadow-lg group-hover:shadow-[#f26522]/10 flex flex-col justify-between">
             <div className="flex items-center gap-1 mb-2">
-              <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-[#ff0066]/20 to-[#ff0066]/10 border border-[#ff0066]/30 flex items-center justify-center flex-shrink-0">
-                <Coins className="h-3 w-3 text-[#ff0066]" />
+              <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-[#f26522]/20 to-[#f26522]/10 border border-[#f26522]/30 flex items-center justify-center flex-shrink-0">
+                <Coins className="h-3 w-3 text-[#f26522]" />
               </div>
               <span className="text-white/70 text-xs font-medium">Your ETH</span>
             </div>
@@ -135,7 +135,7 @@ export function BuyKilt({
         {/* Swap Button */}
         <Button 
           onClick={() => setShowSwapModal(true)}
-          className="h-12 bg-gradient-to-r from-[#ff0066] to-[#ff3385] hover:from-[#cc0052] hover:to-[#e6005c] text-white font-medium text-sm rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl border-0"
+          className="h-12 bg-gradient-to-r from-[#f26522] to-[#ff3385] hover:from-[#cc0052] hover:to-[#e6005c] text-white font-medium text-sm rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl border-0"
         >
           <ArrowUpDown className="w-4 h-4 mr-2" />
           Open Swap Interface

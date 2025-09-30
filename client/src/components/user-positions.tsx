@@ -63,7 +63,7 @@ export function UserPositions() {
     return () => clearTimeout(timer);
   }, []);
   
-  // KILT data hook and real-time conversion rates
+  // M1 data hook and real-time conversion rates
   const { data: kiltData } = useKiltTokenData();
   const { data: conversionRate } = useKiltEthConversionRate();
 
@@ -138,7 +138,7 @@ export function UserPositions() {
   const allKiltPositions = Array.isArray(validatedPositions) ? validatedPositions : [];
   const positionsData = Array.isArray(validatedPositions) ? validatedPositions : [];
   
-  // Positions are loading correctly - 4 KILT positions with real-time data
+  // Positions are loading correctly - 4 M1 positions with real-time data
   
   // Filter positions based on toggle state and sort by value (descending)
   const filteredPositions = showClosedPositions 
@@ -284,20 +284,20 @@ export function UserPositions() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             {/* Left Side - Title and Stats */}
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#ff0066]/20 to-[#ff0066]/20 rounded-xl flex items-center justify-center border border-[#ff0066]/30 shadow-lg shadow-[#ff0066]/10">
-                <Layers className="h-6 w-6 text-pink-400" />
+              <div className="w-12 h-12 bg-gradient-to-br from-[#f26522]/20 to-[#f26522]/20 rounded-xl flex items-center justify-center border border-[#f26522]/30 shadow-lg shadow-[#f26522]/10">
+                <Layers className="h-6 w-6 text-orange-400" />
               </div>
               <div>
                 <CardTitle className="text-white font-bold text-xl mb-1">
-                  Your KILT LP Positions
+                  Your M1 LP Positions
                 </CardTitle>
                 <div className="flex items-center space-x-4 text-sm">
                   <div className="flex items-center space-x-2">
-                    <span className="text-white/60">Real-time Uniswap V3 positions containing KILT token</span>
+                    <span className="text-white/60">Real-time Uniswap V3 positions containing M1 token</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <TrendingUp className="h-3 w-3 text-[#ff0066]" />
-                    <span className="text-[#ff0066] text-xs">sorted by value</span>
+                    <TrendingUp className="h-3 w-3 text-[#f26522]" />
+                    <span className="text-[#f26522] text-xs">sorted by value</span>
                   </div>
                 </div>
               </div>
@@ -373,9 +373,9 @@ export function UserPositions() {
                 <span className="text-sm text-white/60">Show closed positions</span>
                 <button
                   onClick={() => setShowClosedPositions(!showClosedPositions)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:ring-offset-2 focus:ring-offset-black ${
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:ring-offset-2 focus:ring-offset-black ${
                     showClosedPositions 
-                      ? 'bg-gradient-to-r from-[#ff0066] to-[#ff0066] shadow-lg shadow-[#ff0066]/25' 
+                      ? 'bg-gradient-to-r from-[#f26522] to-[#f26522] shadow-lg shadow-[#f26522]/25' 
                       : 'bg-white/20 hover:bg-white/30'
                   }`}
                 >
@@ -393,7 +393,7 @@ export function UserPositions() {
           {validatedPositionsLoading ? (
             <div className="text-center py-4">
               <p className="text-white/60 text-xs">Validating positions...</p>
-              <div className="animate-spin w-4 h-4 border-2 border-white/20 border-t-pink-500 rounded-full mx-auto mt-2"></div>
+              <div className="animate-spin w-4 h-4 border-2 border-white/20 border-t-orange-500 rounded-full mx-auto mt-2"></div>
             </div>
           ) : validatedPositionsError ? (
             <div className="text-center py-4">
@@ -402,7 +402,7 @@ export function UserPositions() {
             </div>
           ) : !Array.isArray(allKiltPositions) || allKiltPositions.length === 0 ? (
             <div className="text-center py-4">
-              <p className="text-white/60 text-xs">No registered KILT positions found</p>
+              <p className="text-white/60 text-xs">No registered M1 positions found</p>
               <p className="text-white/40 text-xs">Register your positions in the Overview tab to start earning rewards</p>
             </div>
           ) : (
@@ -433,7 +433,7 @@ export function UserPositions() {
                             const uniswapUrl = `https://app.uniswap.org/pool/${tokenId}`;
                             window.open(uniswapUrl, '_blank', 'noopener,noreferrer');
                           }}
-                          className="text-sm font-semibold text-pink-primary hover:text-[#ff0066] transition-colors duration-200 cursor-pointer hover:underline flex items-center gap-1"
+                          className="text-sm font-semibold text-orange-primary hover:text-[#f26522] transition-colors duration-200 cursor-pointer hover:underline flex items-center gap-1"
                           title="View on Uniswap"
                         >
                           #{position.tokenId || position.nftTokenId || position.id}
@@ -607,11 +607,11 @@ export function UserPositions() {
                     />
                   </div>
 
-                  {/* KILT Input */}
+                  {/* M1 Input */}
                   <div className="bg-gray-800 border border-gray-600 rounded-xl p-4">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center">
                           <span className="text-white text-sm font-bold">K</span>
                         </div>
                         <span className="text-white font-medium">KILT</span>
@@ -654,7 +654,7 @@ export function UserPositions() {
                           onClick={() => setLiquidityAmount(percentage.toString())}
                           className={`flex-1 ${
                             liquidityAmount === percentage.toString()
-                              ? 'bg-pink-600 border-pink-600 text-white'
+                              ? 'bg-orange-600 border-orange-600 text-white'
                               : 'border-gray-600 text-gray-300 hover:border-gray-500'
                           }`}
                         >
@@ -687,7 +687,7 @@ export function UserPositions() {
                     <div className="bg-gray-800 border border-gray-600 rounded-xl p-4">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center">
+                          <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center">
                             <span className="text-white text-xs font-bold">K</span>
                           </div>
                           <span className="text-white">KILT</span>
@@ -710,7 +710,7 @@ export function UserPositions() {
                     (managementMode === 'increase' && (!amount0 || !amount1)) ||
                     (managementMode === 'decrease' && !liquidityAmount)
                   }
-                  className="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isProcessing ? (
                     <>

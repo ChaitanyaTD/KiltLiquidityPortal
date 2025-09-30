@@ -19,8 +19,8 @@ export function renderSimpleFallback(rootElement: HTMLElement) {
         <h1 style="
           font-size: 4rem;
           margin-bottom: 2rem;
-          color: #ff0066;
-          text-shadow: 0 0 20px #ff0066;
+          color: #f26522;
+          text-shadow: 0 0 20px #f26522;
         ">
           KILT Portal
         </h1>
@@ -35,7 +35,7 @@ export function renderSimpleFallback(rootElement: HTMLElement) {
           width: 60px;
           height: 60px;
           border: 6px solid #333;
-          border-top: 6px solid #ff0066;
+          border-top: 6px solid #f26522;
           border-radius: 50%;
           animation: spin 1s linear infinite;
           margin: 0 auto;

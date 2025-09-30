@@ -58,7 +58,7 @@ const AnalyticsTab = lazy(() => import('./analytics-tab').then(m => ({ default: 
 const OptimizedLoadingFallback = ({ height = "400px" }) => (
   <div className="w-full flex items-center justify-center animate-pulse" style={{ height }}>
     <div className="text-center">
-      <div className="w-8 h-8 border-2 border-pink-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
       <div className="text-white/60 text-sm">Loading...</div>
     </div>
   </div>
@@ -66,7 +66,6 @@ const OptimizedLoadingFallback = ({ height = "400px" }) => (
 
 // Assets and icons
 import kiltLogo from '@assets/KILT_400x400_transparent_1751723574123.png';
-import backgroundVideo from '@assets/Untitled design (22)_1752822331413.mp4';
 import { SiX, SiGithub, SiDiscord, SiTelegram, SiMedium } from 'react-icons/si';
 
 // Services
@@ -258,7 +257,7 @@ export function MainDashboard() {
         balanceStr = balance;
       }
       
-      // Convert wei to ether (both KILT and WETH use 18 decimals)
+      // Convert wei to ether (both Megalith and WETH use 18 decimals)
       // Use BigInt division to avoid precision issues
       const balanceBigInt = BigInt(balanceStr);
       const divisor = BigInt(1e18);
@@ -331,7 +330,7 @@ export function MainDashboard() {
       if (balanceFail) {
         toast({
           title: "Insufficient Balance",
-          description: "You need both KILT and ETH to add liquidity",
+          description: "You need both Megalith and ETH to add liquidity",
           variant: "destructive"
         });
         return;
@@ -348,7 +347,7 @@ export function MainDashboard() {
       
       // Convert to BigInt values (18 decimals)
       const amount0Desired = parseUnits(amounts.ethAmount, 18); // WETH
-      const amount1Desired = parseUnits(amounts.kiltAmount, 18); // KILT
+      const amount1Desired = parseUnits(amounts.kiltAmount, 18); // Megalith
       
       
       toast({
@@ -375,7 +374,7 @@ export function MainDashboard() {
       
       toast({
         title: "Liquidity Added Successfully!",
-        description: `Added ${amounts.ethAmount} ETH + ${amounts.kiltAmount} KILT to the pool`,
+        description: `Added ${amounts.ethAmount} ETH + ${amounts.kiltAmount} M1 to the pool`,
       });
       
       // Auto-register the new position immediately after successful creation
@@ -449,34 +448,12 @@ export function MainDashboard() {
   if (!isConnected) {
     return (
       <div className="min-h-screen p-6 relative overflow-hidden">
-        {/* Background Video */}
-        <div className="absolute inset-0" style={{ zIndex: 1 }}>
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ opacity: 1 }}
-            onLoadStart={() => {/* Video loading started */}}
-            onCanPlay={() => {/* Video can play */}}
-            onError={(e) => console.error('Landing page video error:', e)}
-          >
-            <source src={backgroundVideo} type="video/mp4" />
-          </video>
-        </div>
-        
-        {/* Overlay for content readability */}
-        <div className="absolute inset-0 bg-black/20" style={{ zIndex: 2 }}></div>
-        
-
-
         <div className="max-w-5xl mx-auto relative" style={{ zIndex: 10 }}>
           <div className="text-center pt-16 pb-8">
             {/* Hero Section */}
             <div className="mb-12">
               <div className="relative w-32 h-32 mx-auto mb-8">
-                {/* Cyberpunk KILT Logo */}
+                {/* Cyberpunk Megalith Logo */}
                 <CyberpunkKiltLogo size="xl" className="w-full h-full" />
               </div>
               
@@ -485,7 +462,7 @@ export function MainDashboard() {
                 {/* Main title with subtle gradient */}
                 <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
                   <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-                    KILT Liquidity
+                    Megalith Liquidity
                   </span>
                   <span className="block text-5xl sm:text-6xl lg:text-7xl mt-2 text-white/90 font-normal">
                     Incentive Program
@@ -496,7 +473,7 @@ export function MainDashboard() {
               {/* Clean Description */}
               <div className="relative max-w-4xl mx-auto mb-8">
                 <p className="text-xl sm:text-2xl text-white/90 font-medium leading-relaxed text-center">
-                  Earn <span className="text-emerald-400 font-bold bg-emerald-400/10 px-2 py-1 rounded">{unifiedData.programAnalytics?.programAPR ? `${Math.round(unifiedData.programAnalytics.programAPR)}%` : '...'} APR</span> from the <span className="text-pink-400 font-bold bg-pink-400/10 px-2 py-1 rounded">{unifiedData.programAnalytics?.treasuryTotal ? (unifiedData.programAnalytics.treasuryTotal >= 1000000 ? `${(unifiedData.programAnalytics.treasuryTotal / 1000000).toFixed(1)}M` : `${(unifiedData.programAnalytics.treasuryTotal / 1000).toFixed(0)}K`) : '...'} KILT treasury</span> by providing liquidity to Uniswap V3 pools on Base network.
+                  Earn <span className="text-emerald-400 font-bold bg-emerald-400/10 px-2 py-1 rounded">{unifiedData.programAnalytics?.programAPR ? `${Math.round(unifiedData.programAnalytics.programAPR)}%` : '...'} APR</span> from the <span className="text-orange-400 font-bold bg-orange-400/10 px-2 py-1 rounded">{unifiedData.programAnalytics?.treasuryTotal ? (unifiedData.programAnalytics.treasuryTotal >= 1000000 ? `${(unifiedData.programAnalytics.treasuryTotal / 1000000).toFixed(1)}M` : `${(unifiedData.programAnalytics.treasuryTotal / 1000).toFixed(0)}K`) : '...'} Megalith treasury</span> by providing liquidity to Uniswap V3 pools on Base network.
                 </p>
               </div>
             </div>
@@ -510,12 +487,12 @@ export function MainDashboard() {
 
             {/* Clean Feature Grid */}
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {/* KILT/ETH Pool */}
+              {/* Megalith/ETH Pool */}
               <div className="group relative animate-fade-in animate-delay-100">
                 <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-black/60 h-[180px] flex flex-col">
                   <div className="flex items-center mb-4">
                     <TrendingUp className="h-6 w-6 text-emerald-400 mr-3" />
-                    <h3 className="text-white font-bold text-lg">KILT/ETH Pool</h3>
+                    <h3 className="text-white font-bold text-lg">Megalith/ETH Pool</h3>
                   </div>
                   <div className="flex-1 flex flex-col justify-center">
                     <p className="text-gray-300 text-sm leading-relaxed">
@@ -527,14 +504,14 @@ export function MainDashboard() {
 
               {/* Treasury Rewards */}
               <div className="group relative animate-fade-in animate-delay-200">
-                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-pink-500/30 hover:bg-black/60 h-[180px] flex flex-col">
+                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-orange-500/30 hover:bg-black/60 h-[180px] flex flex-col">
                   <div className="flex items-center mb-4">
-                    <Award className="h-6 w-6 text-pink-400 mr-3" />
+                    <Award className="h-6 w-6 text-orange-400 mr-3" />
                     <h3 className="text-white font-bold text-lg">Treasury Rewards</h3>
                   </div>
                   <div className="flex-1 flex flex-col justify-center">
                     <p className="text-gray-300 text-sm leading-relaxed">
-                      Receive attractive rewards from <span className="text-pink-400 font-semibold">{unifiedData?.programAnalytics?.treasuryTotal ? (unifiedData.programAnalytics.treasuryTotal >= 1000000 ? `${(unifiedData.programAnalytics.treasuryTotal / 1000000).toFixed(1)}M KILT` : `${(unifiedData.programAnalytics.treasuryTotal / 1000).toFixed(0)}K KILT`) : '500K KILT'}</span> treasury allocation with secure smart contract distribution.
+                      Receive attractive rewards from <span className="text-orange-400 font-semibold">{unifiedData?.programAnalytics?.treasuryTotal ? (unifiedData.programAnalytics.treasuryTotal >= 1000000 ? `${(unifiedData.programAnalytics.treasuryTotal / 1000000).toFixed(1)}M M1` : `${(unifiedData.programAnalytics.treasuryTotal / 1000).toFixed(0)}K M1`) : '500K M1'}</span> treasury allocation with secure smart contract distribution.
                     </p>
                   </div>
                 </div>
@@ -559,10 +536,10 @@ export function MainDashboard() {
             {/* Bottom CTA */}
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                Join the KILT Ecosystem
+                Join the Megalith Ecosystem
               </h2>
               <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto mb-6 leading-relaxed">
-                Connect with the KILT Protocol community and stay updated on the latest developments.
+                Connect with the Megalith community and stay updated on the latest developments.
               </p>
             </div>
 
@@ -572,41 +549,41 @@ export function MainDashboard() {
                 href="https://x.com/kiltprotocol" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-3 bg-black/40 hover:bg-[#ff0066]/10 border border-gray-800 hover:border-[#ff0066]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
+                className="p-3 bg-black/40 hover:bg-[#f26522]/10 border border-gray-800 hover:border-[#f26522]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
               >
-                <SiX className="h-5 w-5 text-white/80 hover:text-[#ff0066] transition-colors duration-300" />
+                <SiX className="h-5 w-5 text-white/80 hover:text-[#f26522] transition-colors duration-300" />
               </a>
               <a 
                 href="https://github.com/KILTprotocol" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-3 bg-black/40 hover:bg-[#ff0066]/10 border border-gray-800 hover:border-[#ff0066]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
+                className="p-3 bg-black/40 hover:bg-[#f26522]/10 border border-gray-800 hover:border-[#f26522]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
               >
-                <SiGithub className="h-5 w-5 text-white/80 hover:text-[#ff0066] transition-colors duration-300" />
+                <SiGithub className="h-5 w-5 text-white/80 hover:text-[#f26522] transition-colors duration-300" />
               </a>
               <a 
                 href="https://discord.gg/kiltprotocol" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-3 bg-black/40 hover:bg-[#ff0066]/10 border border-gray-800 hover:border-[#ff0066]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
+                className="p-3 bg-black/40 hover:bg-[#f26522]/10 border border-gray-800 hover:border-[#f26522]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
               >
-                <SiDiscord className="h-5 w-5 text-white/80 hover:text-[#ff0066] transition-colors duration-300" />
+                <SiDiscord className="h-5 w-5 text-white/80 hover:text-[#f26522] transition-colors duration-300" />
               </a>
               <a 
                 href="https://t.me/KILTProtocolChat" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-3 bg-black/40 hover:bg-[#ff0066]/10 border border-gray-800 hover:border-[#ff0066]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
+                className="p-3 bg-black/40 hover:bg-[#f26522]/10 border border-gray-800 hover:border-[#f26522]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
               >
-                <SiTelegram className="h-5 w-5 text-white/80 hover:text-[#ff0066] transition-colors duration-300" />
+                <SiTelegram className="h-5 w-5 text-white/80 hover:text-[#f26522] transition-colors duration-300" />
               </a>
               <a 
-                href="https://kilt-protocol.medium.com/" 
+                href="https://medium.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-3 bg-black/40 hover:bg-[#ff0066]/10 border border-gray-800 hover:border-[#ff0066]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
+                className="p-3 bg-black/40 hover:bg-[#f26522]/10 border border-gray-800 hover:border-[#f26522]/30 rounded-lg transition-all duration-300 backdrop-blur-sm"
               >
-                <SiMedium className="h-5 w-5 text-white/80 hover:text-[#ff0066] transition-colors duration-300" />
+                <SiMedium className="h-5 w-5 text-white/80 hover:text-[#f26522] transition-colors duration-300" />
               </a>
             </div>
           </div>
@@ -617,24 +594,6 @@ export function MainDashboard() {
 
   return (
     <div className="min-h-screen text-white overflow-x-hidden relative">
-      {/* Background Video - Testing higher z-index */}
-      <video 
-        autoPlay 
-        muted 
-        loop 
-        playsInline
-        preload="auto"
-        className="fixed top-0 left-0 w-full h-full object-cover"
-        style={{ zIndex: 1 }}
-        onLoadStart={() => {/* Video loading started */}}
-        onCanPlay={() => {/* Video can play */}}
-        onError={(e) => console.error('Video error:', e)}
-      >
-        <source src={backgroundVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      {/* Transparent overlay for content readability */}
-      <div className="absolute inset-0 bg-black/30" style={{ zIndex: 2 }}></div>
       <div className="max-w-7xl mx-auto px-4 relative" style={{ zIndex: 10 }}>
         {/* Clean Professional Header */}
         <div className="w-full mb-8 py-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -645,7 +604,7 @@ export function MainDashboard() {
             </div>
             <div className="text-center sm:text-left">
               <h1 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
-                KILT Liquidity Portal
+                Megalith Liquidity Portal
               </h1>
             </div>
           </div>
@@ -672,14 +631,14 @@ export function MainDashboard() {
               value="overview" 
               className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-white/15 data-[state=active]:to-white/10 data-[state=active]:text-white data-[state=active]:shadow-lg text-white/70 hover:text-white/90 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 px-2 sm:px-3 py-1.5 sm:py-2 flex items-center justify-center min-w-0 hover:bg-white/5 group"
             >
-              <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#ff0066]" />
+              <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#f26522]" />
               <span className="text-xs sm:text-sm font-medium">Overview</span>
             </TabsTrigger>
             <TabsTrigger 
               value="liquidity" 
               className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-white/15 data-[state=active]:to-white/10 data-[state=active]:text-white data-[state=active]:shadow-lg text-white/70 hover:text-white/90 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 px-2 sm:px-3 py-1.5 sm:py-2 flex items-center justify-center min-w-0 hover:bg-white/5 group"
             >
-              <Plus className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#ff0066]" />
+              <Plus className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#f26522]" />
               <span className="text-xs sm:text-sm font-medium">
                 <span className="sm:hidden">Add</span>
                 <span className="hidden sm:inline">Add Liquidity</span>
@@ -689,14 +648,14 @@ export function MainDashboard() {
               value="rewards" 
               className="mobile-tab-trigger data-[state=active]:bg-gradient-to-r data-[state=active]:from-white/15 data-[state=active]:to-white/10 data-[state=active]:text-white data-[state=active]:shadow-lg text-white/70 hover:text-white/90 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 px-2 sm:px-3 py-1.5 sm:py-2 flex items-center justify-center min-w-0 hover:bg-white/5 group"
             >
-              <Award className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#ff0066]" />
+              <Award className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#f26522]" />
               <span className="text-xs sm:text-sm font-medium">Rewards</span>
             </TabsTrigger>
             <TabsTrigger 
               value="positions" 
               className="mobile-tab-trigger data-[state=active]:bg-gradient-to-r data-[state=active]:from-white/15 data-[state=active]:to-white/10 data-[state=active]:text-white data-[state=active]:shadow-lg text-white/70 hover:text-white/90 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 px-2 sm:px-3 py-1.5 sm:py-2 flex items-center justify-center min-w-0 hover:bg-white/5 group"
             >
-              <Wallet className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#ff0066]" />
+              <Wallet className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#f26522]" />
               <span className="text-xs sm:text-sm font-medium">
                 <span className="sm:hidden">Positions</span>
                 <span className="hidden sm:inline">Positions</span>
@@ -706,7 +665,7 @@ export function MainDashboard() {
               value="analytics" 
               className="mobile-tab-trigger data-[state=active]:bg-gradient-to-r data-[state=active]:from-white/15 data-[state=active]:to-white/10 data-[state=active]:text-white data-[state=active]:shadow-lg text-white/70 hover:text-white/90 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 px-2 sm:px-3 py-1.5 sm:py-2 flex items-center justify-center min-w-0 hover:bg-white/5 group"
             >
-              <Calculator className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#ff0066]" />
+              <Calculator className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-data-[state=active]:text-white group-hover:text-[#f26522]" />
               <span className="text-xs sm:text-sm font-medium">
                 <span className="sm:hidden">Analytics</span>
                 <span className="hidden sm:inline">Analytics</span>
@@ -719,10 +678,10 @@ export function MainDashboard() {
               }}
               className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-white/15 data-[state=active]:to-white/10 data-[state=active]:text-white data-[state=active]:shadow-lg text-white/70 hover:text-white/90 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 px-2 sm:px-3 py-1.5 sm:py-2 flex items-center justify-center min-w-0 hover:bg-white/5 group cursor-pointer"
             >
-              <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-hover:text-[#ff0066]" />
+              <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0 transition-colors duration-300 group-hover:text-[#f26522]" />
               <span className="text-xs sm:text-sm font-medium">
                 <span className="sm:hidden">Buy</span>
-                <span className="hidden sm:inline">Buy KILT</span>
+                <span className="hidden sm:inline">Buy M1</span>
               </span>
             </button>
 
@@ -732,23 +691,23 @@ export function MainDashboard() {
           <TabsContent value="overview" className="space-y-6 tab-content-safe">
             {/* Metrics Cards - Single Row */}
             <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-6">
-              {/* KILT Price Card */}
+              {/* Megalith Price Card */}
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ff0066]/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-[#ff0066]/30"></div>
-                <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-[#ff0066]/30 group-hover:shadow-lg group-hover:shadow-[#ff0066]/10 flex flex-col justify-between">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#f26522]/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-[#f26522]/30"></div>
+                <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-[#f26522]/30 group-hover:shadow-lg group-hover:shadow-[#f26522]/10 flex flex-col justify-between">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-1 min-w-0 flex-1">
-                      <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-[#ff0066]/20 to-[#ff0066]/10 border border-[#ff0066]/30 flex items-center justify-center flex-shrink-0">
-                        <img src={kiltLogo} alt="KILT" className="w-3 h-3" />
+                      <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-[#f26522]/20 to-[#f26522]/10 border border-[#f26522]/30 flex items-center justify-center flex-shrink-0">
+                        <img src={kiltLogo} alt="Megalith" className="w-3 h-3" />
                       </div>
-                      <span className="text-white/70 text-xs font-medium">KILT Price</span>
+                      <span className="text-white/70 text-xs font-medium">M1 Price</span>
                     </div>
                     <button
                       onClick={() => setShowChartModal(true)}
-                      className="w-5 h-5 rounded-md bg-[#ff0066]/10 border border-[#ff0066]/30 flex items-center justify-center hover:bg-[#ff0066]/20 transition-all duration-200 group flex-shrink-0"
-                      title="View KILT/WETH Chart"
+                      className="w-5 h-5 rounded-md bg-[#f26522]/10 border border-[#f26522]/30 flex items-center justify-center hover:bg-[#f26522]/20 transition-all duration-200 group flex-shrink-0"
+                      title="View M1/WETH Chart"
                     >
-                      <BarChart3 className="h-3 w-3 text-[#ff0066] group-hover:text-white" />
+                      <BarChart3 className="h-3 w-3 text-[#f26522] group-hover:text-white" />
                     </button>
                   </div>
                   <div className="text-white text-base font-bold mb-1 numeric-large">
@@ -832,7 +791,7 @@ export function MainDashboard() {
               {/* Left Column - Position Registration */}
               <div className="space-y-4 order-2 lg:order-1">
                 <h2 className="text-lg font-bold text-white flex items-center gap-2 mb-3">
-                  <Plus className="h-4 w-4" style={{ color: '#ff0066' }} />
+                  <Plus className="h-4 w-4" style={{ color: '#f26522' }} />
                   <span>Register Positions</span>
                 </h2>
                 <div className="min-h-[300px] sm:min-h-[350px] lg:h-[560px] flex flex-col">
@@ -843,7 +802,7 @@ export function MainDashboard() {
               {/* Right Column - Quick Add Liquidity */}
               <div className="space-y-4 order-1 lg:order-2">
                 <h2 className="text-lg font-bold text-white flex items-center gap-2 mb-3">
-                  <Zap className="h-4 w-4" style={{ color: '#ff0066' }} />
+                  <Zap className="h-4 w-4" style={{ color: '#f26522' }} />
                   <span>Quick Add Liquidity</span>
                 </h2>
                 <Card className="mobile-card-fix bg-black/40 backdrop-blur-sm border border-gray-800 rounded-lg flex flex-col h-full lg:h-[560px] cluely-card">
@@ -853,27 +812,27 @@ export function MainDashboard() {
                       <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-lg p-2 sm:p-3 cluely-card">
                         <h4 className="text-white font-bold text-sm sm:text-base mb-2 sm:mb-3">Wallet Balance</h4>
                         <div className="grid grid-cols-3 gap-2">
-                          {/* KILT Balance Card */}
+                          {/* M1 Balance Card */}
                           <div className="mobile-balance-card bg-black/20 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/10">
                             {/* Logo and Token Name - Horizontal */}
                             <div className="flex items-center gap-2 mb-1">
-                              <div className="mobile-balance-icon flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center border" style={{ backgroundColor: 'rgba(255, 0, 102, 0.3)', borderColor: 'rgba(255, 0, 102, 0.5)' }}>
+                              <div className="mobile-balance-icon flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center border" style={{ backgroundColor: 'rgba(242, 101, 34, 0.3)', borderColor: 'rgba(242, 101, 34, 0.5)' }}>
                                 <img 
                                   src={kiltLogo} 
-                                  alt="KILT" 
+                                  alt="Megalith" 
                                   className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4"
                                   style={{ 
                                     filter: 'brightness(1.5) contrast(1.2) drop-shadow(0 0 3px rgba(255,255,255,0.3))'
                                   }}
                                 />
                               </div>
-                              <div className="mobile-balance-label text-white text-xs font-medium">KILT</div>
+                          <div className="mobile-balance-label text-white text-xs font-medium">M1</div>
                             </div>
                             {/* Balance Value */}
                             <div 
-                              className="mobile-balance-value text-[#ff0066] font-bold text-xs sm:text-sm numeric-display" 
-                              style={{ textShadow: '0 0 10px rgba(255, 0, 102, 0.4)' }}
-                              title={kiltBalance ? `Exact balance: ${parseFloat(kiltBalance).toFixed(4)} KILT` : 'No KILT balance'}
+                              className="mobile-balance-value text-[#f26522] font-bold text-xs sm:text-sm numeric-display" 
+                              style={{ textShadow: '0 0 10px rgba(242, 101, 34, 0.4)' }}
+                              title={kiltBalance ? `Exact balance: ${parseFloat(kiltBalance).toFixed(4)} M1` : 'No M1 balance'}
                             >
                               {kiltBalance 
                                 ? parseFloat(kiltBalance).toFixed(4)
@@ -885,7 +844,7 @@ export function MainDashboard() {
                           <div className="mobile-balance-card bg-black/20 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/10">
                             {/* Logo and Token Name - Horizontal */}
                             <div className="flex items-center gap-2 mb-1">
-                              <div className="mobile-balance-icon flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center border" style={{ backgroundColor: 'rgba(255, 0, 102, 0.3)', borderColor: 'rgba(255, 0, 102, 0.5)' }}>
+                              <div className="mobile-balance-icon flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center border" style={{ backgroundColor: 'rgba(242, 101, 34, 0.3)', borderColor: 'rgba(242, 101, 34, 0.5)' }}>
                                 <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4" viewBox="0 0 256 417" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'brightness(1.5) contrast(1.2) drop-shadow(0 0 3px rgba(255,255,255,0.3))' }}>
                                   <path d="M127.961 0L125.44 8.55656V285.168L127.961 287.688L255.922 212.32L127.961 0Z" fill="#8A92B2"/>
                                   <path d="M127.962 0L0 212.32L127.962 287.688V153.864V0Z" fill="#62688F"/>
@@ -899,8 +858,8 @@ export function MainDashboard() {
                             </div>
                             {/* Balance Value */}
                             <div 
-                              className="mobile-balance-value text-[#ff0066] font-bold text-xs sm:text-sm numeric-display" 
-                              style={{ textShadow: '0 0 10px rgba(255, 0, 102, 0.4)' }}
+                              className="mobile-balance-value text-[#f26522] font-bold text-xs sm:text-sm numeric-display" 
+                              style={{ textShadow: '0 0 10px rgba(242, 101, 34, 0.4)' }}
                               title={ethBalance ? `Exact balance: ${parseFloat(ethBalance).toFixed(8)} ETH` : 'No ETH balance'}
                             >
                               {ethBalance ? (
@@ -915,7 +874,7 @@ export function MainDashboard() {
                           <div className="mobile-balance-card bg-black/20 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/10">
                             {/* Logo and Token Name - Horizontal */}
                             <div className="flex items-center gap-2 mb-1">
-                              <div className="mobile-balance-icon flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center border" style={{ backgroundColor: 'rgba(255, 0, 102, 0.3)', borderColor: 'rgba(255, 0, 102, 0.5)' }}>
+                              <div className="mobile-balance-icon flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center border" style={{ backgroundColor: 'rgba(242, 101, 34, 0.3)', borderColor: 'rgba(242, 101, 34, 0.5)' }}>
                                 <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4" viewBox="0 0 256 417" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'brightness(1.5) contrast(1.2) drop-shadow(0 0 3px rgba(255,255,255,0.3))' }}>
                                   <path d="M127.961 0L125.44 8.55656V285.168L127.961 287.688L255.922 212.32L127.961 0Z" fill="#8A92B2"/>
                                   <path d="M127.962 0L0 212.32L127.962 287.688V153.864V0Z" fill="#62688F"/>
@@ -929,8 +888,8 @@ export function MainDashboard() {
                             </div>
                             {/* Balance Value */}
                             <div 
-                              className="mobile-balance-value text-[#ff0066] font-bold text-xs sm:text-sm numeric-display" 
-                              style={{ textShadow: '0 0 10px rgba(255, 0, 102, 0.4)' }}
+                              className="mobile-balance-value text-[#f26522] font-bold text-xs sm:text-sm numeric-display" 
+                              style={{ textShadow: '0 0 10px rgba(242, 101, 34, 0.4)' }}
                               title={wethBalance ? `Exact balance: ${parseFloat(wethBalance).toFixed(8)} WETH` : 'No WETH balance'}
                             >
                               {wethBalance ? (
@@ -959,11 +918,11 @@ export function MainDashboard() {
                               className={`mobile-button-small text-xs py-1 px-1 h-6 sm:h-7 transition-all duration-200 border ${
                                 selectedPercentage === value 
                                   ? 'text-black font-bold border-2' 
-                                  : 'border text-white/80 hover:bg-[#ff0066]/10 hover:border-[#ff0066]/50 hover:text-white'
+                                  : 'border text-white/80 hover:bg-[#f26522]/10 hover:border-[#f26522]/50 hover:text-white'
                               }`}
                               style={selectedPercentage === value ? { 
-                                backgroundColor: '#ff0066', 
-                                borderColor: '#ff0066',
+                                backgroundColor: '#f26522', 
+                                borderColor: '#f26522',
                                 color: 'white'
                               } : { 
                                 borderColor: 'rgba(255, 255, 255, 0.2)' 
@@ -1020,23 +979,23 @@ export function MainDashboard() {
                           
                           return (
                             <div>
-                              <div className="text-2xl font-bold text-[#ff0066] text-numbers mb-2" style={{ textShadow: '0 0 20px rgba(255, 0, 102, 0.6)' }}>
+                              <div className="text-2xl font-bold text-[#f26522] text-numbers mb-2" style={{ textShadow: '0 0 20px rgba(242, 101, 34, 0.6)' }}>
                                 ~${amounts.totalValue}
                               </div>
                               <div className="text-[10px] text-white/60 text-center mb-1">Minimum required: ${minPositionUSD}</div>
                               <div className="flex items-center justify-center space-x-4 text-white text-sm text-body">
                                 <div className="flex items-center space-x-2">
-                                  <div className="w-6 h-6 bg-gradient-to-br from-[#ff0066]/30 to-[#ff0066]/30 rounded-full flex items-center justify-center border border-[#ff0066]/50">
+                                  <div className="w-6 h-6 bg-gradient-to-br from-[#f26522]/30 to-[#f26522]/30 rounded-full flex items-center justify-center border border-[#f26522]/50">
                                     <KiltLogo size="sm" showBackground={false} />
                                   </div>
-                                  <span className="font-medium text-[#ff0066]">{amounts.kiltAmount} KILT</span>
+                                  <span className="font-medium text-[#f26522]">{amounts.kiltAmount} M1</span>
                                 </div>
-                                <span className="text-[#ff0066] text-lg">+</span>
+                                <span className="text-[#f26522] text-lg">+</span>
                                 <div className="flex items-center space-x-2">
-                                  <div className="w-6 h-6 bg-gradient-to-br from-[#ff0066]/30 to-[#ff0066]/30 rounded-full flex items-center justify-center border border-[#ff0066]/50">
+                                  <div className="w-6 h-6 bg-gradient-to-br from-[#f26522]/30 to-[#f26522]/30 rounded-full flex items-center justify-center border border-[#f26522]/50">
                                     <EthLogo size="sm" showBackground={false} />
                                   </div>
-                                  <span className="font-medium text-[#ff0066]">{amounts.ethAmount} {amounts.useNativeEth ? 'ETH' : 'WETH'}</span>
+                                  <span className="font-medium text-[#f26522]">{amounts.ethAmount} {amounts.useNativeEth ? 'ETH' : 'WETH'}</span>
                                 </div>
                               </div>
                             </div>
@@ -1135,24 +1094,24 @@ export function MainDashboard() {
             </Suspense>
           </TabsContent>
           
-          {/* Buy KILT Tab */}
+          {/* Buy M1 Tab */}
 
 
         </Tabs>
       </div>
 
-      {/* KILT/WETH Chart Modal */}
+      {/* M1/WETH Chart Modal */}
       {showChartModal && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-black/90 backdrop-blur-xl border border-[#ff0066]/30 rounded-2xl w-full max-w-6xl h-[80vh] flex flex-col overflow-hidden">
+          <div className="bg-black/90 backdrop-blur-xl border border-[#f26522]/30 rounded-2xl w-full max-w-6xl h-[80vh] flex flex-col overflow-hidden">
             {/* Modal Header */}
             <div className="flex items-center justify-between p-4 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#ff0066]/20 to-[#ff0066]/10 border border-[#ff0066]/30 flex items-center justify-center">
-                  <img src={kiltLogo} alt="KILT" className="w-5 h-5" />
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f26522]/20 to-[#f26522]/10 border border-[#f26522]/30 flex items-center justify-center">
+                  <img src={kiltLogo} alt="M1" className="w-5 h-5" />
                 </div>
-                <h2 className="text-white text-lg font-bold">KILT/WETH Price Chart</h2>
-                <Badge className="bg-[#ff0066]/10 text-[#ff0066] border-[#ff0066]/30">
+                <h2 className="text-white text-lg font-bold">M1/WETH Price Chart</h2>
+                <Badge className="bg-[#f26522]/10 text-[#f26522] border-[#f26522]/30">
                   Live Data
                 </Badge>
               </div>
@@ -1172,7 +1131,7 @@ export function MainDashboard() {
                 <iframe
                   src="https://www.geckoterminal.com/base/pools/0x82da478b1382b951cbad01beb9ed459cdb16458e?embed=1&info=0&swaps=0"
                   className="w-full h-full border-0"
-                  title="KILT/WETH Price Chart"
+                  title="M1/WETH Price Chart"
                   allowFullScreen
                 />
               </div>
@@ -1186,7 +1145,7 @@ export function MainDashboard() {
                 </div>
                 <button
                   onClick={() => window.open('https://www.geckoterminal.com/base/pools/0x82da478b1382b951cbad01beb9ed459cdb16458e?utm_source=coingecko&utm_medium=referral&utm_campaign=livechart', '_blank')}
-                  className="flex items-center gap-2 px-3 py-1.5 bg-[#ff0066]/10 hover:bg-[#ff0066]/20 border border-[#ff0066]/30 rounded-lg text-[#ff0066] text-sm transition-all duration-200"
+                  className="flex items-center gap-2 px-3 py-1.5 bg-[#f26522]/10 hover:bg-[#f26522]/20 border border-[#f26522]/30 rounded-lg text-[#f26522] text-sm transition-all duration-200"
                 >
                   <ExternalLink className="h-3 w-3" />
                   Open Full Chart
@@ -1197,16 +1156,16 @@ export function MainDashboard() {
         </div>
       )}
 
-      {/* Buy KILT Modal */}
+      {/* Buy M1 Modal */}
       {showBuyKiltModal && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-auto">
+          <div className="bg-black/90 backdrop-blur-xl border border-orange-500/30 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-auto">
             {/* Modal Header */}
             <div className="flex items-center justify-between p-4 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <ShoppingCart className="w-6 h-6 text-pink-400" />
-                <h2 className="text-white text-lg font-bold">Buy KILT</h2>
-                <Badge className="bg-pink-500/10 text-pink-400 border-pink-500/30">
+                <ShoppingCart className="w-6 h-6 text-orange-400" />
+                <h2 className="text-white text-lg font-bold">Buy M1</h2>
+                <Badge className="bg-orange-500/10 text-orange-400 border-orange-500/30">
                   Direct Swap
                 </Badge>
               </div>
@@ -1220,7 +1179,7 @@ export function MainDashboard() {
               </button>
             </div>
             
-            {/* Buy KILT Component */}
+            {/* Buy M1 Component */}
             <div className="p-4">
               <BuyKilt 
                 kiltBalance={formatTokenAmount(kiltBalance || '0')}

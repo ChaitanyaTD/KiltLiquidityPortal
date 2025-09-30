@@ -28,7 +28,7 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
   const [showSettings, setShowSettings] = useState(false);
   
   // Price and pool state
-  const [currentPrice, setCurrentPrice] = useState('0.01859'); // KILT price in ETH
+  const [currentPrice, setCurrentPrice] = useState('0.01859'); // M1 price in ETH
   const [poolExists, setPoolExists] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   
@@ -112,7 +112,7 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
       
       toast({
         title: "Liquidity Added!",
-        description: `Added ${ethAmount} ETH and ${kiltAmount} KILT to the pool`,
+        description: `Added ${ethAmount} ETH and ${kiltAmount} M1 to the pool`,
       });
       
       // Reset form
@@ -282,12 +282,12 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
               </div>
             </div>
             
-            {/* KILT Input */}
+            {/* M1 Input */}
             <Card className="p-4 bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <img src={kiltLogo} alt="KILT" className="w-6 h-6 rounded-full" />
-                  <span className="font-medium text-gray-900 dark:text-white">KILT</span>
+                  <img src={kiltLogo} alt="Megalith" className="w-6 h-6 rounded-full" />
+                  <span className="font-medium text-gray-900 dark:text-white">M1</span>
                   <ChevronDown className="h-4 w-4 text-gray-400" />
                 </div>
                 <div className="text-right">
@@ -319,8 +319,8 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
               <div className="text-sm text-blue-700 dark:text-blue-300">
                 <div className="flex justify-between">
-                  <span>1 ETH = {(1 / parseFloat(currentPrice)).toFixed(0)} KILT</span>
-                  <span>1 KILT = {currentPrice} ETH</span>
+                  <span>1 ETH = {(1 / parseFloat(currentPrice)).toFixed(0)} M1</span>
+                  <span>1 M1 = {currentPrice} ETH</span>
                 </div>
               </div>
             </div>
@@ -330,7 +330,7 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
           <Button
             onClick={handleAddLiquidity}
             disabled={!ethAmount || !kiltAmount || isLoading || !isConnected}
-            className="w-full h-12 text-base font-semibold bg-[#ff0066] hover:bg-[#ff0066]/90 text-white"
+            className="w-full h-12 text-base font-semibold bg-[#f26522] hover:bg-[#f26522]/90 text-white"
           >
             {isLoading ? 'Adding Liquidity...' : !isConnected ? 'Connect Wallet' : 'Add Liquidity'}
           </Button>
