@@ -459,7 +459,7 @@ export function UserPositions() {
                       
                       <div className="terminal-block kilt-block">
                         <div className="terminal-header">
-                          <span className="terminal-label">KILT</span>
+                          <span className="terminal-label">M1</span>
                         </div>
                         <div className="terminal-value">{kiltAmount}</div>
                         <div className="terminal-sublabel">${(parseFloat(kiltAmount) * (kiltData?.price || 0.01715)).toFixed(2)}</div>
@@ -614,7 +614,7 @@ export function UserPositions() {
                         <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center">
                           <span className="text-white text-sm font-bold">K</span>
                         </div>
-                        <span className="text-white font-medium">KILT</span>
+                        <span className="text-white font-medium">M1</span>
                       </div>
                       <span className="text-gray-400 text-sm">Balance: 0.0000</span>
                     </div>
@@ -690,7 +690,7 @@ export function UserPositions() {
                           <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center">
                             <span className="text-white text-xs font-bold">K</span>
                           </div>
-                          <span className="text-white">KILT</span>
+                          <span className="text-white">M1</span>
                         </div>
                         <div className="text-right">
                           <div className="text-white">234</div>

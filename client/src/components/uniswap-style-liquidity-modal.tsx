@@ -397,7 +397,7 @@ export function UniswapStyleLiquidityModal({
                   <img src={kiltLogo} alt="Megalith" className="w-5 h-5" />
                   <EthereumLogo className="w-5 h-5" />
                 </div>
-                <span className="font-medium">KILT/ETH</span>
+                <span className="font-medium">M1/ETH</span>
                 <Badge variant="secondary" className="bg-gray-700 text-gray-300 text-xs">
                   v3
                 </Badge>
@@ -465,10 +465,10 @@ export function UniswapStyleLiquidityModal({
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <img src={kiltLogo} alt="Megalith" className="w-5 h-5" />
-                      <span className="font-medium">KILT</span>
+                      <span className="font-medium">M1</span>
                     </div>
                     <div className="text-sm text-gray-400">
-                      Balance: {parseFloat(realKiltBalance).toLocaleString()} KILT
+                      Balance: {parseFloat(realKiltBalance).toLocaleString()} M1
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -525,10 +525,10 @@ export function UniswapStyleLiquidityModal({
                   </div>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">KILT position</span>
+                  <span className="text-gray-400">M1 position</span>
                   <div className="flex items-center gap-1">
-                    <img src={kiltLogo} alt="KILT" className="w-4 h-4" />
-                    <span>{parseFloat(kiltAmount || '0').toLocaleString()} KILT</span>
+                    <img src={kiltLogo} alt="M1" className="w-4 h-4" />
+                    <span>{parseFloat(kiltAmount || '0').toLocaleString()} M1</span>
                   </div>
                 </div>
               </div>
@@ -586,8 +586,8 @@ export function UniswapStyleLiquidityModal({
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <img src={kiltLogo} alt="KILT" className="w-4 h-4" />
-                      <span>KILT</span>
+                      <img src={kiltLogo} alt="M1" className="w-4 h-4" />
+                      <span>M1</span>
                     </div>
                     <span className="font-mono">
                       {position?.token1Amount ? ((parseFloat(position.token1Amount) / 1e18) * removePercentage[0] / 100).toLocaleString() : '0'}
@@ -614,8 +614,8 @@ export function UniswapStyleLiquidityModal({
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <img src={kiltLogo} alt="KILT" className="w-4 h-4" />
-                    <span>KILT</span>
+                    <img src={kiltLogo} alt="M1" className="w-4 h-4" />
+                    <span>M1</span>
                   </div>
                   <span className="font-mono">
                     {positionFees?.token1 ? (parseFloat(positionFees.token1) / 1e18).toLocaleString() : 
