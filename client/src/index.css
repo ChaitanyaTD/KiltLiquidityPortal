@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import './styles/mobile-fixes.css';
+@import './styles/layout-fixes.css';
+
 /* Megalith Brand Fonts */
 @font-face {
   font-family: 'Heading Now';
@@ -54,12 +59,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-/* Fallback fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
-@import './styles/mobile-fixes.css';
-@import './styles/layout-fixes.css';
 
 @tailwind base;
 @tailwind components;
