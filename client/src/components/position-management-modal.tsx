@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { useUniswapV3 } from '@/hooks/use-uniswap-v3';
 import { Loader2, Plus, Minus, DollarSign, ArrowUpDown, Settings, Zap } from 'lucide-react';
-import kiltLogoPath from '@assets/KILT_400x400_transparent_1751723574123.png';
+import megalithLogo from '@assets/M_orange_400.png';
 
 interface Position {
   tokenId: string;
@@ -199,7 +199,7 @@ export function PositionManagementModal({
             <div className="space-y-3">
               <div className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-gray-700">
                 <div className="flex items-center gap-3">
-                  <img src={kiltLogoPath} alt="KILT" className="w-8 h-8" />
+                  <img src={megalithLogo} alt="Megalith" className="w-8 h-8" />
                   <span className="font-medium">KILT</span>
                 </div>
                 <Input
@@ -327,7 +327,7 @@ export function PositionManagementModal({
             <div className="space-y-2">
               <div className="flex items-center justify-between text-sm">
                 <div className="flex items-center gap-2">
-                  <img src={kiltLogoPath} alt="KILT" className="w-4 h-4" />
+                  <img src={megalithLogo} alt="Megalith" className="w-4 h-4" />
                   <span>KILT</span>
                 </div>
                 <span className="font-medium">
@@ -400,7 +400,7 @@ export function PositionManagementModal({
           <div className="space-y-3">
             <div className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-gray-700">
               <div className="flex items-center gap-3">
-                <img src={kiltLogoPath} alt="KILT" className="w-6 h-6" />
+                <img src={megalithLogo} alt="Megalith" className="w-6 h-6" />
                 <span className="font-medium">KILT</span>
               </div>
               <span className="font-mono text-lg">
@@ -494,7 +494,7 @@ export function PositionManagementModal({
             <div className="flex items-center justify-between text-sm">
               <span className="text-gray-400">Pool</span>
               <div className="flex items-center gap-2">
-                <img src={kiltLogoPath} alt="KILT" className="w-4 h-4" />
+                <img src={megalithLogo} alt="Megalith" className="w-4 h-4" />
                 <span>KILT/ETH</span>
                 <Badge variant="outline" className="text-xs">
                   {(position.fee / 10000).toFixed(2)}%

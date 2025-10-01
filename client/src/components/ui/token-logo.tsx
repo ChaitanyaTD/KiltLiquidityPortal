@@ -1,4 +1,5 @@
-import kiltLogo from '@assets/KILT_400x400_transparent_1751723574123.png';
+import megalithLogo from '@assets/M_orange_400.png';
+import megalithLogoCircled from '@assets/M_orange_400_circled.png';
 
 interface TokenLogoProps {
   token: 'KILT' | 'ETH' | 'WETH';
@@ -45,11 +46,11 @@ export function TokenLogo({ token, size = 'md', className = '', showBackground =
     return (
       <div className={containerClass}>
         <img 
-          src={kiltLogo} 
-          alt="KILT" 
+          src={megalithLogo} 
+          alt="Megalith" 
           className={logoClass}
           style={{ 
-            filter: 'brightness(1.3) contrast(1.1) drop-shadow(0 1px 3px rgba(0,0,0,0.8)) drop-shadow(0 0 8px rgba(255,255,255,0.3))'
+            filter: 'brightness(1.3) contrast(1.1) drop-shadow(0 1px 3px rgba(0,0,0,0.8)) drop-shadow(0 0 8px rgba(242,101,34,0.6))'
           }}
         />
       </div>

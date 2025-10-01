@@ -65,7 +65,7 @@ const OptimizedLoadingFallback = ({ height = "400px" }) => (
 );
 
 // Assets and icons
-import kiltLogo from '@assets/KILT_400x400_transparent_1751723574123.png';
+import megalithLogo from '@assets/M_orange_400.png';
 import { SiX, SiGithub, SiDiscord, SiTelegram, SiMedium } from 'react-icons/si';
 
 // Services
@@ -698,7 +698,7 @@ export function MainDashboard() {
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-1 min-w-0 flex-1">
                       <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-[#f26522]/20 to-[#f26522]/10 border border-[#f26522]/30 flex items-center justify-center flex-shrink-0">
-                        <img src={kiltLogo} alt="Megalith" className="w-3 h-3" />
+                        <img src={megalithLogo} alt="Megalith" className="w-3 h-3" />
                       </div>
                       <span className="text-white/70 text-xs font-medium">M1 Price</span>
                     </div>
@@ -818,7 +818,7 @@ export function MainDashboard() {
                             <div className="flex items-center gap-2 mb-1">
                               <div className="mobile-balance-icon flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center border" style={{ backgroundColor: 'rgba(242, 101, 34, 0.3)', borderColor: 'rgba(242, 101, 34, 0.5)' }}>
                                 <img 
-                                  src={kiltLogo} 
+                                  src={megalithLogo} 
                                   alt="Megalith" 
                                   className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4"
                                   style={{ 
@@ -1108,7 +1108,7 @@ export function MainDashboard() {
             <div className="flex items-center justify-between p-4 border-b border-white/10">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f26522]/20 to-[#f26522]/10 border border-[#f26522]/30 flex items-center justify-center">
-                  <img src={kiltLogo} alt="M1" className="w-5 h-5" />
+                  <img src={megalithLogo} alt="M1" className="w-5 h-5" />
                 </div>
                 <h2 className="text-white text-lg font-bold">M1/WETH Price Chart</h2>
                 <Badge className="bg-[#f26522]/10 text-[#f26522] border-[#f26522]/30">

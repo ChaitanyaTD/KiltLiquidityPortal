@@ -7,7 +7,7 @@ import { useWagmiWallet } from '@/hooks/use-wagmi-wallet';
 // Import centralized token addresses
 import { TOKEN_ADDRESSES } from '@/lib/contracts';
 
-import kiltLogo from '@assets/KILT_400x400_transparent_1751723574123.png';
+import megalithLogo from '@assets/M_orange_400.png';
 import { useState } from 'react';
 
 // Ethereum Logo Component
@@ -152,7 +152,7 @@ export const BidirectionalSwapModal = ({
                     <div className="flex items-center justify-center gap-3 mb-2">
                       <EthereumLogo className="w-8 h-8" />
                       <ArrowUpDown className="h-5 w-5 text-[#f26522]" />
-                      <img src={kiltLogo} alt="KILT" className="w-8 h-8" />
+                      <img src={megalithLogo} alt="Megalith" className="w-8 h-8" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">Swap on Uniswap</h3>
                     <p className="text-sm text-white/70">
@@ -182,7 +182,7 @@ export const BidirectionalSwapModal = ({
               <div className="bg-black/20 backdrop-blur-sm border border-white/10 rounded-xl p-4">
                 <div className="text-sm text-white/70">
                   <div className="flex items-center gap-2 mb-3">
-                    <img src={kiltLogo} alt="KILT" className="w-4 h-4" />
+                    <img src={megalithLogo} alt="Megalith" className="w-4 h-4" />
                     <span className="font-medium">KILT Trading Information</span>
                   </div>
                   <div className="grid grid-cols-2 gap-4 text-xs">

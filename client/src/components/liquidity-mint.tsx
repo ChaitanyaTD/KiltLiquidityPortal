@@ -34,7 +34,7 @@ import { useEthPrice } from '@/hooks/use-eth-price';
 import { useQueryClient } from '@tanstack/react-query';
 import { UniswapV3SDKService } from '@/lib/uniswap-v3-sdk';
 import { transactionValidator, type LiquidityParams } from '@/services/transaction-validator';
-import kiltLogo from '@assets/KILT_400x400_transparent_1751723574123.png';
+import megalithLogo from '@assets/M_orange_400.png';
 
 // Import centralized token addresses
 import { TOKEN_ADDRESSES } from '@/lib/contracts';
@@ -802,7 +802,7 @@ export function LiquidityMint({
           <CardHeader className="pb-2">
             <CardTitle className="text-white text-sm flex items-center gap-2 font-semibold">
               <img 
-                src={kiltLogo} 
+                src={megalithLogo} 
                 alt="Megalith" 
                 className="w-4 h-4"
               />

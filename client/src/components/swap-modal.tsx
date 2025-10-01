@@ -6,7 +6,7 @@ import { useKiltTokenData } from '@/hooks/use-kilt-data';
 import { useWagmiWallet } from '@/hooks/use-wagmi-wallet';
 import { useState, useEffect, useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import kiltLogo from '@assets/KILT_400x400_transparent_1751723574123.png';
+import megalithLogo from '@assets/M_orange_400.png';
 import { TOKEN_ADDRESSES } from '@/lib/contracts';
 
 // Ethereum Logo Component
@@ -75,7 +75,7 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
               <span>Buy KILT</span>
             </div>
             <div className="flex items-center gap-1">
-              <img src={kiltLogo} alt="KILT" className="w-5 h-5" />
+              <img src={megalithLogo} alt="Megalith" className="w-5 h-5" />
               <span className="text-sm text-gray-400">
                 ${kiltData?.price?.toFixed(4) || '0.0185'}
               </span>

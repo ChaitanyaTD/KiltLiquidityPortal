@@ -28,7 +28,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
 import { useRewardClaiming } from '@/hooks/use-reward-claiming';
 
-import kiltLogo from '@assets/KILT_400x400_transparent_1751723574123.png';
+import megalithLogo from '@assets/M_orange_400.png';
 
 // Single Source APR Components
 import { useExpectedReturns } from '@/hooks/use-single-source-apr';
@@ -479,7 +479,7 @@ export function RewardsTracking() {
             <div className="text-lg text-white flex items-center gap-2 mb-1 numeric-large">
               {rewardStats?.totalAccumulated?.toFixed(2) || '0.00'}
               <img 
-                src={kiltLogo} 
+                src={megalithLogo} 
                 alt="Megalith" 
                 className="h-4 w-4"
               />
@@ -505,7 +505,7 @@ export function RewardsTracking() {
               {/* CONSISTENT: Always use rewardStats as primary source */}
               {(rewardStats?.totalClaimable || 0).toFixed(2)}
               <img 
-                src={kiltLogo} 
+                src={megalithLogo} 
                 alt="Megalith" 
                 className="h-4 w-4"
               />
@@ -596,7 +596,7 @@ export function RewardsTracking() {
                 {/* CORRECTED: Show actual claimable amount, not accumulated */}
                 {(rewardStats?.totalClaimable || 0).toFixed(2)} 
                 <img 
-                  src={kiltLogo} 
+                  src={megalithLogo} 
                   alt="Megalith" 
                   className="h-5 w-5"
                 />
@@ -752,7 +752,7 @@ export function RewardsTracking() {
               <div className="text-center p-2 rounded border border-[#f26522]/20 bg-black/60">
                 <div className="text-[#f26522] text-xs mb-1">Program Budget</div>
                 <div className="text-sm text-white flex items-center justify-center gap-2 numeric-display">
-                  {programAnalytics?.treasuryTotal !== undefined && programAnalytics?.treasuryTotal !== null ? (programAnalytics.treasuryTotal >= 1000000 ? ((programAnalytics.treasuryTotal / 1000000).toFixed(1) + 'M') : ((programAnalytics.treasuryTotal / 1000).toFixed(0) + 'K')) : '...'} <img src={kiltLogo} alt="Megalith" className="h-4 w-4" />
+                  {programAnalytics?.treasuryTotal !== undefined && programAnalytics?.treasuryTotal !== null ? (programAnalytics.treasuryTotal >= 1000000 ? ((programAnalytics.treasuryTotal / 1000000).toFixed(1) + 'M') : ((programAnalytics.treasuryTotal / 1000).toFixed(0) + 'K')) : '...'} <img src={megalithLogo} alt="Megalith" className="h-4 w-4" />
                 </div>
               </div>
               

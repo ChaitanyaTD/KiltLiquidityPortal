@@ -1,5 +1,5 @@
 import React from 'react';
-import kiltLogo from '@assets/KILT_400x400_transparent_1754560178965.png';
+import megalithLogo from '@assets/M_orange_400.png';
 
 interface CyberpunkKiltLogoProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -27,18 +27,18 @@ export function CyberpunkKiltLogo({ size = 'md', className = '' }: CyberpunkKilt
         {/* Main logo with glitch effect */}
         <div className="relative z-10 logo-wrapper">
           <img
-            src={kiltLogo}
-            alt="KILT"
+            src={megalithLogo}
+            alt="Megalith"
             className="w-full h-full object-contain cyberpunk-logo-main"
           />
           {/* Glitch clone layers */}
           <img
-            src={kiltLogo}
+            src={megalithLogo}
             alt=""
             className="absolute inset-0 w-full h-full object-contain cyberpunk-logo-glitch-r"
           />
           <img
-            src={kiltLogo}
+            src={megalithLogo}
             alt=""
             className="absolute inset-0 w-full h-full object-contain cyberpunk-logo-glitch-g"
           />
@@ -57,15 +57,15 @@ export function CyberpunkKiltLogo({ size = 'md', className = '' }: CyberpunkKilt
 
       <style>{`
         .cyberpunk-logo-container {
-          filter: drop-shadow(0 0 15px rgba(255, 0, 102, 0.5));
+          filter: drop-shadow(0 0 15px rgba(242, 101, 34, 0.5));
           overflow: visible;
           perspective: 1000px;
         }
 
         .digital-grid {
           background-image: 
-            linear-gradient(rgba(255, 0, 102, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 0, 102, 0.1) 1px, transparent 1px);
+            linear-gradient(rgba(242, 101, 34, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(242, 101, 34, 0.1) 1px, transparent 1px);
           background-size: 8px 8px;
           animation: grid-pulse 4s ease-in-out infinite;
           opacity: 0.4;
@@ -74,8 +74,8 @@ export function CyberpunkKiltLogo({ size = 'md', className = '' }: CyberpunkKilt
         .scanlines {
           background: linear-gradient(
             transparent 50%,
-            rgba(255, 0, 102, 0.1) 50%,
-            rgba(255, 0, 102, 0.2) 51%,
+            rgba(242, 101, 34, 0.1) 50%,
+            rgba(242, 101, 34, 0.2) 51%,
             transparent 52%
           );
           background-size: 100% 4px;
@@ -112,29 +112,29 @@ export function CyberpunkKiltLogo({ size = 'md', className = '' }: CyberpunkKilt
         }
 
         .neon-ring-1 {
-          border: 2px solid rgba(255, 0, 102, 0.8);
+          border: 2px solid rgba(242, 101, 34, 0.8);
           border-radius: 50%;
           box-shadow: 
-            0 0 10px rgba(255, 0, 102, 0.5),
-            inset 0 0 10px rgba(255, 0, 102, 0.3);
+            0 0 10px rgba(242, 101, 34, 0.5),
+            inset 0 0 10px rgba(242, 101, 34, 0.3);
           animation: neon-pulse-1 2s ease-in-out infinite;
         }
 
         .neon-ring-2 {
-          border: 1px solid rgba(255, 0, 102, 0.5);
+          border: 1px solid rgba(242, 101, 34, 0.5);
           border-radius: 50%;
           box-shadow: 
-            0 0 20px rgba(255, 0, 102, 0.3),
-            inset 0 0 20px rgba(255, 0, 102, 0.2);
+            0 0 20px rgba(242, 101, 34, 0.3),
+            inset 0 0 20px rgba(242, 101, 34, 0.2);
           animation: neon-pulse-2 3s ease-in-out infinite reverse;
         }
 
         .data-streams {
           background-image: 
-            radial-gradient(1px 1px at 10% 20%, rgba(255, 0, 102, 0.8), transparent),
-            radial-gradient(1px 1px at 80% 40%, rgba(255, 0, 102, 0.6), transparent),
-            radial-gradient(1px 1px at 30% 80%, rgba(255, 0, 102, 0.7), transparent),
-            radial-gradient(1px 1px at 90% 10%, rgba(255, 0, 102, 0.5), transparent);
+            radial-gradient(1px 1px at 10% 20%, rgba(242, 101, 34, 0.8), transparent),
+            radial-gradient(1px 1px at 80% 40%, rgba(242, 101, 34, 0.6), transparent),
+            radial-gradient(1px 1px at 30% 80%, rgba(242, 101, 34, 0.7), transparent),
+            radial-gradient(1px 1px at 90% 10%, rgba(242, 101, 34, 0.5), transparent);
           animation: data-flow 6s linear infinite;
           opacity: 0.7;
         }
@@ -142,8 +142,8 @@ export function CyberpunkKiltLogo({ size = 'md', className = '' }: CyberpunkKilt
         .hex-overlay {
           background-image: 
             conic-gradient(from 0deg at 50% 50%, 
-              transparent 0deg, rgba(255, 0, 102, 0.1) 60deg, transparent 120deg,
-              transparent 180deg, rgba(255, 0, 102, 0.1) 240deg, transparent 300deg);
+              transparent 0deg, rgba(242, 101, 34, 0.1) 60deg, transparent 120deg,
+              transparent 180deg, rgba(242, 101, 34, 0.1) 240deg, transparent 300deg);
           border-radius: 50%;
           animation: hex-rotate 8s linear infinite;
           opacity: 0.3;
@@ -221,14 +221,14 @@ export function CyberpunkKiltLogo({ size = 'md', className = '' }: CyberpunkKilt
         @keyframes neon-pulse-1 {
           0%, 100% { 
             box-shadow: 
-              0 0 5px rgba(255, 0, 102, 0.3),
-              inset 0 0 5px rgba(255, 0, 102, 0.2);
+              0 0 5px rgba(242, 101, 34, 0.3),
+              inset 0 0 5px rgba(242, 101, 34, 0.2);
             transform: scale(1);
           }
           50% { 
             box-shadow: 
-              0 0 15px rgba(255, 0, 102, 0.8),
-              inset 0 0 15px rgba(255, 0, 102, 0.5);
+              0 0 15px rgba(242, 101, 34, 0.8),
+              inset 0 0 15px rgba(242, 101, 34, 0.5);
             transform: scale(1.05);
           }
         }
@@ -236,14 +236,14 @@ export function CyberpunkKiltLogo({ size = 'md', className = '' }: CyberpunkKilt
         @keyframes neon-pulse-2 {
           0%, 100% { 
             box-shadow: 
-              0 0 10px rgba(255, 0, 102, 0.2),
-              inset 0 0 10px rgba(255, 0, 102, 0.1);
+              0 0 10px rgba(242, 101, 34, 0.2),
+              inset 0 0 10px rgba(242, 101, 34, 0.1);
             transform: scale(1);
           }
           50% { 
             box-shadow: 
-              0 0 25px rgba(255, 0, 102, 0.6),
-              inset 0 0 25px rgba(255, 0, 102, 0.3);
+              0 0 25px rgba(242, 101, 34, 0.6),
+              inset 0 0 25px rgba(242, 101, 34, 0.3);
             transform: scale(1.08);
           }
         }

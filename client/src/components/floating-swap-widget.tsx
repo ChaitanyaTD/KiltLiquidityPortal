@@ -7,7 +7,7 @@ import { useKiltTokenData } from '@/hooks/use-kilt-data';
 // Import centralized token addresses
 import { TOKEN_ADDRESSES } from '@/lib/contracts';
 
-import kiltLogo from '@assets/KILT_400x400_transparent_1751723574123.png';
+import megalithLogo from '@assets/M_orange_400.png';
 
 const EthereumLogo = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none">
@@ -76,7 +76,7 @@ export const FloatingSwapWidget = () => {
                     <ArrowUpDown className="h-4 w-4 text-white" />
                   </div>
                   <div className="flex items-center gap-3">
-                    <img src={kiltLogo} alt="KILT" className="w-8 h-8" />
+                    <img src={megalithLogo} alt="Megalith" className="w-8 h-8" />
                     <span className="text-gray-900 font-semibold text-lg">KILT</span>
                   </div>
                 </div>

@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { X, Settings, Info, ChevronDown, ArrowDown, Plus } from 'lucide-react';
 import { useWagmiWallet } from '@/hooks/use-wagmi-wallet';
 import { useToast } from '@/hooks/use-toast';
-import kiltLogo from "@assets/KILT_400x400_transparent_1751723574123.png";
+import megalithLogo from "@assets/M_orange_400.png";
 
 interface UniswapStyleModalProps {
   isOpen: boolean;
@@ -286,7 +286,7 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
             <Card className="p-4 bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <img src={kiltLogo} alt="Megalith" className="w-6 h-6 rounded-full" />
+                  <img src={megalithLogo} alt="Megalith" className="w-6 h-6 rounded-full" />
                   <span className="font-medium text-gray-900 dark:text-white">M1</span>
                   <ChevronDown className="h-4 w-4 text-gray-400" />
                 </div>
