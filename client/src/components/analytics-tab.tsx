@@ -125,7 +125,7 @@ export function AnalyticsTab() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card className="bg-black/40 backdrop-blur-xl border border-white/10">
+        <Card className="theme-card cluely-card p-0">
           <CardContent className="p-4">
             <div className="flex items-center gap-2 mb-2">
               <BarChart3 className="h-4 w-4 text-[#f26522]" />
@@ -136,7 +136,7 @@ export function AnalyticsTab() {
           </CardContent>
         </Card>
 
-        <Card className="bg-black/40 backdrop-blur-xl border border-white/10">
+        <Card className="theme-card cluely-card p-0">
           <CardContent className="p-4">
             <div className="flex items-center gap-2 mb-2">
               <TrendingUp className="h-4 w-4 text-emerald-400" />
@@ -174,7 +174,7 @@ export function AnalyticsTab() {
           </CardContent>
         </Card>
 
-        <Card className="bg-black/40 backdrop-blur-xl border border-white/10">
+        <Card className="theme-card cluely-card p-0">
           <CardContent className="p-4">
             <div className="flex items-center gap-2 mb-2">
               <Target className="h-4 w-4 text-blue-400" />
@@ -185,7 +185,7 @@ export function AnalyticsTab() {
           </CardContent>
         </Card>
 
-        <Card className="bg-black/40 backdrop-blur-xl border border-white/10">
+        <Card className="theme-card cluely-card p-0">
           <CardContent className="p-4">
             <div className="flex items-center gap-2 mb-2">
               <Activity className="h-4 w-4 text-purple-400" />
@@ -200,7 +200,7 @@ export function AnalyticsTab() {
       </div>
 
       {/* Position Analytics */}
-      <Card className="bg-black/40 backdrop-blur-xl border border-white/10">
+      <Card className="theme-card cluely-card p-0">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-white">
             <BarChart3 className="h-5 w-5 text-[#f26522]" />
@@ -216,7 +216,7 @@ export function AnalyticsTab() {
           ) : (
             <div className="space-y-4">
               {positionAnalytics.map((position) => (
-                <div key={position.nftTokenId} className="bg-black/50 border border-white/10 rounded-lg p-4">
+                <div key={position.nftTokenId} className="bg-black/50 border border-white/10 rounded-lg p-4 transition-all duration-300 hover:border-[#f26522]/30 hover:shadow-lg hover:shadow-[#f26522]/10">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <div>
