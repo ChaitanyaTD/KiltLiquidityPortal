@@ -126,7 +126,7 @@ export function TreasuryManagement() {
       toast({
         title: "Success",
         description: `Distributed rewards counter reset to zero. Cleared ${data.clearedRecords} records.`,
-        className: "bg-green-900/90 border-green-400 text-green-100",
+        className: "bg-[#00a3ad]/90 border-[#00a3ad] text-white",
       });
       // Invalidate all related queries to refresh the data
       queryClient.invalidateQueries({ queryKey: ['/api/treasury/stats'] });
@@ -305,7 +305,7 @@ export function TreasuryManagement() {
 
       {/* Validation Issues */}
       {validationData && !validationData.isValid && (
-        <Card className="bg-gradient-to-r from-red-500/10 to-orange-500/10 border-red-500/20">
+        <Card className="bg-gradient-to-r from-red-500/10 to-[#f26522]/10 border-red-500/20">
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-white">
               <AlertCircle className="h-5 w-5" />
@@ -329,7 +329,7 @@ export function TreasuryManagement() {
               <h4 className="text-sm font-medium text-white">Recommendations:</h4>
               <ul className="space-y-1">
                 {validationData.recommendations.map((rec, index) => (
-                  <li key={index} className="text-sm text-orange-300 flex items-center gap-2">
+                  <li key={index} className="text-sm text-[#f26522] flex items-center gap-2">
                     <CheckCircle className="h-3 w-3" />
                     {rec}
                   </li>
@@ -343,7 +343,7 @@ export function TreasuryManagement() {
       {/* Management Actions */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Update Treasury Address */}
-        <Card className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border-yellow-500/20">
+        <Card className="bg-gradient-to-r from-yellow-500/10 to-[#f26522]/10 border-yellow-500/20">
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-white">
               <Settings className="h-5 w-5" />
@@ -385,7 +385,7 @@ export function TreasuryManagement() {
             <Button
               onClick={handleUpdateAddress}
               disabled={updateAddressMutation.isPending}
-              className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600"
+              className="w-full bg-gradient-to-r from-yellow-500 to-[#f26522] hover:from-yellow-600 hover:to-[#f26522]"
             >
               {updateAddressMutation.isPending ? "Updating..." : "Update Treasury Address"}
             </Button>

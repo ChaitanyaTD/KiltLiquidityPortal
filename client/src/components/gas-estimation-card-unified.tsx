@@ -86,7 +86,7 @@ export function GasEstimationCardUnified({ gasData }: GasEstimationCardProps) {
         {gasData && (
           <div className="space-y-3">
             <div className="flex items-center gap-2 mb-3">
-              <Fuel className="w-4 h-4 text-orange-400" />
+              <Fuel className="w-4 h-4 text-[#f26522]" />
               <span className="text-sm font-medium text-slate-300">Transaction Costs</span>
             </div>
             
@@ -103,7 +103,7 @@ export function GasEstimationCardUnified({ gasData }: GasEstimationCardProps) {
             
             <div className="flex items-center justify-between">
               <span className="text-sm text-slate-400">Total Gas Cost</span>
-              <Badge variant="outline" className="border-orange-500/30 text-orange-400">
+                <Badge variant="outline" className="border-[#f26522]/30 text-[#f26522]">
                 {gasData.total.costUSD}
               </Badge>
             </div>
@@ -116,12 +116,12 @@ export function GasEstimationCardUnified({ gasData }: GasEstimationCardProps) {
         )}
 
         {/* Value Proposition */}
-        <div className="mt-4 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+        <div className="mt-4 p-3 bg-[#00a3ad]/10 border border-[#00a3ad]/20 rounded-lg">
           <div className="flex items-center gap-2 mb-1">
-            <TrendingUp className="w-4 h-4 text-green-400" />
-            <span className="text-sm font-medium text-green-400">Earning Potential</span>
+            <TrendingUp className="w-4 h-4 text-[#00a3ad]" />
+            <span className="text-sm font-medium text-[#00a3ad]">Earning Potential</span>
           </div>
-          <p className="text-xs text-green-300">
+          <p className="text-xs text-[#33b5bd]">
             {!isLoading && expectedReturns ? (
               `Earn ${expectedReturns.totalAPR}% APR with minimal gas costs (${gasData?.total.costUSD || '$0.02'})`
             ) : (

@@ -114,7 +114,7 @@ export function CyberpunkAdminPanel() {
       toast({
         title: "[TREASURY_UPDATE_SUCCESS]",
         description: "Treasury configuration updated successfully - Main app updated instantly",
-        className: "bg-green-900/90 border-green-400 text-green-100",
+        className: "bg-[#00a3ad]/90 border-[#00a3ad] text-white",
       });
     },
     onError: (error) => {
@@ -173,7 +173,7 @@ export function CyberpunkAdminPanel() {
       toast({
         title: "[PROGRAM_SETTINGS_SUCCESS]",
         description: "Program parameters updated successfully - Main app updated instantly",
-        className: "bg-green-900/90 border-green-400 text-green-100",
+        className: "bg-[#00a3ad]/90 border-[#00a3ad] text-white",
       });
     },
     onError: (error) => {
@@ -254,7 +254,7 @@ export function CyberpunkAdminPanel() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-green-400 font-mono overflow-hidden relative">
+    <div className="min-h-screen bg-black text-[#00a3ad] font-mono overflow-hidden relative">
       {/* Matrix Rain Background */}
       <div className="fixed inset-0 opacity-5">
         <div className="matrix-rain"></div>
@@ -276,7 +276,7 @@ export function CyberpunkAdminPanel() {
 
       <div className="relative z-10">
         {/* Header */}
-        <div className="border-b border-green-400 bg-black/90 p-4">
+        <div className="border-b border-[#00a3ad] bg-black/90 p-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
               <h1 className="text-xl font-bold text-[#f26522] tracking-wider">
@@ -294,7 +294,7 @@ export function CyberpunkAdminPanel() {
         </div>
 
         {/* Navigation */}
-        <div className="bg-gray-900 border-b border-green-400/30">
+        <div className="bg-gray-900 border-b border-[#00a3ad]/30">
           <div className="flex">
             {[
               { id: 'treasury', label: 'TREASURY_CONFIG' },
@@ -308,8 +308,8 @@ export function CyberpunkAdminPanel() {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`px-6 py-3 font-mono text-sm transition-all ${
                   activeTab === tab.id
-                    ? 'bg-green-400 text-black'
-                    : 'text-green-400 hover:bg-green-400/10'
+                    ? 'bg-[#00a3ad] text-black'
+                    : 'text-[#00a3ad] hover:bg-[#00a3ad]/10'
                 }`}
               >
                 {tab.label}
@@ -323,22 +323,22 @@ export function CyberpunkAdminPanel() {
           {/* Loading State */}
           {(treasuryLoading || settingsLoading) && (
             <div className="text-center py-8">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-400 mx-auto mb-4"></div>
-              <div className="text-green-400 font-mono">Loading admin configuration...</div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#00a3ad] mx-auto mb-4"></div>
+              <div className="text-[#00a3ad] font-mono">Loading admin configuration...</div>
             </div>
           )}
 
           {/* Treasury Configuration */}
           {activeTab === 'treasury' && !treasuryLoading && (
             <div className="space-y-6">
-              <div className="bg-black/50 border border-green-400 rounded p-6">
+              <div className="bg-black/50 border border-[#00a3ad] rounded p-6">
                 <h2 className="text-lg font-bold text-[#f26522] mb-4 tracking-wider">
                   [TREASURY_ALLOCATION_MATRIX]
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-green-400 text-sm mb-2 font-mono">TOTAL_ALLOCATION:</label>
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">TOTAL_ALLOCATION:</label>
                     <input
                       type="number"
                       value={treasuryConfig.totalAllocation || ''}
@@ -347,12 +347,12 @@ export function CyberpunkAdminPanel() {
                         totalAllocation: Number(e.target.value) || 0
                       })}
                       placeholder="Enter total allocation"
-                      className="w-full p-3 bg-gray-900 border border-green-400/50 rounded text-green-400 font-mono focus:border-green-400 focus:outline-none"
+                      className="w-full p-3 bg-gray-900 border border-[#00a3ad]/50 rounded text-[#00a3ad] font-mono focus:border-[#00a3ad] focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-green-400 text-sm mb-2 font-mono">PROGRAM_DURATION_DAYS:</label>
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">PROGRAM_DURATION_DAYS:</label>
                     <input
                       type="number"
                       value={treasuryConfig.programDurationDays || ''}
@@ -361,12 +361,12 @@ export function CyberpunkAdminPanel() {
                         programDurationDays: Number(e.target.value) || 0
                       })}
                       placeholder="Enter program duration"
-                      className="w-full p-3 bg-gray-900 border border-green-400/50 rounded text-green-400 font-mono focus:border-green-400 focus:outline-none"
+                      className="w-full p-3 bg-gray-900 border border-[#00a3ad]/50 rounded text-[#00a3ad] font-mono focus:border-[#00a3ad] focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-green-400 text-sm mb-2 font-mono">TREASURY_WALLET_ADDRESS:</label>
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">TREASURY_WALLET_ADDRESS:</label>
                     <input
                       type="text"
                       value={treasuryConfig.treasuryWalletAddress || ''}
@@ -377,7 +377,7 @@ export function CyberpunkAdminPanel() {
                           treasuryWalletAddress: e.target.value
                         });
                       }}
-                      className="w-full p-3 bg-gray-900 border border-green-400/50 rounded text-green-400 font-mono focus:border-green-400 focus:outline-none"
+                      className="w-full p-3 bg-gray-900 border border-[#00a3ad]/50 rounded text-[#00a3ad] font-mono focus:border-[#00a3ad] focus:outline-none"
                       placeholder="0x1234...abcd (complete wallet address required)"
                     />
                     <div className="text-xs text-gray-500 mt-1">
@@ -386,7 +386,7 @@ export function CyberpunkAdminPanel() {
                   </div>
 
                   <div>
-                    <label className="block text-green-400 text-sm mb-2 font-mono">DAILY_REWARDS_CAP: (Auto-calculated)</label>
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">DAILY_REWARDS_CAP: (Auto-calculated)</label>
                     <div className="w-full p-3 bg-gray-800 border border-gray-600 rounded text-gray-400 font-mono">
                       {derivedValues.dailyRewardsCap.toFixed(2)} KILT/day
                     </div>
@@ -396,7 +396,7 @@ export function CyberpunkAdminPanel() {
                   </div>
 
                   <div>
-                    <label className="block text-green-400 text-sm mb-2 font-mono">PROGRAM_START_DATE:</label>
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">PROGRAM_START_DATE:</label>
                     <input
                       type="date"
                       value={treasuryConfig.programStartDate || ''}
@@ -404,12 +404,12 @@ export function CyberpunkAdminPanel() {
                         ...treasuryConfig,
                         programStartDate: e.target.value
                       })}
-                      className="w-full p-3 bg-gray-900 border border-green-400/50 rounded text-green-400 font-mono focus:border-green-400 focus:outline-none"
+                      className="w-full p-3 bg-gray-900 border border-[#00a3ad]/50 rounded text-[#00a3ad] font-mono focus:border-[#00a3ad] focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-green-400 text-sm mb-2 font-mono">PROGRAM_END_DATE: (Auto-calculated)</label>
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">PROGRAM_END_DATE: (Auto-calculated)</label>
                     <div className="w-full p-3 bg-gray-800 border border-gray-600 rounded text-gray-400 font-mono">
                       {derivedValues.programEndDate || 'dd/mm/yyyy'}
                     </div>
@@ -422,7 +422,7 @@ export function CyberpunkAdminPanel() {
                 <button
                   onClick={handleSaveTreasury}
                   disabled={treasuryMutation.isPending}
-                  className="mt-6 px-6 py-3 bg-green-400 text-black font-mono font-bold rounded hover:bg-green-300 transition-colors disabled:opacity-50"
+                  className="mt-6 px-6 py-3 bg-[#00a3ad] text-black font-mono font-bold rounded hover:bg-[#33b5bd] transition-colors disabled:opacity-50"
                 >
                   {treasuryMutation.isPending ? '[UPDATING...]' : '[UPDATE_TREASURY]'}
                 </button>
@@ -439,18 +439,18 @@ export function CyberpunkAdminPanel() {
                   [REWARD_FORMULA_SPECIFICATION]
                 </h2>
                 
-                <div className="bg-gray-900/80 border border-green-400/30 rounded p-4 mb-4">
-                  <div className="text-green-400 font-mono text-sm mb-2">
+                <div className="bg-gray-900/80 border border-[#00a3ad]/30 rounded p-4 mb-4">
+                  <div className="text-[#00a3ad] font-mono text-sm mb-2">
                     MATHEMATICAL FORMULA:
                   </div>
-                  <div className="text-white font-mono text-lg bg-black/50 p-3 rounded border border-green-400/20">
+                  <div className="text-white font-mono text-lg bg-black/50 p-3 rounded border border-[#00a3ad]/20">
                     R_u = (L_u/L_T) × (1 + ((D_u/P) × b_time)) × IRM × FRB × (R/P)
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <div className="space-y-2">
-                    <div className="text-green-400 font-mono">FORMULA COMPONENTS:</div>
+                    <div className="text-[#00a3ad] font-mono">FORMULA COMPONENTS:</div>
                     <div className="text-gray-300 space-y-1 font-mono">
                       <div>R_u = Daily user rewards (KILT)</div>
                       <div>L_u = User liquidity amount (USD)</div>
@@ -460,7 +460,7 @@ export function CyberpunkAdminPanel() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="text-green-400 font-mono">MULTIPLIERS:</div>
+                    <div className="text-[#00a3ad] font-mono">MULTIPLIERS:</div>
                     <div className="text-gray-300 space-y-1 font-mono">
                       <div>b_time = Time boost coefficient (0.6) → Max 1.6x</div>
                       <div>IRM = In-range multiplier (0.7-1.0)</div>
@@ -472,12 +472,12 @@ export function CyberpunkAdminPanel() {
               </div>
 
               {/* Time Bonus Formula */}
-              <div className="bg-black/50 border border-green-400 rounded p-6">
+              <div className="bg-black/50 border border-[#00a3ad] rounded p-6">
                 <h2 className="text-lg font-bold text-[#f26522] mb-4 tracking-wider">
                   [TIME_BONUS_FORMULA]
                 </h2>
-                <div className="bg-gray-900/50 border border-green-400/30 rounded p-4 font-mono text-sm">
-                  <div className="text-green-400 mb-2">TIME BONUS CALCULATION:</div>
+                <div className="bg-gray-900/50 border border-[#00a3ad]/30 rounded p-4 font-mono text-sm">
+                  <div className="text-[#00a3ad] mb-2">TIME BONUS CALCULATION:</div>
                   <div className="text-white mb-2">Time Bonus = 1 + ((D_u / P) × b_time)</div>
                   <div className="text-gray-300 space-y-1 text-xs">
                     <div>• D_u = Days position has been active</div>
@@ -489,15 +489,15 @@ export function CyberpunkAdminPanel() {
                 </div>
               </div>
 
-              <div className="bg-black/50 border border-green-400 rounded p-6">
+              <div className="bg-black/50 border border-[#00a3ad] rounded p-6">
                 <h2 className="text-lg font-bold text-[#f26522] mb-4 tracking-wider">
                   [REWARD_ALGORITHM_PARAMETERS]
                 </h2>
                 
                 <div className="grid grid-cols-1 gap-6">
                   {/* Time Boost Coefficient */}
-                  <div className="border border-green-400/30 rounded p-4 bg-gray-900/30">
-                    <label className="block text-green-400 text-sm mb-2 font-mono">TIME_BOOST_COEFFICIENT (b_time):</label>
+                  <div className="border border-[#00a3ad]/30 rounded p-4 bg-gray-900/30">
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">TIME_BOOST_COEFFICIENT (b_time):</label>
                     <input
                       type="number"
                       step="0.1"
@@ -507,19 +507,19 @@ export function CyberpunkAdminPanel() {
                         timeBoostCoefficient: Number(e.target.value) || 0
                       })}
                       placeholder="e.g. 0.6"
-                      className="w-full p-3 bg-gray-900 border border-green-400/50 rounded text-green-400 font-mono focus:border-green-400 focus:outline-none mb-2"
+                      className="w-full p-3 bg-gray-900 border border-[#00a3ad]/50 rounded text-[#00a3ad] font-mono focus:border-[#00a3ad] focus:outline-none mb-2"
                     />
                     <div className="text-gray-400 text-xs font-mono">
                       Controls time-based reward growth. Value of 0.6 means users get 100% base rewards on day 1, growing to 160% at program completion. Higher values = steeper time progression.
                     </div>
-                    <div className="text-green-400 text-xs mt-1 font-mono">
+                    <div className="text-[#00a3ad] text-xs mt-1 font-mono">
                       Current: {programSettings.timeBoostCoefficient}x → {(100 + programSettings.timeBoostCoefficient * 100).toFixed(0)}% max boost
                     </div>
                   </div>
 
                   {/* Full Range Bonus */}
-                  <div className="border border-green-400/30 rounded p-4 bg-gray-900/30">
-                    <label className="block text-green-400 text-sm mb-2 font-mono">FULL_RANGE_BONUS (FRB):</label>
+                  <div className="border border-[#00a3ad]/30 rounded p-4 bg-gray-900/30">
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">FULL_RANGE_BONUS (FRB):</label>
                     <input
                       type="number"
                       step="0.1"
@@ -529,19 +529,19 @@ export function CyberpunkAdminPanel() {
                         fullRangeBonus: Number(e.target.value) || 0
                       })}
                       placeholder="e.g. 1.2"
-                      className="w-full p-3 bg-gray-900 border border-green-400/50 rounded text-green-400 font-mono focus:border-green-400 focus:outline-none mb-2"
+                      className="w-full p-3 bg-gray-900 border border-[#00a3ad]/50 rounded text-[#00a3ad] font-mono focus:border-[#00a3ad] focus:outline-none mb-2"
                     />
                     <div className="text-gray-400 text-xs font-mono">
                       Bonus multiplier for full-range (50/50) liquidity positions. Encourages balanced liquidity provision. Concentrated positions get 1.0x, full-range gets this multiplier.
                     </div>
-                    <div className="text-green-400 text-xs mt-1 font-mono">
+                    <div className="text-[#00a3ad] text-xs mt-1 font-mono">
                       Current: Full-range positions get {((programSettings.fullRangeBonus - 1) * 100).toFixed(0)}% bonus vs concentrated
                     </div>
                   </div>
 
                   {/* Minimum Position Value */}
-                  <div className="border border-green-400/30 rounded p-4 bg-gray-900/30">
-                    <label className="block text-green-400 text-sm mb-2 font-mono">MIN_POSITION_VALUE (USD):</label>
+                  <div className="border border-[#00a3ad]/30 rounded p-4 bg-gray-900/30">
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">MIN_POSITION_VALUE (USD):</label>
                     <input
                       type="number"
                       value={programSettings.minimumPositionValue || ''}
@@ -550,19 +550,19 @@ export function CyberpunkAdminPanel() {
                         minimumPositionValue: Number(e.target.value) || 0
                       })}
                       placeholder="e.g. 10"
-                      className="w-full p-3 bg-gray-900 border border-green-400/50 rounded text-green-400 font-mono focus:border-green-400 focus:outline-none mb-2"
+                      className="w-full p-3 bg-gray-900 border border-[#00a3ad]/50 rounded text-[#00a3ad] font-mono focus:border-[#00a3ad] focus:outline-none mb-2"
                     />
                     <div className="text-gray-400 text-xs font-mono">
                       Anti-spam protection: Minimum liquidity value required for reward eligibility. Prevents dust attacks and spam positions from consuming rewards.
                     </div>
-                    <div className="text-green-400 text-xs mt-1 font-mono">
+                    <div className="text-[#00a3ad] text-xs mt-1 font-mono">
                       Current: ${programSettings.minimumPositionValue} minimum to earn rewards
                     </div>
                   </div>
 
                   {/* Lock Period */}
-                  <div className="border border-green-400/30 rounded p-4 bg-gray-900/30">
-                    <label className="block text-green-400 text-sm mb-2 font-mono">LOCK_PERIOD_DAYS:</label>
+                  <div className="border border-[#00a3ad]/30 rounded p-4 bg-gray-900/30">
+                    <label className="block text-[#00a3ad] text-sm mb-2 font-mono">LOCK_PERIOD_DAYS:</label>
                     <input
                       type="number"
                       value={programSettings.lockPeriod || ''}
@@ -571,12 +571,12 @@ export function CyberpunkAdminPanel() {
                         lockPeriod: Number(e.target.value) || 0
                       })}
                       placeholder="e.g. 7"
-                      className="w-full p-3 bg-gray-900 border border-green-400/50 rounded text-green-400 font-mono focus:border-green-400 focus:outline-none mb-2"
+                      className="w-full p-3 bg-gray-900 border border-[#00a3ad]/50 rounded text-[#00a3ad] font-mono focus:border-[#00a3ad] focus:outline-none mb-2"
                     />
                     <div className="text-gray-400 text-xs font-mono">
                       Commitment period required before rewards become claimable. Encourages longer-term liquidity provision and reduces reward dumping.
                     </div>
-                    <div className="text-green-400 text-xs mt-1 font-mono">
+                    <div className="text-[#00a3ad] text-xs mt-1 font-mono">
                       Current: {programSettings.lockPeriod} days commitment before claiming
                     </div>
                   </div>
@@ -587,7 +587,7 @@ export function CyberpunkAdminPanel() {
                   <div className="text-[#f26522] font-mono text-sm mb-2">
                     LIVE FORMULA PREVIEW:
                   </div>
-                  <div className="text-white font-mono text-sm bg-black/50 p-3 rounded border border-green-400/20">
+                  <div className="text-white font-mono text-sm bg-black/50 p-3 rounded border border-[#00a3ad]/20">
                     R_u = (L_u/L_T) × (1 + ((D_u/{treasuryConfig.programDurationDays}) × {programSettings.timeBoostCoefficient})) × IRM × {programSettings.fullRangeBonus} × ({derivedValues.dailyRewardsCap}/day)
                   </div>
                   <div className="text-gray-400 text-xs mt-2 font-mono">
@@ -596,8 +596,8 @@ export function CyberpunkAdminPanel() {
                 </div>
 
                 {/* Data Flow Documentation */}
-                <div className="mt-6 bg-gray-900/60 border border-green-400/20 rounded p-4">
-                  <div className="text-green-400 font-mono text-sm mb-3">
+                <div className="mt-6 bg-gray-900/60 border border-[#00a3ad]/20 rounded p-4">
+                  <div className="text-[#00a3ad] font-mono text-sm mb-3">
                     [SINGLE_SOURCE_OF_TRUTH_DATA_FLOW]
                   </div>
                   <div className="space-y-2 text-xs font-mono text-gray-300">
@@ -618,8 +618,8 @@ export function CyberpunkAdminPanel() {
                       <span>User Interface → Displays live values from formula-based-apr-service.ts</span>
                     </div>
                   </div>
-                  <div className="mt-3 p-2 bg-black/40 border border-green-400/20 rounded">
-                    <div className="text-green-400 text-xs font-mono">
+                  <div className="mt-3 p-2 bg-black/40 border border-[#00a3ad]/20 rounded">
+                    <div className="text-[#00a3ad] text-xs font-mono">
                       ✓ No hardcoded values in main app &nbsp; ✓ Admin panel is single source of truth &nbsp; ✓ Real-time synchronization
                     </div>
                   </div>
@@ -653,32 +653,32 @@ export function CyberpunkAdminPanel() {
           {/* Operations Log */}
           {activeTab === 'operations' && (
             <div className="space-y-6">
-              <div className="bg-black/50 border border-green-400 rounded p-6">
+              <div className="bg-black/50 border border-[#00a3ad] rounded p-6">
                 <h2 className="text-lg font-bold text-[#f26522] mb-4 tracking-wider">
                   [SYSTEM_OPERATIONS_HISTORY]
                 </h2>
                 
                 <div className="space-y-2 max-h-96 overflow-y-auto">
                   {(operations as any[]).length === 0 ? (
-                    <div className="text-green-400/50 font-mono text-sm">
+                    <div className="text-[#00a3ad]/50 font-mono text-sm">
                       [NO_OPERATIONS_LOGGED]
                     </div>
                   ) : (
                     (operations as any[]).map((op: any, index: number) => (
                       <div
                         key={index}
-                        className="border border-green-400/30 rounded p-3 bg-gray-900/50"
+                        className="border border-[#00a3ad]/30 rounded p-3 bg-gray-900/50"
                       >
                         <div className="flex justify-between items-start text-sm">
-                          <div className="text-green-400 font-mono">
+                          <div className="text-[#00a3ad] font-mono">
                             [{op.action}]
                           </div>
-                          <div className="text-green-400/50 font-mono">
+                          <div className="text-[#00a3ad]/50 font-mono">
                             {new Date(op.timestamp).toLocaleString()}
                           </div>
                         </div>
                         {op.details && (
-                          <div className="text-green-400/70 font-mono text-xs mt-1">
+                          <div className="text-[#00a3ad]/70 font-mono text-xs mt-1">
                             {op.details}
                           </div>
                         )}

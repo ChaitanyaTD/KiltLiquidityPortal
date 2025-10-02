@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-br from-[#f26522] to-[#d45a1a] text-white shadow-medium-modern hover:from-[#ff7a4a] hover:to-[#b84a0f] hover:shadow-strong-modern hover:-translate-y-0.5",
+        default: "bg-gradient-to-br from-[#f26522] to-[#d45a1a] text-white shadow-medium-modern hover:from-[#f26522] hover:to-[#d45a1a] hover:shadow-strong-modern hover:-translate-y-0.5",
         destructive:
           "bg-gradient-to-br from-red-500 to-red-600 text-white shadow-medium-modern hover:from-red-400 hover:to-red-500 hover:shadow-strong-modern hover:-translate-y-0.5",
         outline:
@@ -17,7 +17,7 @@ const buttonVariants = cva(
         secondary:
           "bg-glass-medium text-primary hover:bg-glass-strong backdrop-blur-[16px] border border-modern",
         ghost: "text-primary hover:bg-glass-light",
-        link: "text-accent-pink underline-offset-4 hover:underline font-medium",
+        link: "text-[#f26522] underline-offset-4 hover:underline font-medium",
       },
       size: {
         default: "h-11 px-6 py-2.5",

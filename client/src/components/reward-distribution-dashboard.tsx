@@ -197,11 +197,11 @@ export function RewardDistributionDashboard() {
             {distributeMutation.data && (
               <div className="flex items-center gap-2 mb-2">
                 {distributeMutation.data.success ? (
-                  <CheckCircle className="h-5 w-5 text-emerald-400" />
+                  <CheckCircle className="h-5 w-5 text-[#00a3ad]" />
                 ) : (
                   <AlertCircle className="h-5 w-5 text-red-400" />
                 )}
-                <span className={distributeMutation.data.success ? 'text-emerald-400' : 'text-red-400'}>
+                <span className={distributeMutation.data.success ? 'text-[#00a3ad]' : 'text-red-400'}>
                   {String(distributeMutation.data.message)}
                 </span>
               </div>
@@ -209,7 +209,7 @@ export function RewardDistributionDashboard() {
             {dailyDistributionMutation.data && (
               <div className="flex items-center gap-2">
                 {dailyDistributionMutation.data.success ? (
-                  <CheckCircle className="h-5 w-5 text-emerald-400" />
+                  <CheckCircle className="h-5 w-5 text-[#00a3ad]" />
                 ) : (
                   <AlertCircle className="h-5 w-5 text-red-400" />
                 )}
@@ -246,7 +246,7 @@ export function RewardDistributionDashboard() {
                       type="checkbox"
                       checked={selectedUsers.some(u => u.userAddress === user.userAddress)}
                       onChange={(e) => handleUserSelection(user, e.target.checked)}
-                      className="w-4 h-4 rounded border-gray-600 text-emerald-500 focus:ring-emerald-500"
+                      className="w-4 h-4 rounded border-gray-600 text-[#00a3ad] focus:ring-[#00a3ad]"
                     />
                     <div>
                       <div className="text-sm font-medium text-white">
@@ -258,10 +258,10 @@ export function RewardDistributionDashboard() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm font-medium text-emerald-400">
+                    <div className="text-sm font-medium text-[#00a3ad]">
                       {parseFloat(user.amount).toLocaleString()} KILT
                     </div>
-                    <Badge variant="outline" className="text-xs border-emerald-500/30 text-emerald-400">
+                    <Badge variant="outline" className="text-xs border-[#00a3ad]/30 text-[#00a3ad]">
                       Ready
                     </Badge>
                   </div>

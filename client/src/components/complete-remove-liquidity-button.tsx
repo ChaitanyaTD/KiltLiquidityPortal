@@ -57,7 +57,7 @@ export function CompleteRemoveLiquidityButton({ tokenId, disabled = false }: Com
       disabled={disabled || isLoading}
       size="sm"
       variant="outline"
-      className="text-xs px-3 py-1 h-auto border-orange-500/30 text-orange-400 hover:bg-orange-500/10"
+      className="text-xs px-3 py-1 h-auto border-[#f26522]/30 text-[#f26522] hover:bg-[#f26522]/10"
     >
       <Download className="w-3 h-3 mr-1" />
       {isLoading ? 'Collecting...' : 'Complete Step 2'}

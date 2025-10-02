@@ -85,11 +85,11 @@ export function BlockchainConfigPanel() {
 
   if (isLoading) {
     return (
-      <div className="bg-black/90 border border-green-400 rounded-lg p-6">
+      <div className="bg-black/90 border border-[#00a3ad] rounded-lg p-6">
         <h3 className="text-xl font-bold text-[#f26522] mb-4">
           ◢◤ BLOCKCHAIN CONFIGURATION ◥◣
         </h3>
-        <div className="text-green-400 font-mono text-sm">
+        <div className="text-[#00a3ad] font-mono text-sm">
           [LOADING_CONFIGURATION...]
         </div>
       </div>
@@ -117,7 +117,7 @@ export function BlockchainConfigPanel() {
         ◢◤ BLOCKCHAIN CONFIGURATION ◥◣
       </h3>
       
-      <div className="text-green-400 text-sm mb-6 font-mono">
+      <div className="text-[#00a3ad] text-sm mb-6 font-mono">
         [SYSTEM_CONFIG_MANAGEMENT] Dynamic blockchain parameter control
       </div>
 
@@ -129,14 +129,14 @@ export function BlockchainConfigPanel() {
             </h4>
             
             {configs.map((config) => (
-              <div key={config.configKey} className="bg-gray-900/50 border border-green-400/30 rounded p-4">
+              <div key={config.configKey} className="bg-gray-900/50 border border-[#00a3ad]/30 rounded p-4">
                 <div className="flex items-center justify-between mb-2">
                   <div>
-                    <div className="text-green-400 font-mono text-sm font-bold">
+                    <div className="text-[#00a3ad] font-mono text-sm font-bold">
                       {config.configKey}
                     </div>
                     {config.description && (
-                      <div className="text-green-400/70 text-xs mt-1">
+                      <div className="text-[#00a3ad]/70 text-xs mt-1">
                         {config.description}
                       </div>
                     )}
@@ -148,7 +148,7 @@ export function BlockchainConfigPanel() {
                         <button
                           onClick={() => handleSaveConfig(config.configKey, config)}
                           disabled={updateConfigMutation.isPending}
-                          className="px-3 py-1 bg-green-600 text-black text-xs font-bold rounded hover:bg-green-500 transition-colors disabled:opacity-50"
+                          className="px-3 py-1 bg-[#00a3ad] text-white text-xs font-bold rounded hover:bg-[#33b5bd] transition-colors disabled:opacity-50"
                         >
                           SAVE
                         </button>
@@ -179,11 +179,11 @@ export function BlockchainConfigPanel() {
                       type="text"
                       value={newValues[config.configKey] || config.configValue}
                       onChange={(e) => setNewValues(prev => ({ ...prev, [config.configKey]: e.target.value }))}
-                      className="w-full bg-black border border-green-400/50 rounded px-3 py-2 text-green-400 font-mono text-sm focus:border-green-400 focus:outline-none"
+                      className="w-full bg-black border border-[#00a3ad]/50 rounded px-3 py-2 text-[#00a3ad] font-mono text-sm focus:border-[#00a3ad] focus:outline-none"
                       placeholder="Enter configuration value..."
                     />
                   ) : (
-                    <div className="bg-black/50 border border-green-400/30 rounded px-3 py-2 text-green-400 font-mono text-sm break-all">
+                    <div className="bg-black/50 border border-[#00a3ad]/30 rounded px-3 py-2 text-[#00a3ad] font-mono text-sm break-all">
                       {config.configValue}
                     </div>
                   )}

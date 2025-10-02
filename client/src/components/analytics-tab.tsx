@@ -139,7 +139,7 @@ export function AnalyticsTab() {
         <Card className="theme-card cluely-card p-0">
           <CardContent className="p-4">
             <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="h-4 w-4 text-emerald-400" />
+              <TrendingUp className="h-4 w-4 text-[#00a3ad]" />
               <span className="text-white/70 text-sm">Time Bonus</span>
               {/* <TooltipProvider>
                 <Tooltip>
@@ -157,7 +157,7 @@ export function AnalyticsTab() {
             </div>
             <div className="space-y-1">
               <div className="flex items-center justify-between">
-                <span className="text-emerald-400 text-sm">Weighted Average:</span>
+                <span className="text-[#00a3ad] text-sm">Weighted Average:</span>
                 <span className="text-white font-bold">
                   {weightedAverageTimeBonus > 0 ? `${weightedAverageTimeBonus.toFixed(2)}x` : '--'}
                 </span>
@@ -165,7 +165,7 @@ export function AnalyticsTab() {
             </div>
             <div className="space-y-1">
               <div className="flex items-center justify-between">
-                <span className="text-emerald-400 text-sm">Simple Average:</span>
+                <span className="text-[#00a3ad] text-sm">Simple Average:</span>
                 <span className="text-white font-bold">
                   {simpleAverageTimeBonus > 0 ? `${simpleAverageTimeBonus.toFixed(2)}x` : '--'}
                 </span>
@@ -227,7 +227,7 @@ export function AnalyticsTab() {
                                 const uniswapUrl = `https://app.uniswap.org/pool/${tokenId}`;
                                 window.open(uniswapUrl, '_blank', 'noopener,noreferrer');
                             }}
-                            className="text-sm font-semibold text-orange-400 hover:text-[#f26522] transition-colors duration-200 cursor-pointer hover:underline flex items-center gap-1"
+                            className="text-sm font-semibold text-[#f26522] hover:text-[#f26522] transition-colors duration-200 cursor-pointer hover:underline flex items-center gap-1"
                             title="View on Uniswap"
                             >
                             Position #{position.nftTokenId}
@@ -240,7 +240,7 @@ export function AnalyticsTab() {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Badge className={position.isActive ? "bg-green-400/10 text-green-400 border-green-400/30" : "bg-red-400/10 text-red-400 border-red-400/30"}>
+                      <Badge className={position.isActive ? "bg-[#00a3ad]/10 text-[#00a3ad] border-[#00a3ad]/30" : "bg-red-400/10 text-red-400 border-red-400/30"}>
                         {position.isActive ? 'Active' : 'Inactive'}
                       </Badge>
                     </div>
@@ -324,7 +324,7 @@ export function AnalyticsTab() {
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-2">
                       <div 
-                        className="bg-gradient-to-r from-[#f26522] to-emerald-400 h-2 rounded-full transition-all duration-300"
+                        className="bg-gradient-to-r from-[#f26522] to-[#00a3ad] h-2 rounded-full transition-all duration-300"
                         style={{ 
                           width: `${Math.min(((position.timeBonus - 1) / (position.maxTimeBonus - 1)) * 100, 100)}%` 
                         }}

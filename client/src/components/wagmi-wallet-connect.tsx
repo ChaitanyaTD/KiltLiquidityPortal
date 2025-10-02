@@ -102,8 +102,8 @@ export function WagmiWalletConnect() {
         )}
 
         {!isWrongNetwork && (
-          <Badge variant="outline" className="bg-green-500/10 text-green-400 border-green-500/30">
-            <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+          <Badge variant="outline" className="bg-[#00a3ad]/10 text-[#00a3ad] border-[#00a3ad]/30">
+            <div className="w-2 h-2 bg-[#00a3ad] rounded-full mr-2"></div>
             Base Network
           </Badge>
         )}

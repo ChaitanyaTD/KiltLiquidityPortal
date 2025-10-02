@@ -743,10 +743,10 @@ export function LiquidityMint({
             <Info className="h-3 w-3 inline mr-1" />
             Minimum position value: ${minPositionUSD ?? 10}
           </div>
-          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-[12px] from-teal-500 to-teal-600 shadow-soft-modern hover:from-teal-400 hover:to-teal-500 hover:shadow-medium-modern bg-[#00a3ad]/20 border border-[#00a3ad]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
+          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-[12px] from-[#00a3ad] to-[#008a93] shadow-soft-modern hover:from-[#33b5bd] hover:to-[#00a3ad] hover:shadow-medium-modern bg-[#00a3ad]/20 border border-[#00a3ad]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
             0.3% Fee Tier
           </Badge>
-          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-[12px] from-orange-500 to-orange-600 shadow-soft-modern hover:from-orange-400 hover:to-orange-500 hover:shadow-medium-modern bg-[#f26522]/20 border border-[#f26522]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
+          <Badge className="inline-flex items-center rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 backdrop-blur-[12px] from-[#f26522] to-[#f26522] shadow-soft-modern hover:from-[#f26522] hover:to-[#f26522] hover:shadow-medium-modern bg-[#f26522]/20 border border-[#f26522]/50 px-2 py-0.5 text-xs text-[#e6e8ec]">
             {poolExists ? 'Pool Active' : 'Pool Not Found'}
           </Badge>
         </div>
@@ -841,7 +841,7 @@ export function LiquidityMint({
                           variant="ghost"
                           size="sm"
                           onClick={() => handlePercentageSelect(100)}
-                          className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10 px-2 py-1 font-semibold text-xs h-6"
+                          className="text-[#00a3ad] hover:text-[#33b5bd] hover:bg-[#00a3ad]/10 px-2 py-1 font-semibold text-xs h-6"
                         >
                           MAX
                         </Button>
@@ -855,7 +855,7 @@ export function LiquidityMint({
                         const swapUrl = `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${TOKEN_ADDRESSES.KILT}&chain=base`;
                         window.open(swapUrl, '_blank');
                       }}
-                      className="w-full bg-gradient-to-r from-[#f26522] to-orange-600 hover:from-[#f26522]/90 hover:to-orange-600/90 text-white border-0 px-4 py-2 font-bold text-sm h-8 transition-all duration-200 shadow-lg hover:shadow-orange-500/25 transform hover:scale-105 touch-manipulation"
+                      className="w-full bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522]/90 hover:to-[#f26522]/90 text-white border-0 px-4 py-2 font-bold text-sm h-8 transition-all duration-200 shadow-lg hover:shadow-[#f26522]/25 transform hover:scale-105 touch-manipulation"
                     >
                       <ArrowUpDown className="h-4 w-4 mr-2" />
                       {hasKiltBalance ? "More M1" : "Buy M1"}
@@ -905,7 +905,7 @@ export function LiquidityMint({
                   }
                 </span> {selectedEthToken}
               </span>
-              <span className="text-emerald-400 font-semibold text-xs px-2 py-1 bg-emerald-500/10 rounded">
+              <span className="text-[#00a3ad] font-semibold text-xs px-2 py-1 bg-[#00a3ad]/10 rounded">
                 Auto-calculated
               </span>
             </div>
@@ -917,7 +917,7 @@ export function LiquidityMint({
                 onClick={() => setSelectedEthToken('ETH')}
                 className={`flex-1 h-7 text-xs font-semibold transition-all duration-300 ${
                   selectedEthToken === 'ETH' 
-                    ? 'bg-emerald-600 hover:bg-emerald-500 text-white border-emerald-600' 
+                    ? 'bg-[#00a3ad] hover:bg-[#33b5bd] text-white border-[#00a3ad]' 
                     : 'bg-gray-800 hover:bg-gray-700 text-gray-300 border-gray-600'
                 }`}
               >
@@ -930,7 +930,7 @@ export function LiquidityMint({
                 onClick={() => setSelectedEthToken('WETH')}
                 className={`flex-1 h-7 text-xs font-semibold transition-all duration-300 ${
                   selectedEthToken === 'WETH' 
-                    ? 'bg-emerald-600 hover:bg-emerald-500 text-white border-emerald-600' 
+                    ? 'bg-[#00a3ad] hover:bg-[#33b5bd] text-white border-[#00a3ad]' 
                     : 'bg-gray-800 hover:bg-gray-700 text-gray-300 border-gray-600'
                 }`}
               >
@@ -949,7 +949,7 @@ export function LiquidityMint({
           disabled={isApproving || tokensApproved}
           className={`h-12 text-sm font-semibold rounded-lg transition-all duration-300 neon-button ${
             tokensApproved 
-              ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white border border-emerald-400 shadow-lg shadow-emerald-500/25' 
+              ? 'bg-gradient-to-r from-[#00a3ad] to-[#33b5bd] text-white border border-[#00a3ad] shadow-lg shadow-[#00a3ad]/25' 
               : 'bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522] hover:to-[#f26522] text-white'
           }`}
         >
@@ -976,7 +976,7 @@ export function LiquidityMint({
           disabled={isMinting || !kiltAmount || !ethAmount || !tokensApproved || (validationResult && !validationResult.isValid)}
           className={`h-12 text-sm font-semibold rounded-lg transition-all duration-300 neon-button ${
             !isMinting && kiltAmount && ethAmount && tokensApproved && (!validationResult || validationResult.isValid)
-              ? 'bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522] hover:to-[#f26522] text-white shadow-lg shadow-orange-500/25 border border-orange-400' 
+              ? 'bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522] hover:to-[#f26522] text-white shadow-lg shadow-[#f26522]/25 border border-[#f26522]' 
               : 'bg-gray-600 text-gray-400 cursor-not-allowed'
           }`}
         >

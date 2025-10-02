@@ -18,7 +18,7 @@ export function BaseNetworkIndicator() {
         onClick={switchToBase}
         variant="outline"
         size="sm"
-        className="bg-orange-500/10 text-orange-400 border-orange-500/30 hover:bg-orange-500/20 flex items-center gap-2"
+        className="bg-[#f26522]/10 text-[#f26522] border-[#f26522]/30 hover:bg-[#f26522]/20 flex items-center gap-2"
       >
         <AlertTriangle className="h-3 w-3" />
         Switch to Base
@@ -28,7 +28,7 @@ export function BaseNetworkIndicator() {
 
   if (isOnBase) {
     return (
-      <Badge variant="outline" className="bg-green-500/10 text-green-400 border-green-500/30">
+      <Badge variant="outline" className="bg-[#00a3ad]/10 text-[#00a3ad] border-[#00a3ad]/30">
         <CheckCircle className="h-3 w-3 mr-1" />
         Base Network
       </Badge>

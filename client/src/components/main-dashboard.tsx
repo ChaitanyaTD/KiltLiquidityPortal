@@ -45,6 +45,7 @@ import { MobileWalletConnect } from './mobile-wallet-connect';
 import { PositionRegistration } from './position-registration';
 import { useWalletClient } from 'wagmi';
 
+
 // Lazy load heavy components
 const LiquidityMint = lazy(() => import('./liquidity-mint').then(m => ({ default: m.LiquidityMint })));
 const RewardsTracking = lazy(() => import('./rewards-tracking').then(m => ({ default: m.RewardsTracking })));
@@ -58,7 +59,7 @@ const AnalyticsTab = lazy(() => import('./analytics-tab').then(m => ({ default: 
 const OptimizedLoadingFallback = ({ height = "400px" }) => (
   <div className="w-full flex items-center justify-center animate-pulse" style={{ height }}>
     <div className="text-center">
-      <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <div className="w-8 h-8 border-2 border-[#f26522] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
       <div className="text-white/60 text-sm">Loading...</div>
     </div>
   </div>
@@ -454,26 +455,24 @@ export function MainDashboard() {
             <div className="mb-12">
               <div className="relative w-32 h-32 mx-auto mb-8">
                 {/* Cyberpunk Megalith Logo */}
-                <CyberpunkKiltLogo size="xl" className="w-full h-full" />
+                <img src={megalithLogo} alt="Megalith" className="w-full h-full" />
               </div>
               
               {/* Modern Typography - Clean & Professional */}
-              <div className="mb-8">
-                {/* Main title with subtle gradient */}
-                <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
-                  <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-                    Megalith Liquidity
-                  </span>
-                  <span className="block text-5xl sm:text-6xl lg:text-7xl mt-2 text-white/90 font-normal">
-                    Incentive Program
-                  </span>
+              <div className="text-center mb-8">
+                {/* Main title with exact brand styling */}
+                <h1 className="megalith-title">
+                  MEGALÍTH
                 </h1>
+                <div className="megalith-subtitle">
+                  Liquidity Incentive Program
+                </div>
               </div>
               
               {/* Clean Description */}
               <div className="relative max-w-4xl mx-auto mb-8">
                 <p className="text-xl sm:text-2xl text-white/90 font-medium leading-relaxed text-center">
-                  Earn <span className="text-emerald-400 font-bold bg-emerald-400/10 px-2 py-1 rounded">{unifiedData.programAnalytics?.programAPR ? `${Math.round(unifiedData.programAnalytics.programAPR)}%` : '...'} APR</span> from the <span className="text-orange-400 font-bold bg-orange-400/10 px-2 py-1 rounded">{unifiedData.programAnalytics?.treasuryTotal ? (unifiedData.programAnalytics.treasuryTotal >= 1000000 ? `${(unifiedData.programAnalytics.treasuryTotal / 1000000).toFixed(1)}M` : `${(unifiedData.programAnalytics.treasuryTotal / 1000).toFixed(0)}K`) : '...'} Megalith treasury</span> by providing liquidity to Uniswap V3 pools on Base network.
+                  Earn <span className="text-[#00a3ad] font-bold bg-[#00a3ad]/10 px-2 py-1 rounded">{unifiedData.programAnalytics?.programAPR ? `${Math.round(unifiedData.programAnalytics.programAPR)}%` : '...'} APR</span> by providing liquidity to the Megalith Uniswap pool on Base.
                 </p>
               </div>
             </div>
@@ -489,14 +488,14 @@ export function MainDashboard() {
             <div className="grid md:grid-cols-3 gap-8 mb-16">
               {/* Megalith/ETH Pool */}
               <div className="group relative animate-fade-in animate-delay-100">
-                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-black/60 h-[180px] flex flex-col">
+                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-[#00a3ad]/30 hover:bg-black/60 h-[180px] flex flex-col">
                   <div className="flex items-center mb-4">
-                    <TrendingUp className="h-6 w-6 text-emerald-400 mr-3" />
-                    <h3 className="text-white font-bold text-lg">Megalith/ETH Pool</h3>
+                    <TrendingUp className="h-6 w-6 text-[#00a3ad] mr-3" />
+                    <h3 className="text-white font-bold text-lg">Deploy</h3>
                   </div>
                   <div className="flex-1 flex flex-col justify-center">
                     <p className="text-gray-300 text-sm leading-relaxed">
-                      Deploy capital efficiently with concentrated liquidity positions and advanced range strategies.
+                      Add liquidity to the official M1/ETH pool on Uniswap.
                     </p>
                   </div>
                 </div>
@@ -504,14 +503,14 @@ export function MainDashboard() {
 
               {/* Treasury Rewards */}
               <div className="group relative animate-fade-in animate-delay-200">
-                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-orange-500/30 hover:bg-black/60 h-[180px] flex flex-col">
+                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-[#f26522]/30 hover:bg-black/60 h-[180px] flex flex-col">
                   <div className="flex items-center mb-4">
-                    <Award className="h-6 w-6 text-orange-400 mr-3" />
-                    <h3 className="text-white font-bold text-lg">Treasury Rewards</h3>
+                    <Award className="h-6 w-6 text-[#f26522] mr-3" />
+                    <h3 className="text-white font-bold text-lg">Earn</h3>
                   </div>
                   <div className="flex-1 flex flex-col justify-center">
                     <p className="text-gray-300 text-sm leading-relaxed">
-                      Receive attractive rewards from <span className="text-orange-400 font-semibold">{unifiedData?.programAnalytics?.treasuryTotal ? (unifiedData.programAnalytics.treasuryTotal >= 1000000 ? `${(unifiedData.programAnalytics.treasuryTotal / 1000000).toFixed(1)}M M1` : `${(unifiedData.programAnalytics.treasuryTotal / 1000).toFixed(0)}K M1`) : '500K M1'}</span> treasury allocation with secure smart contract distribution.
+                      Accumulate rewards, with secure smart-contract distribution.
                     </p>
                   </div>
                 </div>
@@ -522,25 +521,15 @@ export function MainDashboard() {
                 <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-blue-500/30 hover:bg-black/60 h-[180px] flex flex-col">
                   <div className="flex items-center mb-4">
                     <BarChart3 className="h-6 w-6 text-blue-400 mr-3" />
-                    <h3 className="text-white font-bold text-lg">Program Analytics</h3>
+                    <h3 className="text-white font-bold text-lg">Track</h3>
                   </div>
                   <div className="flex-1 flex flex-col justify-center">
                     <p className="text-gray-300 text-sm leading-relaxed">
-                      Track your position performance, rewards earned, and program progress with detailed analytics.
+                      Monitor position performance, rewards, and bonuses, with detailed analytics.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Bottom CTA */}
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                Join the Megalith Ecosystem
-              </h2>
-              <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto mb-6 leading-relaxed">
-                Connect with the Megalith community and stay updated on the latest developments.
-              </p>
             </div>
 
             {/* Clean Social Media Links */}
@@ -716,7 +705,7 @@ export function MainDashboard() {
                     )}
                   </div>
                   <div className={`text-xs font-medium numeric-mono ${
-                    (kiltData?.priceChange24h || 0) >= 0 ? 'text-green-400' : 'text-red-400'
+                    (kiltData?.priceChange24h || 0) >= 0 ? 'text-[#00a3ad]' : 'text-red-400'
                   }`}>
                     {kiltData?.priceChange24h !== null && kiltData?.priceChange24h !== undefined ? 
                       `${kiltData.priceChange24h >= 0 ? '+' : ''}${kiltData.priceChange24h.toFixed(2)}% (24h)` : 
@@ -728,11 +717,11 @@ export function MainDashboard() {
 
               {/* Market Cap Card */}
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-green-400/30"></div>
-                <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-green-400/30 group-hover:shadow-lg group-hover:shadow-green-400/10 flex flex-col justify-between">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00a3ad]/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-[#00a3ad]/30"></div>
+                <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-[#00a3ad]/30 group-hover:shadow-lg group-hover:shadow-[#00a3ad]/10 flex flex-col justify-between">
                   <div className="flex items-center gap-1 mb-2">
-                    <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-green-400/20 to-green-400/10 border border-green-400/30 flex items-center justify-center flex-shrink-0">
-                      <Coins className="h-3 w-3 text-green-400" />
+                    <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-[#00a3ad]/20 to-[#00a3ad]/10 border border-[#00a3ad]/30 flex items-center justify-center flex-shrink-0">
+                      <Coins className="h-3 w-3 text-[#00a3ad]" />
                     </div>
                     <span className="text-white/70 text-xs font-medium">Market Cap</span>
                   </div>
@@ -749,11 +738,11 @@ export function MainDashboard() {
 
               {/* Trading Fees APR Card - Using Real Data */}
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-emerald-400/30"></div>
-                <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-emerald-400/30 group-hover:shadow-lg group-hover:shadow-emerald-400/10 flex flex-col justify-between">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00a3ad]/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-[#00a3ad]/30"></div>
+                <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-[#00a3ad]/30 group-hover:shadow-lg group-hover:shadow-[#00a3ad]/10 flex flex-col justify-between">
                   <div className="flex items-center gap-1 mb-2">
-                    <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-emerald-400/20 to-emerald-400/10 border border-emerald-400/30 flex items-center justify-center flex-shrink-0">
-                      <TrendingUp className="h-3 w-3 text-emerald-400" />
+                    <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-[#00a3ad]/20 to-[#00a3ad]/10 border border-[#00a3ad]/30 flex items-center justify-center flex-shrink-0">
+                      <TrendingUp className="h-3 w-3 text-[#00a3ad]" />
                     </div>
                     <span className="text-white/70 text-xs font-medium">Trading Fees APR</span>
                   </div>
@@ -768,11 +757,11 @@ export function MainDashboard() {
 
               {/* Program APR Card */}
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-green-500/30"></div>
-                <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-green-500/30 group-hover:shadow-lg group-hover:shadow-green-500/10 flex flex-col justify-between">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00a3ad]/20 to-transparent rounded-xl blur-xl transition-all duration-300 group-hover:from-[#00a3ad]/30"></div>
+                <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl p-3 h-28 transition-all duration-300 group-hover:border-[#00a3ad]/30 group-hover:shadow-lg group-hover:shadow-[#00a3ad]/10 flex flex-col justify-between">
                   <div className="flex items-center gap-1 mb-2">
-                    <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-green-500/20 to-green-500/10 border border-green-500/30 flex items-center justify-center flex-shrink-0">
-                      <Award className="h-3 w-3 text-green-500" />
+                    <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-[#00a3ad]/20 to-[#00a3ad]/10 border border-[#00a3ad]/30 flex items-center justify-center flex-shrink-0">
+                      <Award className="h-3 w-3 text-[#00a3ad]" />
                     </div>
                     <span className="text-white/70 text-xs font-medium">Program APR</span>
                   </div>
@@ -1159,13 +1148,13 @@ export function MainDashboard() {
       {/* Buy M1 Modal */}
       {showBuyKiltModal && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-black/90 backdrop-blur-xl border border-orange-500/30 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-auto">
+          <div className="bg-black/90 backdrop-blur-xl border border-[#f26522]/30 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-auto">
             {/* Modal Header */}
             <div className="flex items-center justify-between p-4 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <ShoppingCart className="w-6 h-6 text-orange-400" />
+                <ShoppingCart className="w-6 h-6 text-[#f26522]" />
                 <h2 className="text-white text-lg font-bold">Buy M1</h2>
-                <Badge className="bg-orange-500/10 text-orange-400 border-orange-500/30">
+                <Badge className="bg-[#f26522]/10 text-[#f26522] border-[#f26522]/30">
                   Direct Swap
                 </Badge>
               </div>

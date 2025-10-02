@@ -1,20 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import './styles/mobile-fixes.css';
 @import './styles/layout-fixes.css';
 
-/* Megalith Brand Fonts */
+/* Megalith Brand Fonts - Heading Now Family */
 @font-face {
   font-family: 'Heading Now';
-  src: url('/fonts/Heading-Now-Family-Trial-License-#71293/Fonts/Trial/Heading-Now-04-Regular-TRIAL.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Heading Now';
-  src: url('/fonts/Heading-Now-Family-Trial-License-#71293/Fonts/Trial/Heading-Now-05-Medium-TRIAL.ttf') format('truetype');
+  src: url('/fonts/Heading-Now-Family-Trial-License-#71293/Fonts/Trial/Heading-Now-95-Medium-TRIAL.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -22,7 +15,7 @@
 
 @font-face {
   font-family: 'Heading Now';
-  src: url('/fonts/Heading-Now-Family-Trial-License-#71293/Fonts/Trial/Heading-Now-06-Bold-TRIAL.ttf') format('truetype');
+  src: url('/fonts/Heading-Now-Family-Trial-License-#71293/Fonts/Trial/Heading-Now-96-Bold-TRIAL.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -30,35 +23,28 @@
 
 @font-face {
   font-family: 'Heading Now';
-  src: url('/fonts/Heading-Now-Family-Trial-License-#71293/Fonts/Trial/Heading-Now-07-Extrabold-TRIAL.ttf') format('truetype');
+  src: url('/fonts/Heading-Now-Family-Trial-License-#71293/Fonts/Trial/Heading-Now-97-Extrabold-TRIAL.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Clear Sans';
-  src: url('/fonts/clear-sans/TTF/ClearSans-Regular.ttf') format('truetype');
+  font-family: 'Heading Now';
+  src: url('/fonts/Heading-Now-Family-Trial-License-#71293/Fonts/Trial/Heading-Now-98-Heavy-TRIAL.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Heading Now';
+  src: url('/fonts/Heading-Now-Family-Trial-License-#71293/Fonts/Trial/Heading-Now-94-Regular-TRIAL.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Clear Sans';
-  src: url('/fonts/clear-sans/TTF/ClearSans-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Clear Sans';
-  src: url('/fonts/clear-sans/TTF/ClearSans-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 @tailwind base;
 @tailwind components;
@@ -163,8 +149,8 @@
 /* Enhanced Root Variables for Superior Visual Hierarchy */
 :root {
   /* Megalith Brand Typography System */
-  --font-family-primary: 'Clear Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  --font-family-display: 'Heading Now', 'Clear Sans', 'Inter', sans-serif;
+  --font-family-primary: 'Open Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-family-display: 'Heading Now', 'Open Sans', 'Inter', sans-serif;
   --font-family-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
   
   /* Enhanced Color Palette for Optimal Eye Comfort */
@@ -182,13 +168,13 @@
   
   /* Balanced Accent Colors */
   --accent-orange: #f26522;
-  --accent-orange-soft: #ff7a4a;
-  --accent-orange-muted: #d45a1a;
+  --accent-orange-soft: #f26522;
+  --accent-orange-muted: #f26522;
   --accent-teal: #00a3ad;
   --accent-teal-soft: #33b5bd;
   --accent-teal-muted: #008a93;
   --accent-blue: hsl(210, 100%, 68%);
-  --accent-emerald: hsl(160, 75%, 58%);
+  --accent-emerald: #00a3ad;
   --accent-amber: hsl(45, 100%, 65%);
   
   /* Sophisticated Border and Shadow System */
@@ -253,6 +239,32 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
   color: var(--text-primary);
   margin: 0;
+}
+
+/* MEGALÍTH Brand Title - Exact styling from brand image */
+.megalith-title {
+  font-family: 'Heading Now', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+.megalith-subtitle {
+  font-family: 'Heading Now', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: #ffffff;
+  margin-top: 1rem;
 }
 
 h1 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; }
@@ -921,7 +933,7 @@ a:hover {
   font-family: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 1.75rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #fff 0%, #00ff96 50%, #0096ff 100%);
+  background: linear-gradient(135deg, #fff 0%, #f26522 50%, #d45a1a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1078,7 +1090,7 @@ a:hover {
 }
 
 .enhanced-button {
-  background: linear-gradient(135deg, #f26522 0%, #cc0052 100%);
+  background: linear-gradient(135deg, #f26522 0%, #f26522 100%);
   border: none;
   border-radius: 12px;
   padding: 0.75rem 1.5rem;
@@ -1152,7 +1164,7 @@ a:hover {
 }
 
 /* Refined color gradients */
-.gradient-pink-subtle {
+.gradient-orange-subtle {
   background: linear-gradient(135deg, rgba(242, 101, 34, 0.1) 0%, rgba(242, 101, 34, 0.05) 100%);
 }
 
@@ -1165,7 +1177,7 @@ a:hover {
 }
 
 .gradient-emerald-subtle {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(0, 163, 173, 0.1) 0%, rgba(0, 163, 173, 0.05) 100%);
 }
 
 /* Typography enhancements */
@@ -1196,7 +1208,7 @@ a:hover {
 /* ===== CYBERPUNK NEON TEXT EFFECTS ===== */
 
 /* Neon text shadows for cyberpunk effect */
-.text-shadow-neon-pink {
+.text-shadow-neon-orange {
   text-shadow: 
     0 0 5px #f26522,
     0 0 10px #f26522,
@@ -1218,7 +1230,7 @@ a:hover {
 
 .text-shadow-neon-green {
   text-shadow: 
-    0 0 5px #00ff41,
+    0 0 5px #00a3ad,
     0 0 10px #00ff41,
     0 0 15px #00ff41,
     0 0 20px #00ff41,
@@ -1442,24 +1454,24 @@ html {
 }
 
 /* CONSISTENT HEX #f26522 COLOR CLASSES */
-.text-pink-primary {
+.text-orange-primary {
   color: #f26522 !important;
 }
 
-.border-pink-primary {
+.border-orange-primary {
   border-color: #f26522 !important;
 }
 
-.bg-pink-primary {
+.bg-orange-primary {
   background-color: #f26522 !important;
 }
 
-.text-pink-glow {
+.text-orange-glow {
   color: #f26522;
   text-shadow: 0 0 4px rgba(242, 101, 34, 0.6);
 }
 
-.border-pink-glow {
+.border-orange-glow {
   border-color: #f26522;
   box-shadow: 0 0 4px rgba(242, 101, 34, 0.3);
 }
@@ -1710,12 +1722,12 @@ html {
 }
 
 .text-emerald-400, .text-emerald-500, .text-cyan-400, .text-cyan-500 {
-  color: var(--neon-orange-text) !important;
-  text-shadow: 0 0 2px var(--neon-orange-glow);
+  color: var(--neon-teal-text) !important;
+  text-shadow: 0 0 2px var(--neon-teal-glow);
 }
 
 .bg-emerald-500, .bg-cyan-500 {
-  background: var(--neon-orange) !important;
+  background: var(--neon-teal) !important;
 }
 
 .text-purple-400, .text-purple-500 {
@@ -1776,8 +1788,8 @@ html {
     0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-/* CYBERPUNK PINK THEME TEXT CLASSES */
-.text-pink-300, .text-pink-400 {
+/* CYBERPUNK ORANGE THEME TEXT CLASSES */
+.text-orange-300, .text-orange-400 {
   color: var(--neon-orange-text) !important;
   text-shadow: 
     0 0 8px var(--neon-orange-glow),
@@ -1785,7 +1797,7 @@ html {
     0 0 3px rgba(0, 0, 0, 0.9);
 }
 
-.text-pink-500, .text-pink-600 {
+.text-orange-500, .text-orange-600 {
   color: var(--neon-orange) !important;
   text-shadow: 
     0 0 10px var(--neon-orange-glow),
@@ -1803,7 +1815,7 @@ html {
 
 /* CYBERPUNK BRAND COLORS */
 .text-emerald-300, .text-emerald-400 {
-  color: var(--terminal-green) !important;
+  color: var(--neon-teal) !important;
   text-shadow: 
     0 0 8px var(--terminal-green-glow),
     0 0 15px var(--terminal-green-glow),
@@ -1838,7 +1850,7 @@ html {
   }
 
   body {
-    font-family: 'Clear Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Open Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     color: #ffffff;
     background: 
       /* Pure black background */
@@ -1860,7 +1872,7 @@ html {
 
   /* Removed background video class */
   
-  /* PURE BLACK BACKGROUND - NO OVERLAY */
+  /* APP BACKGROUND */
   body::after {
     content: '';
     position: fixed;
@@ -1868,7 +1880,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000000;
+    background: #1a1a1a;
     z-index: -1;
     pointer-events: none;
   }
@@ -1916,8 +1928,12 @@ html {
   box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
-.glow-pink {
-  box-shadow: 0 0 10px rgba(236, 0, 94, 0.3);
+.glow-orange {
+  box-shadow: 0 0 10px rgba(242, 101, 34, 0.3);
+}
+
+.cyberpunk-orange-glow {
+  box-shadow: 0 0 20px rgba(242, 101, 34, 0.4);
 }
 
 @layer components {
@@ -1932,7 +1948,7 @@ html {
     box-shadow: 
       0 0 20px rgba(0, 0, 0, 0.95) inset,
       0 0 15px rgba(242, 101, 34, 0.2);
-    font-family: 'Clear Sans', 'Inter', sans-serif;
+    font-family: 'Open Sans', 'Inter', sans-serif;
     letter-spacing: -0.01em;
   }
   
@@ -1952,7 +1968,7 @@ html {
     border: 2px solid var(--neon-orange);
     backdrop-filter: blur(2px);
     transition: all 0.2s ease;
-    font-family: 'Heading Now', 'Clear Sans', sans-serif;
+    font-family: 'HN95', 'HN94', 'Open Sans', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1974,7 +1990,7 @@ html {
     border: 1px solid var(--neon-orange-border);
     backdrop-filter: blur(2px);
     transition: all 0.2s ease;
-    font-family: 'Clear Sans', 'Inter', sans-serif;
+    font-family: 'Open Sans', 'Inter', sans-serif;
     letter-spacing: -0.01em;
   }
   
@@ -1987,21 +2003,21 @@ html {
   .theme-text-primary {
     color: var(--neon-orange);
     text-shadow: 0 0 10px var(--neon-orange-glow);
-    font-family: 'Heading Now', 'Clear Sans', sans-serif;
+    font-family: 'HN95', 'HN94', 'Open Sans', sans-serif;
     font-weight: 600;
     letter-spacing: -0.01em;
   }
   
   .theme-text-secondary {
     color: var(--light-gray);
-    font-family: 'Clear Sans', 'Inter', sans-serif;
+    font-family: 'Open Sans', 'Inter', sans-serif;
     letter-spacing: -0.01em;
   }
   
   .theme-text-accent {
     color: var(--terminal-green);
     text-shadow: 0 0 10px var(--terminal-green-glow);
-    font-family: 'Heading Now', 'Clear Sans', sans-serif;
+    font-family: 'HN95', 'HN94', 'Open Sans', sans-serif;
     font-weight: 600;
     letter-spacing: -0.01em;
   }
@@ -2011,7 +2027,7 @@ html {
     color: var(--neon-cyan);
     border: 1px solid rgba(0, 255, 255, 0.3);
     backdrop-filter: blur(1px);
-    font-family: 'Heading Now', 'Clear Sans', sans-serif;
+    font-family: 'HN95', 'HN94', 'Open Sans', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -2181,9 +2197,9 @@ html {
 }
 
 .status-online {
-  @apply text-green-400;
-  background: rgba(34, 197, 94, 0.1);
-  border-color: rgba(34, 197, 94, 0.3);
+  @apply text-[#00a3ad];
+  background: rgba(0, 163, 173, 0.1);
+  border-color: rgba(0, 163, 173, 0.3);
 }
 
 .status-warning {
@@ -2224,23 +2240,23 @@ html {
 }
 
 .eth-block {
-  @apply text-cyan-400;
-  border-color: rgba(6, 182, 212, 0.3);
+  @apply text-[#00a3ad];
+  border-color: rgba(0, 163, 173, 0.3);
 }
 
 .kilt-block {
-  @apply text-pink-primary;
+  @apply text-orange-primary;
   border-color: rgba(242, 101, 34, 0.3);
 }
 
 .fees-block {
-  @apply text-green-400;
-  border-color: rgba(34, 197, 94, 0.3);
+  @apply text-[#00a3ad];
+  border-color: rgba(0, 163, 173, 0.3);
 }
 
 .apr-block {
-  @apply text-green-400;
-  border-color: rgba(34, 197, 94, 0.3);
+  @apply text-[#00a3ad];
+  border-color: rgba(0, 163, 173, 0.3);
 }
 
 .cyberpunk-commands {
@@ -2256,8 +2272,8 @@ html {
 }
 
 .cyberpunk-cmd-add {
-  @apply text-green-400 border border-green-400/30 hover:bg-green-400/10;
-  background: rgba(34, 197, 94, 0.05);
+  @apply text-[#00a3ad] border border-[#00a3ad]/30 hover:bg-[#00a3ad]/10;
+  background: rgba(0, 163, 173, 0.05);
 }
 
 .cyberpunk-cmd-remove {
@@ -2266,6 +2282,6 @@ html {
 }
 
 .cyberpunk-cmd-collect {
-  @apply text-cyan-400 border border-cyan-400/30 hover:bg-cyan-400/10;
-  background: rgba(6, 182, 212, 0.05);
+  @apply text-[#00a3ad] border border-[#00a3ad]/30 hover:bg-[#00a3ad]/10;
+  background: rgba(0, 163, 173, 0.05);
 }

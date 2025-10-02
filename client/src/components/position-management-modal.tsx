@@ -276,7 +276,7 @@ export function PositionManagementModal({
       <Button 
         onClick={handleAddLiquidity}
         disabled={isLoading || !amount0 || !amount1}
-        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3"
+        className="w-full bg-[#00a3ad] hover:bg-[#008a93] text-white font-medium py-3"
       >
         {isLoading ? (
           <Loader2 className="w-4 h-4 animate-spin mr-2" />
@@ -319,7 +319,7 @@ export function PositionManagementModal({
               max="100"
               value={removePercentage}
               onChange={(e) => setRemovePercentage(parseInt(e.target.value))}
-              className="w-full accent-emerald-500"
+              className="w-full accent-[#00a3ad]"
             />
             
             <Separator />
@@ -447,7 +447,7 @@ export function PositionManagementModal({
       <Button 
         onClick={handleCollectFees}
         disabled={isLoading}
-        className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3"
+        className="w-full bg-[#00a3ad] hover:bg-[#008a93] text-white font-medium py-3"
       >
         {isLoading ? (
           <Loader2 className="w-4 h-4 animate-spin mr-2" />

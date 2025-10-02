@@ -102,7 +102,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-green-400 font-mono overflow-hidden relative">
+    <div className="min-h-screen bg-black text-[#00a3ad] font-mono overflow-hidden relative">
       {/* Matrix Rain Background */}
       <div className="fixed inset-0 opacity-10">
         <div className="matrix-rain"></div>
@@ -123,12 +123,12 @@ export default function AdminPage() {
       </div>
 
       <div className="relative z-10 flex items-center justify-center min-h-screen">
-        <div className="bg-black/90 border border-green-400 rounded-lg p-8 w-full max-w-md shadow-2xl shadow-green-400/20">
+        <div className="bg-black/90 border border-[#00a3ad] rounded-lg p-8 w-full max-w-md shadow-2xl shadow-[#00a3ad]/20">
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-[#f26522] mb-2 tracking-wider">
               ◢◤ ADMIN TERMINAL ◥◣
             </h1>
-            <div className="text-green-400 text-sm">
+            <div className="text-[#00a3ad] text-sm">
               [METAMASK_AUTHENTICATION_REQUIRED]
             </div>
           </div>
@@ -142,18 +142,18 @@ export default function AdminPage() {
 
           {/* MetaMask Login */}
           <div className="space-y-4">
-            <div className="text-center text-sm text-green-400 font-mono mb-4">
+            <div className="text-center text-sm text-[#00a3ad] font-mono mb-4">
               Connect with your authorized MetaMask wallet to access admin controls
             </div>
             
             {isConnected && address ? (
-              <div className="p-3 bg-gray-900 border border-green-400/50 rounded text-green-400 font-mono text-sm">
+              <div className="p-3 bg-gray-900 border border-[#00a3ad]/50 rounded text-[#00a3ad] font-mono text-sm">
                 <div className="flex items-center justify-between">
                   <span>WALLET:</span>
                   <span>{address.slice(0, 6)}...{address.slice(-4)}</span>
                 </div>
                 {authorizedWallets.map(addr => addr.toLowerCase()).includes(address.toLowerCase()) ? (
-                  <div className="text-green-400 text-xs mt-1">✓ AUTHORIZED ADMIN WALLET</div>
+                  <div className="text-[#00a3ad] text-xs mt-1">✓ AUTHORIZED ADMIN WALLET</div>
                 ) : (
                   <div className="text-red-400 text-xs mt-1">✗ UNAUTHORIZED WALLET</div>
                 )}
@@ -167,7 +167,7 @@ export default function AdminPage() {
             <button
               onClick={handleMetaMaskLogin}
               disabled={isLoading}
-              className="w-full py-4 bg-gradient-to-r from-[#f26522] to-[#f26522]/80 text-white font-mono font-bold rounded hover:from-[#f26522]/90 hover:to-[#f26522]/70 transition-all disabled:opacity-50 disabled:cursor-not-allowed cyberpunk-pink-glow"
+              className="w-full py-4 bg-gradient-to-r from-[#f26522] to-[#f26522]/80 text-white font-mono font-bold rounded hover:from-[#f26522]/90 hover:to-[#f26522]/70 transition-all disabled:opacity-50 disabled:cursor-not-allowed cyberpunk-[#f26522]-glow"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center space-x-2">
@@ -181,12 +181,12 @@ export default function AdminPage() {
               )}
             </button>
 
-            <div className="text-center text-xs text-green-400/50 font-mono">
+            <div className="text-center text-xs text-[#00a3ad]/50 font-mono">
               Only authorized admin wallets can access this terminal
             </div>
           </div>
 
-          <div className="mt-6 text-center text-xs text-green-400/50 font-mono">
+          <div className="mt-6 text-center text-xs text-[#00a3ad]/50 font-mono">
             KILT_PROTOCOL_ADMIN_v2.0
           </div>
         </div>

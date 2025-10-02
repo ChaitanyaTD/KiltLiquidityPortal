@@ -68,7 +68,7 @@ export function CleanWalletConnect() {
           <div className="space-y-4">
             <div className="bg-gradient-to-r from-[#f26522]/10 to-purple-500/10 border border-[#f26522]/20 rounded-xl p-4">
               <div className="flex items-start gap-3">
-                <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-3 flex-shrink-0">
+                <div className="bg-gradient-to-r from-[#f26522] to-[#d45a1a] rounded-xl p-3 flex-shrink-0">
                   <span className="text-2xl">🦊</span>
                 </div>
                 <div className="flex-1">

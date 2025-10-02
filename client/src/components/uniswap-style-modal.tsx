@@ -225,7 +225,7 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
                   className="h-auto p-3 flex flex-col items-start relative"
                 >
                   {fee.recommended && (
-                    <Badge className="absolute -top-1 -right-1 text-xs bg-green-500">
+                    <Badge className="absolute -top-1 -right-1 text-xs bg-[#00a3ad]">
                       Best
                     </Badge>
                   )}

@@ -401,12 +401,12 @@ export function UniswapStyleLiquidityModal({
                 <Badge variant="secondary" className="bg-gray-700 text-gray-300 text-xs">
                   v3
                 </Badge>
-                <Badge variant="secondary" className="bg-green-900/30 text-green-400 text-xs">
+                <Badge variant="secondary" className="bg-[#00a3ad]/30 text-[#00a3ad] text-xs">
                   0.3%
                 </Badge>
               </div>
-              <div className="flex items-center gap-1 text-sm text-green-400">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="flex items-center gap-1 text-sm text-[#00a3ad]">
+                <div className="w-2 h-2 bg-[#00a3ad] rounded-full"></div>
                 In range
               </div>
             </div>

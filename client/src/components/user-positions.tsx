@@ -285,7 +285,7 @@ export function UserPositions() {
             {/* Left Side - Title and Stats */}
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-gradient-to-br from-[#f26522]/20 to-[#f26522]/20 rounded-xl flex items-center justify-center border border-[#f26522]/30 shadow-lg shadow-[#f26522]/10">
-                <Layers className="h-6 w-6 text-orange-400" />
+                <Layers className="h-6 w-6 text-[#f26522]" />
               </div>
               <div>
                 <CardTitle className="text-white font-bold text-xl mb-1">
@@ -312,8 +312,8 @@ export function UserPositions() {
                   <span className="text-white/60 text-sm">total</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                  <span className="text-emerald-400 text-sm numeric-mono">{Array.isArray(openPositions) ? openPositions.length : 0}</span>
+                  <div className="w-2 h-2 bg-[#00a3ad] rounded-full animate-pulse"></div>
+                  <span className="text-[#00a3ad] text-sm numeric-mono">{Array.isArray(openPositions) ? openPositions.length : 0}</span>
                   <span className="text-white/60 text-sm">active</span>
                 </div>
                 {Array.isArray(closedPositions) && closedPositions.length > 0 && (
@@ -327,7 +327,7 @@ export function UserPositions() {
               
               <div className="flex items-center space-x-2">
                 <Badge className="bg-black/20 backdrop-blur-sm text-white border-white/20 px-3 py-1.5 text-xs font-medium">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse" />
+                  <div className="w-2 h-2 bg-[#00a3ad] rounded-full mr-2 animate-pulse" />
                   Live
                 </Badge>
                 <Button
@@ -373,7 +373,7 @@ export function UserPositions() {
                 <span className="text-sm text-white/60">Show closed positions</span>
                 <button
                   onClick={() => setShowClosedPositions(!showClosedPositions)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:ring-offset-2 focus:ring-offset-black ${
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#f26522]/50 focus:ring-offset-2 focus:ring-offset-black ${
                     showClosedPositions 
                       ? 'bg-gradient-to-r from-[#f26522] to-[#f26522] shadow-lg shadow-[#f26522]/25' 
                       : 'bg-white/20 hover:bg-white/30'
@@ -393,7 +393,7 @@ export function UserPositions() {
           {validatedPositionsLoading ? (
             <div className="text-center py-4">
               <p className="text-white/60 text-xs">Validating positions...</p>
-              <div className="animate-spin w-4 h-4 border-2 border-white/20 border-t-orange-500 rounded-full mx-auto mt-2"></div>
+              <div className="animate-spin w-4 h-4 border-2 border-white/20 border-t-[#f26522] rounded-full mx-auto mt-2"></div>
             </div>
           ) : validatedPositionsError ? (
             <div className="text-center py-4">
@@ -433,7 +433,7 @@ export function UserPositions() {
                             const uniswapUrl = `https://app.uniswap.org/pool/${tokenId}`;
                             window.open(uniswapUrl, '_blank', 'noopener,noreferrer');
                           }}
-                          className="text-sm font-semibold text-orange-primary hover:text-[#f26522] transition-colors duration-200 cursor-pointer hover:underline flex items-center gap-1"
+                          className="text-sm font-semibold text-[#f26522]-primary hover:text-[#f26522] transition-colors duration-200 cursor-pointer hover:underline flex items-center gap-1"
                           title="View on Uniswap"
                         >
                           #{position.tokenId || position.nftTokenId || position.id}
@@ -523,8 +523,8 @@ export function UserPositions() {
                     {/* Show only for positions with zero liquidity + uncollected tokens (Step 1 completed, Step 2 needed) */}
                     {(BigInt(position.liquidity || 0) === 0n && !isClosed && realFees && 
                        (parseFloat(realFees.token0 || '0') > 0 || parseFloat(realFees.token1 || '0') > 0)) && (
-                      <div className="mt-3 p-3 bg-orange-500/10 border border-orange-500/30 rounded-lg">
-                        <div className="text-xs text-orange-300 mb-2">
+                      <div className="mt-3 p-3 bg-[#f26522]/10 border border-[#f26522]/30 rounded-lg">
+                        <div className="text-xs text-[#f26522] mb-2">
                           ⚠️ Step 2 needed: Complete token withdrawal
                         </div>
                         <CompleteRemoveLiquidityButton 
@@ -611,7 +611,7 @@ export function UserPositions() {
                   <div className="bg-gray-800 border border-gray-600 rounded-xl p-4">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-[#f26522] flex items-center justify-center">
                           <span className="text-white text-sm font-bold">K</span>
                         </div>
                         <span className="text-white font-medium">M1</span>
@@ -654,7 +654,7 @@ export function UserPositions() {
                           onClick={() => setLiquidityAmount(percentage.toString())}
                           className={`flex-1 ${
                             liquidityAmount === percentage.toString()
-                              ? 'bg-orange-600 border-orange-600 text-white'
+                              ? 'bg-[#f26522] border-[#f26522] text-white'
                               : 'border-gray-600 text-gray-300 hover:border-gray-500'
                           }`}
                         >
@@ -687,7 +687,7 @@ export function UserPositions() {
                     <div className="bg-gray-800 border border-gray-600 rounded-xl p-4">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center">
+                          <div className="w-6 h-6 rounded-full bg-[#f26522] flex items-center justify-center">
                             <span className="text-white text-xs font-bold">K</span>
                           </div>
                           <span className="text-white">M1</span>
@@ -710,7 +710,7 @@ export function UserPositions() {
                     (managementMode === 'increase' && (!amount0 || !amount1)) ||
                     (managementMode === 'decrease' && !liquidityAmount)
                   }
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#f26522] hover:bg-[#d45a1a] text-white font-medium py-3 text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isProcessing ? (
                     <>

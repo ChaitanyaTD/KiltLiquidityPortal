@@ -16,7 +16,7 @@ const badgeVariants = cva(
           "border-transparent bg-gradient-to-r from-red-500 to-red-600 text-white shadow-soft-modern hover:from-red-400 hover:to-red-500",
         outline: "text-primary border-modern hover:bg-glass-light",
         success:
-          "border-transparent bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-soft-modern hover:from-emerald-400 hover:to-emerald-500",
+          "border-transparent bg-gradient-to-r from-[#00a3ad] to-[#008a93] text-white shadow-soft-modern hover:from-[#33b5bd] hover:to-[#00a3ad]",
         warning:
           "border-transparent bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-soft-modern hover:from-amber-400 hover:to-amber-500",
       },

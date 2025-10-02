@@ -154,27 +154,27 @@ export function GasEstimationCard() {
             <div className="border-t border-white/10 pt-2">
               <div className="flex justify-between items-center">
                 <span className="text-super-bright font-semibold text-xs">Total Cost</span>
-                <span className="text-matrix-bright font-bold text-xs">~{gasEstimate.total.cost} ETH</span>
+                <span className="text-[#00a3ad] font-extrabold text-xs">~{gasEstimate.total.cost} ETH</span>
               </div>
             </div>
           </div>
 
           {/* Right: Expected Returns */}
           <div className="space-y-3">
-            <div className="bg-gradient-to-r from-purple-500/10 to-orange-500/10 rounded-lg p-2 border border-purple-500/20">
+            <div className="bg-gradient-to-r from-purple-500/10 to-[#f26522]/10 rounded-lg p-2 border border-purple-500/20">
               <div className="space-y-1">
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-white/70">Trading Fees APR</span>
-                  <span className="text-green-400 font-mono">~{expectedReturns?.tradingAPR || '0.00'}%</span>
+                  <span className="text-[#00a3ad] font-mono">~{expectedReturns?.tradingAPR || '0.00'}%</span>
                 </div>
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-white/70">Megalith Rewards APR</span>
-                  <span className="text-green-400 font-mono">~{expectedReturns?.incentiveAPR || '0.00'}%</span>
+                  <span className="text-[#00a3ad] font-mono">~{expectedReturns?.incentiveAPR || '0.00'}%</span>
                 </div>
                 <div className="border-t border-purple-300/20 pt-1">
                   <div className="flex justify-between items-center text-xs">
                     <span className="text-purple-300 font-medium">Total APR</span>
-                    <span className="text-orange-400 font-mono font-bold">~{expectedReturns?.totalAPR || '0.00'}%</span>
+                    <span className="text-[#f26522] font-mono font-bold">~{expectedReturns?.totalAPR || '0.00'}%</span>
                   </div>
                 </div>
               </div>
@@ -183,7 +183,7 @@ export function GasEstimationCard() {
         </div>
 
         {/* Full-width Break-even Analysis */}
-        <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg p-2 border border-blue-500/20">
+        <div className="bg-gradient-to-r from-blue-500/10 to-[#00a3ad]/10 rounded-lg p-2 border border-blue-500/20">
           <div className="flex items-center gap-2 mb-1.5">
             <Clock className="h-3 w-3 text-blue-400" />
             <span className="text-blue-300 text-xs font-medium">Break-even Time</span>
@@ -191,7 +191,7 @@ export function GasEstimationCard() {
           <div className="text-xs text-white/70">
             <div className="flex justify-between items-center mb-1">
               <span>Cost recovered in:</span>
-              <span className="text-cyan-400 font-mono">~{breakEvenDays.toFixed(1)} days</span>
+              <span className="text-[#00a3ad] font-mono">~{breakEvenDays.toFixed(1)} days</span>
             </div>
             <div className="text-xs text-blue-300/70">Based on $1K position & current APR on Base network</div>
           </div>

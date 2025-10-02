@@ -134,7 +134,7 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   
                   {/* Visual Slider */}
                   <div className="relative">
-                    <div className="h-2 bg-gradient-to-r from-gray-700 via-orange-500 to-[#f26522] rounded-full relative">
+                    <div className="h-2 bg-gradient-to-r from-gray-700 via-[#f26522] to-[#f26522] rounded-full relative">
                       <div className="absolute right-4 top-[-8px] text-xs text-gray-400">
                         195% of balance
                       </div>
@@ -191,7 +191,7 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
 
             {/* Swap Direction Arrow */}
             <div className="flex justify-center">
-              <div className="p-2 bg-gradient-to-r from-[#f26522] to-orange-600 rounded-full">
+              <div className="p-2 bg-gradient-to-r from-[#f26522] to-[#f26522] rounded-full">
                 <ArrowUpDown className="h-4 w-4 text-white" />
               </div>
             </div>
@@ -209,8 +209,8 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
               
               {priceImpact > 0 && (
                 <div className="mt-2 flex items-center gap-1 text-sm">
-                  <TrendingUp className="h-3 w-3 text-orange-400" />
-                  <span className="text-orange-400">Price Impact: {priceImpact.toFixed(2)}%</span>
+                  <TrendingUp className="h-3 w-3 text-[#f26522]" />
+                  <span className="text-[#f26522]">Price Impact: {priceImpact.toFixed(2)}%</span>
                 </div>
               )}
             </div>
@@ -267,7 +267,7 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   onClose();
                 }
               }}
-              className="w-full bg-gradient-to-r from-[#f26522] to-orange-600 hover:from-[#f26522]/90 hover:to-orange-600/90 text-white font-bold py-4 text-lg transition-all duration-200 shadow-lg hover:shadow-orange-500/25 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
+              className="w-full bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522]/90 hover:to-[#f26522]/90 text-white font-bold py-4 text-lg transition-all duration-200 shadow-lg hover:shadow-[#f26522]/25 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
             >
               {parseFloat(ethAmount) <= 0 ? 'Enter Amount' : 
                `Swap ETH → ${parseFloat(kiltOutput) > 0 ? parseFloat(kiltOutput).toLocaleString(undefined, {maximumFractionDigits: 0}) : '0'} KILT`}

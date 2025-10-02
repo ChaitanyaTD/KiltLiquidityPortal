@@ -530,7 +530,7 @@ export function RewardsTracking() {
                  }
                </div>
              </div>
-            <div className="text-xs text-green-400/80 mt-1">
+            <div className="text-xs text-[#00a3ad]/80 mt-1">
               Rewards accumulate hourly
             </div>
           </CardContent>
@@ -558,7 +558,7 @@ export function RewardsTracking() {
           <CardContent className="p-3">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-white font-medium text-sm">Claimed</h3>
-              <CheckCircle className="h-4 w-4 text-green-400" />
+              <CheckCircle className="h-4 w-4 text-[#00a3ad]" />
             </div>
             <div className="text-lg text-white mb-1 numeric-large">
               {rewardStats?.totalClaimed ? parseFloat(rewardStats.totalClaimed).toFixed(2) : '0.00'}
@@ -566,7 +566,7 @@ export function RewardsTracking() {
             <div className="text-xs text-white/60 mb-1">
               Total claimed
             </div>
-            <div className="text-xs text-green-400 font-medium">
+            <div className="text-xs text-[#00a3ad] font-medium">
               {rewardStats?.totalClaimed && rewardStats?.totalAccumulated ? `${((rewardStats.totalClaimed / rewardStats.totalAccumulated) * 100).toFixed(1)}% of earned` : '0% of earned'}
             </div>
           </CardContent>
@@ -603,7 +603,7 @@ export function RewardsTracking() {
               </div>
               {/* Show accumulated amount when claimable is 0 but accumulated > 0 */}
               {(rewardStats?.totalClaimable || 0) === 0 && (rewardStats?.totalAccumulated || 0) > 0 && (
-                <div className="text-green-400/80 text-xs mb-2">
+                <div className="text-[#00a3ad]/80 text-xs mb-2">
                   {(rewardStats?.totalAccumulated || 0).toFixed(2)} M1 accumulated till now {(claimability?.canClaim ? '' : 'locked')}
                 </div>
               )}
@@ -666,9 +666,9 @@ export function RewardsTracking() {
             </div>
             
             {hasCalculatedRewards && (
-              <div className="text-green-400 text-xs text-center mt-2 p-2 rounded bg-green-500/10 border border-green-500/20">
+              <div className="text-[#00a3ad] text-xs text-center mt-2 p-2 rounded bg-[#00a3ad]/10 border border-[#00a3ad]/20">
                 <p className="font-medium">Ready to Claim: {calculatedRewards.toFixed(2)} M1</p>
-                <p className="text-green-300/80">Automated smart contract claiming - you pay gas for distribution & claim transactions (~$0.04 total)</p>
+                <p className="text-[#33b5bd]/80">Automated smart contract claiming - you pay gas for distribution & claim transactions (~$0.04 total)</p>
               </div>
             )}
             
@@ -714,9 +714,9 @@ export function RewardsTracking() {
                 </div>
               </div>
               
-              <div className="text-center p-2 bg-gradient-to-br from-green-500/10 to-green-600/5 rounded border border-green-500/30">
-                <div className="text-green-400 text-xs mb-1">Program APR</div>
-                <div className="text-sm text-green-400 numeric-display font-bold">
+              <div className="text-center p-2 bg-gradient-to-br from-[#00a3ad]/10 to-[#008a93]/5 rounded border border-[#00a3ad]/30">
+                <div className="text-[#00a3ad] text-xs mb-1">Program APR</div>
+                <div className="text-sm text-[#00a3ad] numeric-display font-bold">
                   {programAnalytics?.programAPR ? `${programAnalytics.programAPR.toFixed(1)}%` : 'Loading...'}
                 </div>
               </div>

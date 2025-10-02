@@ -133,13 +133,13 @@ export function MobileWalletConnect() {
     return (
       <div className="flex items-center gap-3">
         {shouldSwitchToBase ? (
-          <Badge variant="outline" className="bg-orange-500/10 text-orange-400 border-orange-500/30 cursor-pointer" onClick={switchToBase}>
-            <div className="w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></div>
+          <Badge variant="outline" className="bg-[#f26522]/10 text-[#f26522] border-[#f26522]/30 cursor-pointer" onClick={switchToBase}>
+            <div className="w-2 h-2 bg-[#f26522] rounded-full mr-2 animate-pulse"></div>
             Switch to Base
           </Badge>
         ) : (
-          <Badge variant="outline" className="bg-green-500/10 text-green-400 border-green-500/30">
-            <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+          <Badge variant="outline" className="bg-[#00a3ad]/10 text-[#00a3ad] border-[#00a3ad]/30">
+            <div className="w-2 h-2 bg-[#00a3ad] rounded-full mr-2"></div>
             Connected • Base
           </Badge>
         )}
@@ -197,7 +197,7 @@ export function MobileWalletConnect() {
       <Button
         onClick={() => setShowModal(true)}
         disabled={isPending}
-        className="mobile-button-fix inline-flex items-center justify-center gap-1 sm:gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-[0.98] shadow-medium-modern hover:shadow-strong-modern hover:-translate-y-0.5 h-10 sm:h-11 py-2 sm:py-2.5 bg-gradient-to-r from-[#f26522] to-[#cc0052] hover:from-[#f26522] hover:to-[#cc0052] text-white border-0 shadow-lg hover:shadow-xl shadow-[#f26522]/20 transition-all duration-300 px-4 sm:px-6"
+        className="mobile-button-fix inline-flex items-center justify-center gap-1 sm:gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-[0.98] shadow-medium-modern hover:shadow-strong-modern hover:-translate-y-0.5 h-10 sm:h-11 py-2 sm:py-2.5 bg-gradient-to-r from-[#f26522] to-[#d45a1a] hover:from-[#f26522] hover:to-[#d45a1a] text-white border-0 shadow-lg hover:shadow-xl shadow-[#f26522]/20 transition-all duration-300 px-4 sm:px-6"
       >
         {isPending ? (
           <>
@@ -250,7 +250,7 @@ export function MobileWalletConnect() {
                   key={wallet.id}
                   onClick={() => handleMobileWalletConnect(wallet)}
                   disabled={isPending}
-                  className="w-full bg-gradient-to-r from-[#f26522] to-[#cc0052] hover:from-[#ff3385] hover:to-[#f26522] text-white border-0 h-11 sm:h-12 text-sm sm:text-md font-medium justify-start px-4 sm:px-6 rounded-lg transition-all duration-200"
+                  className="w-full bg-gradient-to-r from-[#f26522] to-[#d45a1a] hover:from-[#f26522] hover:to-[#d45a1a] text-white border-0 h-11 sm:h-12 text-sm sm:text-md font-medium justify-start px-4 sm:px-6 rounded-lg transition-all duration-200"
                 >
                   <div className="flex items-center gap-3 sm:gap-4 w-full">
                     <Wallet className="h-4 w-4 flex-shrink-0" />
@@ -282,7 +282,7 @@ export function MobileWalletConnect() {
                   key={connector.id}
                   onClick={() => handleDesktopConnect(connector)}
                   disabled={isPending}
-                  className="w-full bg-gradient-to-r from-[#f26522] to-[#cc0052] hover:from-[#ff3385] hover:to-[#f26522] text-white border-0 h-14 text-lg font-medium justify-start px-6 rounded-lg transition-all duration-200"
+                  className="w-full bg-gradient-to-r from-[#f26522] to-[#d45a1a] hover:from-[#f26522] hover:to-[#d45a1a] text-white border-0 h-14 text-lg font-medium justify-start px-6 rounded-lg transition-all duration-200"
                 >
                   {isPending ? (
                     <>
@@ -311,7 +311,7 @@ export function MobileWalletConnect() {
                   }
                 }}
                 disabled={isPending}
-                className="w-full bg-gradient-to-r from-[#f26522] to-[#cc0052] hover:from-[#ff3385] hover:to-[#f26522] text-white border-0 h-14 text-lg font-medium justify-start px-6 rounded-lg transition-all duration-200"
+                className="w-full bg-gradient-to-r from-[#f26522] to-[#d45a1a] hover:from-[#f26522] hover:to-[#d45a1a] text-white border-0 h-14 text-lg font-medium justify-start px-6 rounded-lg transition-all duration-200"
               >
                 <Wallet className="mr-4 h-5 w-5" />
                 Binance Wallet
