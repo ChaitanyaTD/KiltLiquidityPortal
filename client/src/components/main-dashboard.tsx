@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
+import megalithWordmark from '@assets/megalith-wordmark-w.png';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -453,7 +454,7 @@ export function MainDashboard() {
           <div className="text-center pt-16 pb-8">
             {/* Hero Section */}
             <div className="mb-12">
-              <div className="relative w-32 h-32 mx-auto mb-8">
+              <div className="relative w-40 h-40 mx-auto mb-8">
                 {/* Cyberpunk Megalith Logo */}
                 <img src={megalithLogo} alt="Megalith" className="w-full h-full" />
               </div>
@@ -461,9 +462,9 @@ export function MainDashboard() {
               {/* Modern Typography - Clean & Professional */}
               <div className="text-center mb-8">
                 {/* Main title with exact brand styling */}
-                <h1 className="megalith-title">
-                  MEGALÍTH
-                </h1>
+                <div>
+                  <img src={megalithWordmark} alt="MegaLiTH" className="h-10 sm:h-12 object-contain mx-auto" />
+                </div>
                 <div className="megalith-subtitle">
                   Liquidity Incentive Program
                 </div>
@@ -592,9 +593,12 @@ export function MainDashboard() {
               <CyberpunkKiltLogo size="sm" className="w-full h-full" />
             </div>
             <div className="text-center sm:text-left">
-              <h1 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
-                Megalith Liquidity Portal
-              </h1>
+              <div className="flex items-center gap-3 sm:gap-4">
+                <img src={megalithWordmark} alt="Megalith" className="h-8 sm:h-9 object-contain" />
+                <span className="text-xl sm:text-2xl font-bold text-white leading-tight">
+                  Liquidity Portal
+                </span>
+              </div>
             </div>
           </div>
           
@@ -749,9 +753,6 @@ export function MainDashboard() {
                   <div className="text-white text-base font-bold mb-1 numeric-large">
                     <TradingFeesAPR />
                   </div>
-                  <div className="text-white/50 text-xs font-medium">
-                    DexScreener API
-                  </div>
                 </div>
               </div>
 
@@ -767,9 +768,6 @@ export function MainDashboard() {
                   </div>
                   <div className="text-white text-base font-bold mb-1 numeric-large">
                     <PoolWideProgramAPR />
-                  </div>
-                  <div className="text-white/50 text-xs font-medium">
-                    Treasury rewards
                   </div>
                 </div>
               </div>

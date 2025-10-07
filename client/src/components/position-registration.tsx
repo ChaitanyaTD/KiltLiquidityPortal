@@ -346,10 +346,6 @@ export function PositionRegistration() {
                   <span className="text-[#f26522] font-bold text-sm leading-none mt-0.5">•</span>
                   <span className="text-white font-medium">Auto-validation for full range positions</span>
                 </div>
-                <div className="flex items-start gap-2 pl-1">
-                  <span className="text-[#f26522] font-bold text-sm leading-none mt-0.5">•</span>
-                  <span className="text-white font-medium">Complete transaction history verification</span>
-                </div>
               </div>
             </AlertDescription>
           </Alert>
@@ -413,8 +409,18 @@ export function PositionRegistration() {
                   <div className="flex gap-2 justify-center flex-wrap">
                     <Button 
                       onClick={() => {
-                        // Navigate to liquidity tab using querySelector
-                        const liquidityTabButton = document.querySelector('[data-value="liquidity"]') as HTMLElement;
+                        // Prefer global handler exposed by main dashboard
+                        const w = window as unknown as { navigateToTab?: (tab: string) => void };
+                        if (typeof w.navigateToTab === 'function') {
+                          w.navigateToTab('liquidity');
+                          return;
+                        }
+                        // Fallback: dispatch event handled by dashboard
+                        try {
+                          window.dispatchEvent(new CustomEvent('navigateToAddLiquidity', { detail: { tab: 'liquidity' } }));
+                        } catch {}
+                        // Last resort: click the tab trigger if present
+                        const liquidityTabButton = document.querySelector('[data-value="liquidity"]') as HTMLElement | null;
                         liquidityTabButton?.click();
                       }}
                       className="bg-[#f26522] hover:bg-[#d45a1a] text-xs py-1 px-2 h-6"
@@ -424,19 +430,11 @@ export function PositionRegistration() {
                     </Button>
                     <Button 
                       variant="outline" 
-                      onClick={() => window.open('https://app.uniswap.org/', '_blank')}
+                      onClick={() => window.open('https://app.uniswap.org/explore/pools/base/0x82Da478b1382B951cBaD01Beb9eD459cDB16458E', '_blank')}
                       className="border-white/20 hover:bg-white/5 text-xs py-1 px-2 h-6"
                     >
                       <ExternalLink className="h-3 w-3 mr-1" />
                       Visit Uniswap
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      onClick={() => setShowBypassModal(true)}
-                      className="border-amber-500/30 hover:bg-amber-500/10 text-amber-400 text-xs py-1 px-2 h-6"
-                    >
-                      <Network className="h-3 w-3 mr-1" />
-                      Manual Register
                     </Button>
                   </div>
                 </>

@@ -977,7 +977,7 @@ export function LiquidityMint({
           className={`h-12 text-sm font-semibold rounded-lg transition-all duration-300 neon-button ${
             !isMinting && kiltAmount && ethAmount && tokensApproved && (!validationResult || validationResult.isValid)
               ? 'bg-gradient-to-r from-[#f26522] to-[#f26522] hover:from-[#f26522] hover:to-[#f26522] text-white shadow-lg shadow-[#f26522]/25 border border-[#f26522]' 
-              : 'bg-gray-600 text-gray-400 cursor-not-allowed'
+              : 'bg-gray-200 text-gray-100 cursor-not-allowed'
           }`}
         >
           {isMinting ? (
@@ -1025,7 +1025,7 @@ export function LiquidityMint({
         <div className="flex items-center gap-2">
           <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
           <p className="text-xs text-blue-300">
-            <strong>MetaMask Note:</strong> M1 may appear as "0x5D0DD...ad2d8" in transaction details - this is normal and the transaction is correct.
+            <strong>MetaMask Note:</strong> M1 may appear as "0x5D0DD...ad2d8" in transaction details.
           </p>
         </div>
       </div>
