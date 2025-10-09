@@ -269,6 +269,27 @@ export class UnifiedRewardService {
     marketData: CachedData,
     createdAt: Date
   ): PositionReward {
+    // Stop accrual if program ended or treasury exhausted (uses cached analytics when available)
+    try {
+      const analytics = this.cache.get('program_analytics');
+      const treasuryRemaining = Number(analytics?.treasuryRemaining || 0);
+      const daysRemaining = Number(analytics?.daysRemaining || 0);
+      if (treasuryRemaining <= 0 || daysRemaining <= 0) {
+        const currentValueUSD = parseFloat(position.currentValueUSD || '0');
+        return {
+          nftTokenId: position.nftTokenId,
+          dailyRewards: 0,
+          accumulatedRewards: 0,
+          hourlyRewards: 0,
+          totalHours: 0,
+          liquidityAmount: currentValueUSD,
+          baseAPR: 0,
+          effectiveAPR: 0,
+          tradingFeeAPR: marketData.tradingAPR,
+          incentiveAPR: marketData.programAPR,
+        };
+      }
+    } catch {}
     const now = new Date();
     const currentValueUSD = parseFloat(position.currentValueUSD || '0');
     

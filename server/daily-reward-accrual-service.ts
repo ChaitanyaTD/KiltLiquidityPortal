@@ -47,6 +47,33 @@ export class DailyRewardAccrualService {
       programDurationDays: number;
     }
   ): Promise<DailyRewardCalculation> {
+    // Hard stop: if program is over or treasury is empty, no rewards accrue
+    try {
+      const programAnalytics = await unifiedRewardService.getProgramAnalytics();
+      const treasuryRemaining = Number(programAnalytics?.treasuryRemaining || 0);
+      const daysRemaining = Number(programAnalytics?.daysRemaining || 0);
+      if (treasuryRemaining <= 0 || daysRemaining <= 0) {
+        return {
+          date: date.toISOString().split('T')[0],
+          positionId: position.id,
+          nftTokenId: position.nftTokenId,
+          userId: position.userId,
+          positionValueUSD: parseFloat(position.currentValueUSD || '0'),
+          dailyBudget: config.dailyBudget,
+          inRangePoolSize: config.inRangePoolSize,
+          liquidityRatio: 0,
+          timeMultiplier: 0,
+          inRangeMultiplier: 0,
+          fullRangeBonus: config.fullRangeBonus,
+          dailyRewardAmount: 0,
+          daysStaked: 0,
+          baseAPR: 0,
+          effectiveAPR: 0,
+        };
+      }
+    } catch {
+      // If analytics fails, continue with normal calculation
+    }
     
     // Get position's actual in-range status for this date
     const positionData = await uniswapIntegrationService.getFullPositionData(position.nftTokenId);
