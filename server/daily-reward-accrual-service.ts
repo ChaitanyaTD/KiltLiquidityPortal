@@ -84,8 +84,13 @@ export class DailyRewardAccrualService {
     const positionCreatedAt = new Date(position.createdAt);
     const daysStaked = Math.max(0, Math.floor((date.getTime() - positionCreatedAt.getTime()) / (1000 * 60 * 60 * 24)));
     const totalPoolTVL = await unifiedRewardService.getPoolTVL();
-    // Calculate time multiplier
-    const timeMultiplier = 1 + ((daysStaked / config.programDurationDays) * config.timeBoostCoefficient);
+    
+    // Calculate time multiplier based on program participation time, not total position age
+    // Get program start date from admin config
+    const [treasuryConfigData] = await db.select().from(treasuryConfig).limit(1);
+    const programStartDate = treasuryConfigData?.programStartDate ? new Date(treasuryConfigData.programStartDate) : new Date('2024-01-01');
+    const programParticipationDays = Math.max(0, Math.floor((date.getTime() - Math.max(programStartDate.getTime(), positionCreatedAt.getTime())) / (1000 * 60 * 60 * 24)));
+    const timeMultiplier = Math.min(1 + ((programParticipationDays / config.programDurationDays) * config.timeBoostCoefficient), 1 + config.timeBoostCoefficient);
 
     // Calculate liquidity ratio
     const positionValueUSD = parseFloat(position.currentValueUSD || '0');
@@ -142,13 +147,11 @@ export class DailyRewardAccrualService {
       .where(eq(hourlyRewards.positionId, positionId))
       .orderBy(desc(hourlyRewards.executedAt));
 
-    const rewardRecord = await db
-      .select()
-      .from(rewards)
-      .where(eq(rewards.id, hourlyRecords[0].rewardId))
-      .limit(1);
-
-    const totalAccumulated = parseFloat(rewardRecord[0].accumulatedAmount);
+    // Calculate accumulated amount from hourly records with correct time multiplier
+    // This ensures we get the correct total even if the stored accumulatedAmount is wrong
+    const totalAccumulated = hourlyRecords.reduce((sum, record) => {
+      return sum + parseFloat(record.rewardAmount || '0');
+    }, 0);
 
     const hourlyBreakdown = hourlyRecords.map((record: any) => ({
       date: record.executedAt.toISOString().split('T')[0],
