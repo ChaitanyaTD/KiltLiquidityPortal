@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useWagmiWallet } from './use-wagmi-wallet';
 import { useToast } from './use-toast';
 import { createPublicClient, http, formatUnits, parseUnits, encodeFunctionData } from 'viem';
-import { base } from 'viem/chains';
+import { bsc } from 'viem/chains';
 import { useQuery } from '@tanstack/react-query';
 import { useWalletClient } from 'wagmi';
 
@@ -168,14 +168,18 @@ const POSITION_MANAGER_ABI = [
   },
 ] as const;
 
-// Create Base network client with reliable RPC endpoint
-const baseClient = createPublicClient({
-  chain: base,
-  transport: http('https://base-rpc.publicnode.com'),
+// Create BSC network client with reliable RPC endpoint
+const bscClient = createPublicClient({
+  chain: bsc,
+  transport: http('https://bsc-dataseed.binance.org'),
 });
 
-// Contract addresses on Base network - Updated from official Uniswap docs
-const UNISWAP_V3_POSITION_MANAGER = '0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1';
+// Contract addresses on BSC network - Updated from official PancakeSwap docs
+const PANCAKESWAP_V3_POSITION_MANAGER = '0x46A15B0b27311cedF172AB29E4f4766fbE7F4364';
+
+// Legacy exports for backward compatibility
+const baseClient = bscClient;
+const UNISWAP_V3_POSITION_MANAGER = PANCAKESWAP_V3_POSITION_MANAGER;
 
 // Custom hook to fetch blockchain configuration from admin panel
 function useBlockchainConfig() {

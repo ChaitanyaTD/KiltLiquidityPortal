@@ -222,8 +222,8 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                 try {
                   // Check if user is connected
                   if (typeof window.ethereum === 'undefined') {
-                    // Fallback to Uniswap redirect if no wallet
-                    const fallbackSwapUrl = `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${TOKEN_ADDRESSES.KILT}&chain=base&exactAmount=${ethAmount}&exactField=input`;
+                    // Fallback to PancakeSwap redirect if no wallet
+                    const fallbackSwapUrl = `https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=${TOKEN_ADDRESSES.KILT}&chain=bsc&exactAmount=${ethAmount}&exactField=input`;
                     window.open(fallbackSwapUrl, '_blank');
                     onClose();
                     return;
@@ -234,8 +234,8 @@ export const SwapModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   const userAddress = accounts[0];
 
                   if (!userAddress) {
-                    // Fallback to Uniswap if no address
-                    const noAddressSwapUrl = `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${TOKEN_ADDRESSES.KILT}&chain=base&exactAmount=${ethAmount}&exactField=input`;
+                    // Fallback to PancakeSwap if no address
+                    const noAddressSwapUrl = `https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=${TOKEN_ADDRESSES.KILT}&chain=bsc&exactAmount=${ethAmount}&exactField=input`;
                     window.open(noAddressSwapUrl, '_blank');
                     onClose();
                     return;

@@ -49,12 +49,12 @@ export const BidirectionalSwapModal = ({
     onClose();
   };
 
-  // Uniswap Widget URL for KILT/ETH pair on Base
-  const getUniswapWidgetUrl = () => {
-    const baseUrl = 'https://app.uniswap.org/swap';
+  // PancakeSwap Widget URL for KILT/BNB pair on BSC
+  const getPancakeSwapWidgetUrl = () => {
+    const baseUrl = 'https://pancakeswap.finance/swap';
     const params = new URLSearchParams({
-      chain: 'base',
-      inputCurrency: 'ETH', 
+      chain: 'bsc',
+      inputCurrency: 'BNB', 
       outputCurrency: TOKEN_ADDRESSES.KILT, // KILT token address
       theme: 'dark'
     });
@@ -66,9 +66,9 @@ export const BidirectionalSwapModal = ({
     return `${baseUrl}?${params.toString()}`;
   };
 
-  // Handle opening external Uniswap
-  const openUniswapExternal = () => {
-    window.open(getUniswapWidgetUrl(), '_blank');
+  // Handle opening external PancakeSwap
+  const openPancakeSwapExternal = () => {
+    window.open(getPancakeSwapWidgetUrl(), '_blank');
     handleClose();
   };
 

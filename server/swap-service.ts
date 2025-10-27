@@ -1,13 +1,18 @@
 import { createPublicClient, http, parseUnits, formatUnits, getAddress } from 'viem';
-import { base } from 'viem/chains';
+import { bsc } from 'viem/chains';
 
-// Uniswap V3 contract addresses on Base
-const UNISWAP_V3_ROUTER = '0x2626664c2603336E57B271c5C0b26F421741e481';
-const UNISWAP_V3_QUOTER = '0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a'; // Quoter V2 on Base
+// PancakeSwap V3 contract addresses on BSC
+const PANCAKESWAP_V3_ROUTER = '0x1b81D678ffb9C0263b24A97847620C99d213eB14';
+const PANCAKESWAP_V3_QUOTER = '0xB048Bd43B3d0B2c594cD5884911D69355b6aa4F4'; // Quoter V2 on BSC
 
-// Token addresses on Base
-const WETH_ADDRESS = '0x4200000000000000000000000000000000000006';
+// Token addresses on BSC
+const WBNB_ADDRESS = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
 const KILT_ADDRESS = '0x5D0DD05bB095fdD6Af4865A1AdF97c39C85ad2d8';
+
+// Legacy exports for backward compatibility
+const UNISWAP_V3_ROUTER = PANCAKESWAP_V3_ROUTER;
+const UNISWAP_V3_QUOTER = PANCAKESWAP_V3_QUOTER;
+const WETH_ADDRESS = WBNB_ADDRESS;
 
 // Uniswap V3 Quoter V2 ABI
 const QUOTER_V2_ABI = [
@@ -64,8 +69,8 @@ const ROUTER_ABI = [
 
 // Initialize clients with multiple RPC endpoints for reliability
 const publicClient = createPublicClient({
-  chain: base,
-  transport: http('https://api.developer.coinbase.com/rpc/v1/base/FtQSiNzg6tfPcB1Hmirpy4T9SGDGFveA')
+  chain: bsc,
+  transport: http('https://bsc-dataseed.binance.org')
 });
 
 export class SwapService {
@@ -73,9 +78,10 @@ export class SwapService {
   /**
    * Get a quote for bidirectional swaps using DexScreener API (like DexScreener does)
    */
-  async getSwapQuote(amount: string, fromToken: 'ETH' | 'KILT' = 'ETH'): Promise<{
+  async getSwapQuote(amount: string, fromToken: 'BNB' | 'KILT' = 'BNB'): Promise<{
     kiltAmount?: string;
-    ethAmount?: string;
+    bnbAmount?: string;
+    ethAmount?: string; // Legacy field for backward compatibility
     priceImpact: number;
     fee: string;
     source: string;
@@ -87,22 +93,22 @@ export class SwapService {
         return { ...dexScreenerQuote, source: 'dexscreener' };
       }
     } catch (error) {
-      console.log('DexScreener API failed, trying Uniswap quoter...');
+      console.log('DexScreener API failed, trying PancakeSwap quoter...');
     }
 
-    // Fallback to Uniswap V3 quoter
+    // Fallback to PancakeSwap V3 quoter
     try {
-      if (fromToken === 'ETH') {
-        // ETH to KILT swap
+      if (fromToken === 'BNB') {
+        // BNB to KILT swap
         const amountIn = parseUnits(amount, 18);
         
         // Use proper Quoter V2 struct parameter
         const quoteResult = await publicClient.readContract({
-          address: UNISWAP_V3_QUOTER,
+          address: PANCAKESWAP_V3_QUOTER,
           abi: QUOTER_V2_ABI,
           functionName: 'quoteExactInputSingle',
           args: [{
-            tokenIn: WETH_ADDRESS,
+            tokenIn: WBNB_ADDRESS,
             tokenOut: KILT_ADDRESS,
             amountIn,
             fee: 3000, // 0.3% fee tier
@@ -114,28 +120,30 @@ export class SwapService {
         const kiltAmount = formatUnits(amountOut, 18);
         
         // Calculate real-time price impact based on current pool price vs quote
-        const currentPrice = 244700; // KILT per ETH from emergency rate
+        const currentPrice = 244700; // KILT per BNB from emergency rate
         const quotePrice = parseFloat(kiltAmount) / parseFloat(amount);
         const priceImpact = Math.abs((quotePrice - currentPrice) / currentPrice) * 100;
         
         return {
           kiltAmount,
+          bnbAmount: amount,
+          ethAmount: amount, // Legacy field for backward compatibility
           priceImpact: Number(Math.min(priceImpact, 15).toFixed(2)), // Cap at 15%
           fee: '0.3',
-          source: 'uniswap'
+          source: 'pancakeswap'
         };
       } else {
-        // KILT to ETH swap
+        // KILT to BNB swap
         const amountIn = parseUnits(amount, 18);
         
         // Use proper Quoter V2 struct parameter
         const quoteResult = await publicClient.readContract({
-          address: UNISWAP_V3_QUOTER,
+          address: PANCAKESWAP_V3_QUOTER,
           abi: QUOTER_V2_ABI,
           functionName: 'quoteExactInputSingle',
           args: [{
             tokenIn: KILT_ADDRESS,
-            tokenOut: WETH_ADDRESS,
+            tokenOut: WBNB_ADDRESS,
             amountIn,
             fee: 3000, // 0.3% fee tier
             sqrtPriceLimitX96: 0n
@@ -143,18 +151,19 @@ export class SwapService {
         });
         
         const [amountOut] = quoteResult as [bigint, bigint, bigint, bigint]; // Proper quoter result structure
-        const ethAmount = formatUnits(amountOut, 18);
+        const bnbAmount = formatUnits(amountOut, 18);
         
-        // Calculate real-time price impact for KILT->ETH
-        const currentPrice = 244700; // KILT per ETH
-        const quotePrice = parseFloat(amount) / parseFloat(ethAmount);
+        // Calculate real-time price impact for KILT->BNB
+        const currentPrice = 244700; // KILT per BNB
+        const quotePrice = parseFloat(amount) / parseFloat(bnbAmount);
         const priceImpact = Math.abs((quotePrice - currentPrice) / currentPrice) * 100;
         
         return {
-          ethAmount,
+          bnbAmount,
+          ethAmount: bnbAmount, // Legacy field for backward compatibility
           priceImpact: Number(Math.min(priceImpact, 15).toFixed(2)), // Cap at 15%
           fee: '0.3',
-          source: 'uniswap'
+          source: 'pancakeswap'
         };
       }
       
@@ -163,24 +172,27 @@ export class SwapService {
       
       // ALWAYS use realistic emergency calculation
       const value = parseFloat(amount);
-      const kiltPerEth = 244700; // Realistic emergency rate
+      const kiltPerBnb = 244700; // Realistic emergency rate
       
-      if (fromToken === 'ETH') {
-        const kiltAmount = (value * kiltPerEth).toFixed(2);
-        console.log(`⚡ SWAP SERVICE EMERGENCY CALCULATION: ${amount} ETH → ${kiltAmount} KILT (rate: ${kiltPerEth} KILT/ETH)`);
+      if (fromToken === 'BNB') {
+        const kiltAmount = (value * kiltPerBnb).toFixed(2);
+        console.log(`⚡ SWAP SERVICE EMERGENCY CALCULATION: ${amount} BNB → ${kiltAmount} KILT (rate: ${kiltPerBnb} KILT/BNB)`);
         
         return {
           kiltAmount,
+          bnbAmount: amount,
+          ethAmount: amount, // Legacy field for backward compatibility
           priceImpact: 0.05, // Lower impact for emergency calculation
           fee: '0.3',
           source: 'emergency'
         };
       } else {
-        const ethAmount = (value / kiltPerEth).toFixed(6);
-        console.log(`⚡ SWAP SERVICE EMERGENCY CALCULATION: ${amount} KILT → ${ethAmount} ETH (rate: ${kiltPerEth} KILT/ETH)`);
+        const bnbAmount = (value / kiltPerBnb).toFixed(6);
+        console.log(`⚡ SWAP SERVICE EMERGENCY CALCULATION: ${amount} KILT → ${bnbAmount} BNB (rate: ${kiltPerBnb} KILT/BNB)`);
         
         return {
-          ethAmount,
+          bnbAmount,
+          ethAmount: bnbAmount, // Legacy field for backward compatibility
           priceImpact: 0.05, // Lower impact for emergency calculation  
           fee: '0.3',
           source: 'emergency'
@@ -192,9 +204,10 @@ export class SwapService {
   /**
    * Get quote from DexScreener API (like they do internally) for bidirectional swaps
    */
-  private async getDexScreenerQuote(amount: string, fromToken: 'ETH' | 'KILT'): Promise<{
+  private async getDexScreenerQuote(amount: string, fromToken: 'BNB' | 'KILT'): Promise<{
     kiltAmount?: string;
-    ethAmount?: string;
+    bnbAmount?: string;
+    ethAmount?: string; // Legacy field for backward compatibility
     priceImpact: number;
     fee: string;
   } | null> {
@@ -220,11 +233,11 @@ export class SwapService {
       // Calculate amounts using DexScreener price for bidirectional swaps
       const value = parseFloat(amount);
       const kiltPriceUsd = parseFloat(pair.priceUsd);
-      const ethPriceUsd = 4180; // Approximate ETH price
+      const bnbPriceUsd = 600; // Approximate BNB price
       
       // Calculate realistic price impact based on AMM mechanics
       const liquidityUsd = pair.liquidity?.usd || 100000; // Use 100k as default if missing
-      const swapValueUsd = fromToken === 'ETH' ? (value * ethPriceUsd) : (value * kiltPriceUsd);
+      const swapValueUsd = fromToken === 'BNB' ? (value * bnbPriceUsd) : (value * kiltPriceUsd);
       
       // More realistic price impact calculation for AMM pools
       // For small swaps (<$100), impact should be minimal (0.01-0.1%)
@@ -242,21 +255,24 @@ export class SwapService {
       
       priceImpact = Math.max(0.01, Math.min(priceImpact, 15)); // Keep between 0.01% and 15%
       
-      if (fromToken === 'ETH') {
-        const kiltAmount = ((value * ethPriceUsd) / kiltPriceUsd).toFixed(2);
-        console.log(`🚀 DEXSCREENER QUOTE: ${amount} ETH → ${kiltAmount} KILT (price: $${kiltPriceUsd})`);
+      if (fromToken === 'BNB') {
+        const kiltAmount = ((value * bnbPriceUsd) / kiltPriceUsd).toFixed(2);
+        console.log(`🚀 DEXSCREENER QUOTE: ${amount} BNB → ${kiltAmount} KILT (price: $${kiltPriceUsd})`);
         
         return {
           kiltAmount,
+          bnbAmount: amount,
+          ethAmount: amount, // Legacy field for backward compatibility
           priceImpact: Number(priceImpact.toFixed(2)),
           fee: '0.3'
         };
       } else {
-        const ethAmount = ((value * kiltPriceUsd) / ethPriceUsd).toFixed(6);
-        console.log(`🚀 DEXSCREENER QUOTE: ${amount} KILT → ${ethAmount} ETH (price: $${kiltPriceUsd})`);
+        const bnbAmount = ((value * kiltPriceUsd) / bnbPriceUsd).toFixed(6);
+        console.log(`🚀 DEXSCREENER QUOTE: ${amount} KILT → ${bnbAmount} BNB (price: $${kiltPriceUsd})`);
         
         return {
-          ethAmount,
+          bnbAmount,
+          ethAmount: bnbAmount, // Legacy field for backward compatibility
           priceImpact: Number(priceImpact.toFixed(2)),
           fee: '0.3'
         };
@@ -271,7 +287,7 @@ export class SwapService {
   /**
    * Prepare in-app bidirectional swap execution (DexScreener style)
    */
-  async prepareInAppSwap(userAddress: string, amount: string, slippageTolerance: number = 0.5, fromToken: 'ETH' | 'KILT' = 'ETH'): Promise<{
+  async prepareInAppSwap(userAddress: string, amount: string, slippageTolerance: number = 0.5, fromToken: 'BNB' | 'KILT' = 'BNB'): Promise<{
     swapData: any;
     quote: any;
   }> {
@@ -291,7 +307,7 @@ export class SwapService {
       const quote = await this.getSwapQuote(amount, fromToken);
       console.log(`📊 Quote received:`, quote);
 
-      const expectedOutput = fromToken === 'ETH' ? quote.kiltAmount : quote.ethAmount;
+      const expectedOutput = fromToken === 'BNB' ? quote.kiltAmount : quote.bnbAmount;
       if (!expectedOutput) {
         throw new Error('Failed to get valid quote');
       }
@@ -310,14 +326,14 @@ export class SwapService {
       // Direct manual encoding approach for maximum compatibility
       let swapData;
       
-      if (fromToken === 'ETH') {
-        // ETH to KILT: Use direct function selector and manual parameter encoding
+      if (fromToken === 'BNB') {
+        // BNB to KILT: Use direct function selector and manual parameter encoding
         // Function: exactInputSingle(params) where params is a tuple
         const functionSelector = '0x86ca0dc0'; // Confirmed SwapRouter02 exactInputSingle selector
         
         // Encode parameters manually for SwapRouter02 (7 parameters, no deadline)
         const params = [
-          WETH_ADDRESS.toLowerCase().slice(2).padStart(64, '0'),      // tokenIn
+          WBNB_ADDRESS.toLowerCase().slice(2).padStart(64, '0'),      // tokenIn
           KILT_ADDRESS.toLowerCase().slice(2).padStart(64, '0'),      // tokenOut  
           (3000).toString(16).padStart(64, '0'),                      // fee (3000 = 0.3%)
           userAddress.toLowerCase().slice(2).padStart(64, '0'),       // recipient

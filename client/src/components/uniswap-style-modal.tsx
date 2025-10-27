@@ -20,21 +20,27 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
   const { toast } = useToast();
   
   // Form state
-  const [ethAmount, setEthAmount] = useState('');
+  const [bnbAmount, setBnbAmount] = useState('');
   const [kiltAmount, setKiltAmount] = useState('');
+  
+  // Legacy state for backward compatibility
+  const [ethAmount, setEthAmount] = useState('');
   const [selectedFeeRate, setSelectedFeeRate] = useState('0.3%');
   const [slippageTolerance, setSlippageTolerance] = useState('0.5');
   const [deadline, setDeadline] = useState('20');
   const [showSettings, setShowSettings] = useState(false);
   
   // Price and pool state
-  const [currentPrice, setCurrentPrice] = useState('0.01859'); // KILT price in ETH
+  const [currentPrice, setCurrentPrice] = useState('0.01859'); // KILT price in BNB
   const [poolExists, setPoolExists] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   
   // Wallet balances (mock for now - would be real in production)
-  const [ethBalance, setEthBalance] = useState('1.5');
+  const [bnbBalance, setBnbBalance] = useState('1.5');
   const [kiltBalance, setKiltBalance] = useState('75000');
+  
+  // Legacy balance for backward compatibility
+  const [ethBalance, setEthBalance] = useState('1.5');
   
   // Fee tier options
   const feeRates = [
@@ -46,17 +52,21 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
   
   // Calculate the other amount when one is entered
   useEffect(() => {
-    if (ethAmount && !kiltAmount) {
-      const calculatedKilt = (parseFloat(ethAmount) / parseFloat(currentPrice)).toFixed(0);
+    if (bnbAmount && !kiltAmount) {
+      const calculatedKilt = (parseFloat(bnbAmount) / parseFloat(currentPrice)).toFixed(0);
       setKiltAmount(calculatedKilt);
-    } else if (kiltAmount && !ethAmount) {
-      const calculatedEth = (parseFloat(kiltAmount) * parseFloat(currentPrice)).toFixed(4);
-      setEthAmount(calculatedEth);
+    } else if (kiltAmount && !bnbAmount) {
+      const calculatedBnb = (parseFloat(kiltAmount) * parseFloat(currentPrice)).toFixed(4);
+      setBnbAmount(calculatedBnb);
     }
-  }, [ethAmount, kiltAmount, currentPrice]);
+    
+    // Update legacy ETH amount for backward compatibility
+    setEthAmount(bnbAmount);
+  }, [bnbAmount, kiltAmount, currentPrice]);
   
-  const handleEthChange = (value: string) => {
-    setEthAmount(value);
+  const handleBnbChange = (value: string) => {
+    setBnbAmount(value);
+    setEthAmount(value); // Update legacy ETH amount
     if (value && parseFloat(value) > 0) {
       const calculatedKilt = (parseFloat(value) / parseFloat(currentPrice)).toFixed(0);
       setKiltAmount(calculatedKilt);
@@ -65,19 +75,31 @@ export function UniswapStyleModal({ isOpen, onClose }: UniswapStyleModalProps) {
     }
   };
   
+  // Legacy handler for backward compatibility
+  const handleEthChange = (value: string) => {
+    handleBnbChange(value);
+  };
+  
   const handleKiltChange = (value: string) => {
     setKiltAmount(value);
     if (value && parseFloat(value) > 0) {
-      const calculatedEth = (parseFloat(value) * parseFloat(currentPrice)).toFixed(4);
-      setEthAmount(calculatedEth);
+      const calculatedBnb = (parseFloat(value) * parseFloat(currentPrice)).toFixed(4);
+      setBnbAmount(calculatedBnb);
+      setEthAmount(calculatedBnb); // Update legacy ETH amount
     } else {
+      setBnbAmount('');
       setEthAmount('');
     }
   };
   
+  const handleMaxBnb = () => {
+    const maxAmount = (parseFloat(bnbBalance) * 0.9).toFixed(4); // Leave some for gas
+    handleBnbChange(maxAmount);
+  };
+  
+  // Legacy handler for backward compatibility
   const handleMaxEth = () => {
-    const maxAmount = (parseFloat(ethBalance) * 0.9).toFixed(4); // Leave some for gas
-    handleEthChange(maxAmount);
+    handleMaxBnb();
   };
   
   const handleMaxKilt = () => {

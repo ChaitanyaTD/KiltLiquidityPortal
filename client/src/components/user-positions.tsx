@@ -430,11 +430,11 @@ export function UserPositions() {
                         <button
                           onClick={() => {
                             const tokenId = position.tokenId || position.nftTokenId || position.id;
-                            const uniswapUrl = `https://app.uniswap.org/pool/${tokenId}`;
-                            window.open(uniswapUrl, '_blank', 'noopener,noreferrer');
+                            const pancakeswapUrl = `https://pancakeswap.finance/pool/${tokenId}`;
+                            window.open(pancakeswapUrl, '_blank', 'noopener,noreferrer');
                           }}
                           className="text-sm font-semibold text-pink-primary hover:text-[#ff0066] transition-colors duration-200 cursor-pointer hover:underline flex items-center gap-1"
-                          title="View on Uniswap"
+                          title="View on PancakeSwap"
                         >
                           #{position.tokenId || position.nftTokenId || position.id}
                           <ExternalLink className="h-3 w-3" />

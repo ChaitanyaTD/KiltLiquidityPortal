@@ -21,12 +21,12 @@ export const FloatingSwapWidget = () => {
   const { address } = useWagmiWallet();
   const { data: kiltData } = useKiltTokenData();
 
-  // Generate Uniswap URL with KILT pre-configured
-  const getUniswapUrl = () => {
-    const baseUrl = 'https://app.uniswap.org/swap';
+  // Generate PancakeSwap URL with KILT pre-configured
+  const getPancakeSwapUrl = () => {
+    const baseUrl = 'https://pancakeswap.finance/swap';
     const params = new URLSearchParams({
-      chain: 'base',
-      inputCurrency: 'ETH',
+      chain: 'bsc',
+      inputCurrency: 'BNB',
       outputCurrency: TOKEN_ADDRESSES.KILT, // KILT token
       theme: 'dark'
     });
@@ -39,7 +39,7 @@ export const FloatingSwapWidget = () => {
   };
 
   const handleSwapClick = () => {
-    window.open(getUniswapUrl(), '_blank');
+    window.open(getPancakeSwapUrl(), '_blank');
   };
 
   return (

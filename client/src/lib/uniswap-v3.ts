@@ -1,24 +1,29 @@
-// Uniswap V3 utilities and constants
+// PancakeSwap V3 utilities and constants
 import { ethers } from 'ethers';
 
-// Uniswap V3 contract addresses on Base
-export const UNISWAP_V3_ADDRESSES = {
-  FACTORY: '0x33128a8fC17869897dcE68Ed026d694621f6FDfD',
-  POSITION_MANAGER: '0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1',
-  QUOTER: '0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a',
-  ROUTER: '0x2626664c2603336E57B271c5C0b26F421741e481'
+// PancakeSwap V3 contract addresses on BSC
+export const PANCAKESWAP_V3_ADDRESSES = {
+  FACTORY: '0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865',
+  POSITION_MANAGER: '0x46A15B0b27311cedF172AB29E4f4766fbE7F4364',
+  QUOTER: '0xB048Bd43B3d0B2c594cD5884911D69355b6aa4F4',
+  ROUTER: '0x1b81D678ffb9C0263b24A97847620C99d213eB14'
 };
 
-// Common token addresses on Base
-export const BASE_TOKENS = {
-  WETH: '0x4200000000000000000000000000000000000006',
-  USDC: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
-  KILT: '0x5D0DD05bB095fdD6Af4865A1AdF97c39C85ad2d8', // KILT token address on Base
-  ETH: '0x0000000000000000000000000000000000000000' // Native ETH placeholder
+// Legacy export for backward compatibility
+export const UNISWAP_V3_ADDRESSES = PANCAKESWAP_V3_ADDRESSES;
+
+// Common token addresses on BSC
+export const BSC_TOKENS = {
+  WBNB: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', // Wrapped BNB
+  USDT: '0x55d398326f99059fF775485246999027B3197955', // USDT on BSC
+  USDC: '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d', // USDC on BSC
+  KILT: '0x5D0DD05bB095fdD6Af4865A1AdF97c39C85ad2d8', // KILT token address (assuming same on BSC)
+  BNB: '0x0000000000000000000000000000000000000000' // Native BNB placeholder
 };
 
-// Export alias for backward compatibility
-export const TOKENS = BASE_TOKENS;
+// Legacy exports for backward compatibility
+export const BASE_TOKENS = BSC_TOKENS;
+export const TOKENS = BSC_TOKENS;
 
 // Fee tiers
 export const FEE_TIERS = {
@@ -28,13 +33,16 @@ export const FEE_TIERS = {
   HIGH: 10000    // 1%
 };
 
-// Pool configuration for KILT/ETH
-export const KILT_ETH_POOL = {
-  token0: BASE_TOKENS.KILT,
-  token1: BASE_TOKENS.WETH,
+// Pool configuration for KILT/BNB
+export const KILT_BNB_POOL = {
+  token0: BSC_TOKENS.KILT,
+  token1: BSC_TOKENS.WBNB,
   fee: FEE_TIERS.MEDIUM,
   address: '' // Will be computed dynamically
 };
+
+// Legacy export for backward compatibility
+export const KILT_ETH_POOL = KILT_BNB_POOL;
 
 // Utility functions
 export function getPoolAddress(token0: string, token1: string, fee: number): string {
@@ -104,14 +112,14 @@ export function isKiltPosition(position: PositionData): boolean {
          position.token1.toLowerCase() === kiltAddress;
 }
 
-export function calculatePositionValue(position: PositionData, ethPrice: number = 0): number {
+export function calculatePositionValue(position: PositionData, bnbPrice: number = 0): number {
   try {
     const amount0 = parseFloat(formatTokenAmount(position.amount0));
     const amount1 = parseFloat(formatTokenAmount(position.amount1));
     
-    // Assuming token1 is WETH, token0 is KILT
+    // Assuming token1 is WBNB, token0 is KILT
     // This is a simplified calculation
-    return (amount0 * 0.1) + (amount1 * ethPrice); // Placeholder KILT price
+    return (amount0 * 0.1) + (amount1 * bnbPrice); // Placeholder KILT price
   } catch {
     return 0;
   }

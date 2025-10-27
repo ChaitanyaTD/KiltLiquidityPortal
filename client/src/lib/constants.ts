@@ -1,4 +1,5 @@
-export const BASE_NETWORK_ID = 8453;
+export const BSC_NETWORK_ID = 56;
+export const BASE_NETWORK_ID = 8453; // Keep for backward compatibility
 // Real KILT token data from BaseScan
 export const KILT_TOTAL_SUPPLY = 290560000;
 export const TREASURY_PERCENTAGE = 0.01;

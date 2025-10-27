@@ -1,5 +1,5 @@
 import { createPublicClient, http, PublicClient } from 'viem';
-import { base } from 'viem/chains';
+import { bsc } from 'viem/chains';
 
 interface RpcEndpoint {
   url: string;
@@ -12,12 +12,12 @@ interface RpcEndpoint {
 
 class RpcConnectionManager {
   private endpoints: RpcEndpoint[] = [
-    { url: 'https://api.developer.coinbase.com/rpc/v1/base/FtQSiNzg6tfPcB1Hmirpy4T9SGDGFveA', priority: 1, errorCount: 0, rateLimited: false },
-    { url: 'https://mainnet.base.org', priority: 2, errorCount: 0, rateLimited: false },
-    { url: 'https://base.drpc.org', priority: 3, errorCount: 0, rateLimited: false },
-    { url: 'https://base-mainnet.g.alchemy.com/v2/demo', priority: 4, errorCount: 0, rateLimited: false },
-    { url: 'https://1rpc.io/base', priority: 5, errorCount: 0, rateLimited: false },
-    { url: 'https://base.blockpi.network/v1/rpc/public', priority: 6, errorCount: 0, rateLimited: false }
+    { url: 'https://bsc-dataseed.binance.org', priority: 1, errorCount: 0, rateLimited: false },
+    { url: 'https://bsc-dataseed1.defibit.io', priority: 2, errorCount: 0, rateLimited: false },
+    { url: 'https://bsc-dataseed1.ninicoin.io', priority: 3, errorCount: 0, rateLimited: false },
+    { url: 'https://bsc-dataseed2.defibit.io', priority: 4, errorCount: 0, rateLimited: false },
+    { url: 'https://bsc-dataseed3.defibit.io', priority: 5, errorCount: 0, rateLimited: false },
+    { url: 'https://bsc-dataseed4.defibit.io', priority: 6, errorCount: 0, rateLimited: false }
   ];
   
   private clients: Map<string, PublicClient> = new Map();
@@ -35,7 +35,7 @@ class RpcConnectionManager {
   private initializeClients() {
     this.endpoints.forEach(endpoint => {
       const client = createPublicClient({
-        chain: base,
+        chain: bsc,
         transport: http(endpoint.url, {
           timeout: 15000, // 15 second timeout
           retryCount: 0, // We handle retries manually

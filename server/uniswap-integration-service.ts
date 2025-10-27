@@ -1,15 +1,21 @@
 import { createPublicClient, http, parseUnits, formatUnits } from 'viem';
-import { base } from 'viem/chains';
+import { bsc } from 'viem/chains';
 import { rpcManager } from './rpc-connection-manager';
 import { AuthenticFeeService } from './authentic-fee-service';
 
-// Base Network Configuration
-const BASE_CHAIN_ID = 8453;
-const BASE_RPC_URL = 'https://base.llamarpc.com';
+// BSC Network Configuration
+const BSC_CHAIN_ID = 56;
+const BSC_RPC_URL = 'https://bsc-dataseed.binance.org';
 
-// Uniswap V3 Contract Addresses on Base (official addresses)
-const UNISWAP_V3_FACTORY = '0x33128a8fC17869897dcE68Ed026d694621f6FDfD';
-const UNISWAP_V3_NONFUNGIBLE_POSITION_MANAGER = '0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1';
+// PancakeSwap V3 Contract Addresses on BSC (official addresses)
+const PANCAKESWAP_V3_FACTORY = '0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865';
+const PANCAKESWAP_V3_NONFUNGIBLE_POSITION_MANAGER = '0x46A15B0b27311cedF172AB29E4f4766fbE7F4364';
+
+// Legacy exports for backward compatibility
+const UNISWAP_V3_FACTORY = PANCAKESWAP_V3_FACTORY;
+const UNISWAP_V3_NONFUNGIBLE_POSITION_MANAGER = PANCAKESWAP_V3_NONFUNGIBLE_POSITION_MANAGER;
+const BASE_CHAIN_ID = BSC_CHAIN_ID;
+const BASE_RPC_URL = BSC_RPC_URL;
 
 // Token Addresses
 import { blockchainConfigService } from './blockchain-config-service';

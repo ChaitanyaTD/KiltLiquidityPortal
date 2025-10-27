@@ -1,11 +1,16 @@
 // Contract ABIs and Token Addresses
 // Centralized location for all blockchain contract configurations
 
-// Token Contract Addresses
+// Token Contract Addresses on BSC
 export const TOKEN_ADDRESSES = {
   KILT: '0x5D0DD05bB095fdD6Af4865A1AdF97c39C85ad2d8' as `0x${string}`,
-  WETH: '0x4200000000000000000000000000000000000006' as `0x${string}`,
+  WBNB: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c' as `0x${string}`,
+  USDT: '0x55d398326f99059fF775485246999027B3197955' as `0x${string}`,
+  USDC: '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d' as `0x${string}`,
 } as const;
+
+// Legacy export for backward compatibility
+export const WETH = TOKEN_ADDRESSES.WBNB;
 
 // ERC20 ABI for KILT token interactions
 export const ERC20_ABI = [
@@ -191,6 +196,19 @@ export const KILT_TOKEN_ABI = [
 
 // Network Configuration
 export const NETWORK_CONFIG = {
+  BSC: {
+    chainId: '0x38',
+    chainIdDecimal: 56,
+    name: 'BNB Smart Chain',
+    rpcUrl: 'https://bsc-dataseed.binance.org',
+    blockExplorer: 'https://bscscan.com',
+    nativeCurrency: {
+      name: 'BNB',
+      symbol: 'BNB',
+      decimals: 18
+    }
+  },
+  // Legacy Base config for backward compatibility
   BASE: {
     chainId: '0x2105',
     chainIdDecimal: 8453,
@@ -215,5 +233,7 @@ export const AUTHORIZED_ADMINS = [
 
 // Legacy constants for backward compatibility
 export const KILT_TOKEN_ADDRESS = TOKEN_ADDRESSES.KILT;
-export const WETH_TOKEN_ADDRESS = TOKEN_ADDRESSES.WETH;
-export const BASE_NETWORK_ID = NETWORK_CONFIG.BASE.chainIdDecimal;
+export const WETH_TOKEN_ADDRESS = TOKEN_ADDRESSES.WBNB;
+export const WBNB_TOKEN_ADDRESS = TOKEN_ADDRESSES.WBNB;
+export const BSC_NETWORK_ID = NETWORK_CONFIG.BSC.chainIdDecimal;
+export const BASE_NETWORK_ID = NETWORK_CONFIG.BASE.chainIdDecimal; // Keep for backward compatibility
