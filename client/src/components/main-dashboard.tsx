@@ -814,6 +814,9 @@ export function MainDashboard() {
                   <div className="text-white text-base font-bold mb-1 numeric-large">
                     <TradingFeesAPR />
                   </div>
+                  <div className="text-white/50 text-xs font-medium">
+                    &nbsp;
+                  </div>
                 </div>
               </div>
 
@@ -829,6 +832,9 @@ export function MainDashboard() {
                   </div>
                   <div className="text-white text-base font-bold mb-1 numeric-large">
                     <PoolWideProgramAPR />
+                  </div>
+                  <div className="text-white/50 text-xs font-medium">
+                    &nbsp;
                   </div>
                 </div>
               </div>
