@@ -11,10 +11,10 @@ const items = [
 
 export default function Footer() {
 	return (
-		<footer className="fixed bottom-0 left-0 right-0 z-[9999] w-full border-t border-white/10 bg-black/40 backdrop-blur-xl text-primary shadow-[0_-10px_30px_rgba(0,0,0,0.35)]">
+		<footer className="relative z-50 w-full border-t border-white/10 bg-black/40 backdrop-blur-xl text-primary shadow-[0_-10px_30px_rgba(0,0,0,0.35)]">
 			{/* subtle top fade to blend with background */}
 			<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-			<div className="relative z-10 max-w-6xl mx-auto px-4 py-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">
+			<div className="relative z-10 max-w-6xl mx-auto px-4 py-4">
 				<nav className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
 					{items.map((item, idx) => (
 						<React.Fragment key={item.label}>
