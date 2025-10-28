@@ -290,8 +290,12 @@ function App() {
             {/* CYBERPUNK VIDEO BACKGROUND */}
             <CyberpunkVideoBackground />
             <Toaster />
-            <Router />
-            <Footer />
+            <div className="min-h-screen flex flex-col">
+              <div className="flex-1">
+                <Router />
+              </div>
+              <Footer />
+            </div>
           </TooltipProvider>
         </WagmiWalletProvider>
       </QueryClientProvider>
