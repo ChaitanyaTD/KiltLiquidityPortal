@@ -31,7 +31,8 @@ export function registerUniswapOptimizedRoutes(app: Express) {
       const kiltPositions = allPositions.filter(pos => {
         const token0Lower = pos.token0?.toLowerCase() || '';
         const token1Lower = pos.token1?.toLowerCase() || '';
-        return token0Lower === kiltAddressLower || token1Lower === kiltAddressLower;
+        const containsKilt = token0Lower === kiltAddressLower || token1Lower === kiltAddressLower;        
+        return containsKilt;
       });
       
       // Get already registered positions
@@ -57,14 +58,18 @@ export function registerUniswapOptimizedRoutes(app: Express) {
         console.log(`🔧 Position Count Debug: Total registered: ${registeredPositions.length}, Active: ${activeRegisteredCount}`);
       }
       
-      // Filter unregistered positions with range guardrails
+      // Filter unregistered positions - allow full range positions
       const eligiblePositions = kiltPositions.filter(pos => {
         if (registeredIds.has(pos.tokenId)) return false;
         if (!(pos.isActive)) return false;
 
-        const lowerOk = typeof pos.tickLower === 'number' ? pos.tickLower > -887000 : false;
-        const upperOk = typeof pos.tickUpper === 'number' ? pos.tickUpper < 887000 : false;
-        return lowerOk && upperOk;
+        // Allow full range positions (tick range from -887220 to 887220)
+        const isFullRange = pos.tickLower === -887220 && pos.tickUpper === 887220;
+        const isPartialRange = typeof pos.tickLower === 'number' && typeof pos.tickUpper === 'number' && 
+                              pos.tickLower > -887000 && pos.tickUpper < 887000;
+        
+        const isEligible = isFullRange || isPartialRange;
+        return isEligible;
       });
 
       const duration = Date.now() - start;
